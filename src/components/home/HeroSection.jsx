@@ -287,8 +287,8 @@ export default function HeroSection() {
 
           <motion.h1 initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black font-poppins leading-[1.05] mb-4 sm:mb-6">
-            <span className={isDark ? 'text-white' : 'text-copper-900'}>Your Dream </span>
+            className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-6xl font-black font-poppins leading-[1.05] mb-4 sm:mb-6">
+            <span className={isDark ? 'text-white' : 'text-copper-900'}>Your Dream </span> <br />
             <span className="gradient-text">University</span><br />
             <span className={isDark ? 'text-white' : 'text-copper-900'}>Awaits Abroad</span>
           </motion.h1>
@@ -317,7 +317,7 @@ export default function HeroSection() {
 
           <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
+            className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 mb-12">
             {stats.map(({ icon: Icon, value, label }, i) => (
               <motion.div key={label} initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
