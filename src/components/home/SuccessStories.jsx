@@ -17,7 +17,7 @@ const stories = [
     visa: 'Student Visa Approved',
     scholarship: '$15,000 scholarship',
     rating: 5,
-    quote: 'Counsil made my dream of studying in Australia a reality. They guided me step by step, from course selection to visa approval. The team\'s dedication is unmatched!',
+    quote: 'Global Talent made my dream of studying in Australia a reality. They guided me step by step, from course selection to visa approval. The team\'s dedication is unmatched!',
     tags: ['Visa Approved', 'Scholarship Won'],
   },
   {
@@ -30,7 +30,7 @@ const stories = [
     visa: 'Student Visa Approved',
     scholarship: '$20,000 scholarship',
     rating: 5,
-    quote: 'I was worried about the Canadian visa process but Counsil handled everything professionally. Got my visa in 3 weeks! The consultants are extremely knowledgeable.',
+    quote: 'I was worried about the Canadian visa process but Global Talent handled everything professionally. Got my visa in 3 weeks! The consultants are extremely knowledgeable.',
     tags: ['Fast Visa', 'Top University'],
   },
   {
@@ -43,7 +43,7 @@ const stories = [
     visa: 'Student Visa Approved',
     scholarship: '$25,000 scholarship',
     rating: 5,
-    quote: 'From IELTS prep to Oxford application – Counsil was with me at every step. Their scholarship guidance helped me secure £18,000 in funding. Life-changing service!',
+    quote: 'From IELTS prep to Oxford application – Global Talent was with me at every step. Their scholarship guidance helped me secure £18,000 in funding. Life-changing service!',
     tags: ['Scholarship', 'Prestigious University'],
   },
   {
@@ -56,7 +56,7 @@ const stories = [
     visa: 'F-1 Visa Approved',
     scholarship: '$30,000 scholarship',
     rating: 5,
-    quote: 'Getting into Stanford seemed impossible but Counsil\'s counsellors believed in me. Their SOP writing service and application strategy were exceptional.',
+    quote: 'Getting into Stanford seemed impossible but Global Talent\'s counsellors believed in me. Their SOP writing service and application strategy were exceptional.',
     tags: ['Ivy League', 'Full Support'],
   },
   {
@@ -69,7 +69,7 @@ const stories = [
     visa: 'Student Visa Approved',
     scholarship: '$12,000 scholarship',
     rating: 5,
-    quote: 'Counsil found me scholarship opportunities I didn\'t even know existed. The team is responsive, professional and genuinely invested in your success.',
+    quote: 'Global Talent found me scholarship opportunities I didn\'t even know existed. The team is responsive, professional and genuinely invested in your success.',
     tags: ['Scholarship', 'Quick Process'],
   },
 ]
@@ -97,7 +97,7 @@ export default function SuccessStories() {
             Real Students, <span className="gradient-text">Real Results</span>
           </h2>
           <p className="section-subtitle">
-            Thousands of students have transformed their lives with Counsil. Read their inspiring stories.
+            Thousands of students have transformed their lives with Global Talent. Read their inspiring stories.
           </p>
         </AnimatedSection>
 

@@ -56,7 +56,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             className="inline-block px-4 py-1.5 bg-blue-600/20 border border-blue-500/30 rounded-full text-blue-400 text-sm font-medium mb-4"
           >
-            About Counsil
+            About Global Talent
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -72,7 +72,7 @@ export default function About() {
             transition={{ delay: 0.2 }}
             className="text-xl text-white/60 max-w-3xl mx-auto leading-relaxed"
           >
-            Counsil is Australia's most trusted study abroad consultancy. We've helped over 15,000 students 
+            Global Talent is Australia's most trusted study abroad consultancy. We've helped over 15,000 students 
             achieve their international education dreams with unmatched expertise, care and dedication.
           </motion.p>
         </div>
@@ -112,8 +112,8 @@ export default function About() {
                 Our <span className="gradient-text">Story</span>
               </h2>
               <div className="space-y-4 text-white/60 leading-relaxed">
-                <p>Founded in Melbourne in 2010, Counsil began with a simple mission: to make quality international education accessible to every ambitious student.</p>
-                <p>Our founder, Sarah Mitchell, experienced firsthand the challenges of navigating study abroad processes as an international student. She built Counsil to be the trustworthy guide she wished she had.</p>
+                <p>Founded in Melbourne in 2010, Global Talent began with a simple mission: to make quality international education accessible to every ambitious student.</p>
+                <p>Our founder, Sarah Mitchell, experienced firsthand the challenges of navigating study abroad processes as an international student. She built Global Talent to be the trustworthy guide she wished she had.</p>
                 <p>Today, we're a team of 50+ certified counsellors, visa agents, and education specialists who have collectively helped over 15,000 students realize their dreams across 6 countries.</p>
                 <p>We're proudly MARA registered, PIER certified, and winners of multiple education excellence awards. But our greatest achievement? Every student who lands at their dream university.</p>
               </div>

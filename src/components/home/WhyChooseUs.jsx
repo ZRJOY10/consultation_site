@@ -86,7 +86,7 @@ export default function WhyChooseUs() {
         {/* Header */}
         <AnimatedSection className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 bg-blue-600/10 border border-blue-500/20 rounded-full text-blue-400 text-sm font-medium mb-4">
-            Why Counsil
+            Why Global Talent
           </span>
           <h2 className="section-title mb-4">
             Why Choose <span className="gradient-text">Us?</span>

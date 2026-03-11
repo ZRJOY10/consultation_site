@@ -56,7 +56,7 @@ export default function Universities() {
             Partner <span className="gradient-text">Universities</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-xl text-slate-400 max-w-2xl mx-auto">
-            Access 200+ world-ranked partner universities with exclusive admission advantages through Counsil.
+            Access 200+ world-ranked partner universities with exclusive admission advantages through Global Talent.
           </motion.p>
         </div>
       </section>

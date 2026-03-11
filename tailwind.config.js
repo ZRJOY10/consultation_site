@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -24,6 +25,18 @@ export default {
           900: '#0c4a6e',
           950: '#082f49',
         },
+        copper: {
+          50: '#fdf8f4',
+          100: '#f9eee2',
+          200: '#f0d5b8',
+          300: '#e0b88a',
+          400: '#d4a574',
+          500: '#c68642',
+          600: '#b87333',
+          700: '#9a5f29',
+          800: '#7d4c20',
+          900: '#5a3516',
+        },
         gold: {
           400: '#fbbf24',
           500: '#f59e0b',
@@ -31,7 +44,9 @@ export default {
         },
         surface: {
           DEFAULT: '#0c1222',
-          50: '#f8fafc',
+          50: '#faf8f5',
+          100: '#f3ede6',
+          200: '#e8ddd0',
           800: '#111827',
           900: '#0c1222',
           950: '#080e1a',
@@ -85,6 +100,7 @@ export default {
       },
       boxShadow: {
         'glow': '0 0 20px rgba(56, 189, 248, 0.15)',
+        'glow-copper': '0 0 20px rgba(184, 115, 51, 0.15)',
         'glow-gold': '0 0 20px rgba(251, 191, 36, 0.15)',
         'card': '0 20px 50px rgba(0, 0, 0, 0.12)',
         'card-hover': '0 25px 60px rgba(0, 0, 0, 0.18)',

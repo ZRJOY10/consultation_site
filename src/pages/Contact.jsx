@@ -6,7 +6,7 @@ import toast from 'react-hot-toast'
 
 const contactInfo = [
   { icon: FiPhone, title: 'Call Us', value: '+61 2 3456 7890', sub: 'Mon-Sat 9AM-6PM', href: 'tel:+61234567890', color: 'from-blue-600 to-blue-400' },
-  { icon: FiMail, title: 'Email Us', value: 'info@counsil.com.au', sub: 'Reply within 24 hours', href: 'mailto:info@counsil.com.au', color: 'from-purple-600 to-purple-400' },
+  { icon: FiMail, title: 'Email Us', value: 'info@globaltalent.com.au', sub: 'Reply within 24 hours', href: 'mailto:info@globaltalent.com.au', color: 'from-purple-600 to-purple-400' },
   { icon: FiMapPin, title: 'Visit Us', value: '123 Collins St', sub: 'Melbourne VIC 3000', href: '#', color: 'from-green-600 to-green-400' },
   { icon: FiClock, title: 'Office Hours', value: 'Mon - Saturday', sub: '9:00 AM – 6:00 PM', href: null, color: 'from-amber-600 to-amber-400' },
 ]

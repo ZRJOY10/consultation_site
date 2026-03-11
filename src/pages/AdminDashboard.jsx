@@ -52,7 +52,7 @@ export default function AdminDashboard() {
           <div className="w-9 h-9 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center flex-shrink-0">
             <HiAcademicCap className="w-5 h-5 text-white" />
           </div>
-          {sidebarOpen && <span className="text-white font-bold font-poppins">Counsil Admin</span>}
+          {sidebarOpen && <span className="text-white font-bold font-poppins">Global Talent</span>}
         </div>
 
         {/* Nav */}
