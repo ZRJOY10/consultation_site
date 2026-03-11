@@ -94,7 +94,7 @@ export default function HeroSection() {
     : '0.5 0.1 0 0 0.2  0.3 0.1 0 0 0.1  0.1 0.05 0 0 0.02  0 0 0 1 0'
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-[calc(100dvh-5rem)] flex items-center overflow-hidden">
       <div className={`absolute inset-0 transition-colors duration-500 ${
         isDark
           ? 'bg-gradient-to-b from-[#080e1a] via-[#0c1222] to-[#0c1222]'
