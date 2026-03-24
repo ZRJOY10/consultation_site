@@ -4,19 +4,19 @@ import { FiUsers, FiFileText, FiTrendingUp, FiDollarSign, FiCheckCircle, FiClock
 import { HiAcademicCap } from 'react-icons/hi'
 
 const stats = [
-  { label: 'Total Enquiries', value: '1,284', change: '+12.5%', icon: FiUsers, color: 'from-blue-600 to-blue-400', bg: 'bg-blue-600/10' },
-  { label: 'Active Applications', value: '386', change: '+8.2%', icon: FiFileText, color: 'from-purple-600 to-purple-400', bg: 'bg-purple-600/10' },
-  { label: 'Visa Success Rate', value: '98.2%', change: '+0.4%', icon: FiCheckCircle, color: 'from-green-600 to-green-400', bg: 'bg-green-600/10' },
-  { label: 'Revenue (Month)', value: '$84,200', change: '+18.7%', icon: FiDollarSign, color: 'from-amber-600 to-amber-400', bg: 'bg-amber-600/10' },
+  { label: 'Total Enquiries', value: '1,284', change: '+12.5%', icon: FiUsers, color: 'from-copper-600 to-copper-400', bg: 'bg-copper-600/10' },
+  { label: 'Active Applications', value: '386', change: '+8.2%', icon: FiFileText, color: 'from-copper-600 to-copper-400', bg: 'bg-copper-600/10' },
+  { label: 'Visa Success Rate', value: '98.2%', change: '+0.4%', icon: FiCheckCircle, color: 'from-copper-600 to-copper-400', bg: 'bg-copper-600/10' },
+  { label: 'Revenue (Month)', value: '$84,200', change: '+18.7%', icon: FiDollarSign, color: 'from-copper-600 to-copper-400', bg: 'bg-copper-600/10' },
 ]
 
 const recentApplications = [
-  { id: '#A1024', name: 'Priya Sharma', country: '🇦🇺', university: 'Univ. of Melbourne', course: 'Data Science', status: 'Visa Approved', statusColor: 'text-green-400 bg-green-400/10', date: 'Dec 14' },
-  { id: '#A1023', name: 'Rahul Patel', country: '🇨🇦', university: 'Univ. of Toronto', course: 'MBA Finance', status: 'Docs Pending', statusColor: 'text-amber-400 bg-amber-400/10', date: 'Dec 13' },
-  { id: '#A1022', name: 'Anjali Singh', country: '🇬🇧', university: 'Imperial College', course: 'MSc Eng', status: 'Offer Received', statusColor: 'text-blue-400 bg-blue-400/10', date: 'Dec 12' },
+  { id: '#A1024', name: 'Priya Sharma', country: '🇦🇺', university: 'Univ. of Melbourne', course: 'Data Science', status: 'Visa Approved', statusColor: 'text-copper-400 bg-copper-400/10', date: 'Dec 14' },
+  { id: '#A1023', name: 'Rahul Patel', country: '🇨🇦', university: 'Univ. of Toronto', course: 'MBA Finance', status: 'Docs Pending', statusColor: 'text-copper-400 bg-copper-400/10', date: 'Dec 13' },
+  { id: '#A1022', name: 'Anjali Singh', country: '🇬🇧', university: 'Imperial College', course: 'MSc Eng', status: 'Offer Received', statusColor: 'text-copper-400 bg-copper-400/10', date: 'Dec 12' },
   { id: '#A1021', name: 'Mohammed Ali', country: '🇺🇸', university: 'Stanford Univ.', course: 'MS CS', status: 'In Review', statusColor: 'text-white/60 bg-white/5', date: 'Dec 11' },
-  { id: '#A1020', name: 'Sarah Chen', country: '🇳🇿', university: 'Univ. of Auckland', course: 'B.Commerce', status: 'Visa Approved', statusColor: 'text-green-400 bg-green-400/10', date: 'Dec 10' },
-  { id: '#A1019', name: 'Vikram Singh', country: '🇦🇺', university: 'Monash Uni', course: 'B.Engineering', status: 'Applied', statusColor: 'text-purple-400 bg-purple-400/10', date: 'Dec 9' },
+  { id: '#A1020', name: 'Sarah Chen', country: '🇳🇿', university: 'Univ. of Auckland', course: 'B.Commerce', status: 'Visa Approved', statusColor: 'text-copper-400 bg-copper-400/10', date: 'Dec 10' },
+  { id: '#A1019', name: 'Vikram Singh', country: '🇦🇺', university: 'Monash Uni', course: 'B.Engineering', status: 'Applied', statusColor: 'text-copper-400 bg-copper-400/10', date: 'Dec 9' },
 ]
 
 const consultations = [
@@ -49,7 +49,7 @@ export default function AdminDashboard() {
       >
         {/* Logo */}
         <div className="p-4 border-b border-white/5 flex items-center gap-3">
-          <div className="w-9 h-9 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center flex-shrink-0">
+          <div className="w-9 h-9 bg-gradient-to-br from-copper-500 to-orange-400 rounded-xl flex items-center justify-center flex-shrink-0">
             <HiAcademicCap className="w-5 h-5 text-white" />
           </div>
           {sidebarOpen && <span className="text-white font-bold font-poppins">Global Talent</span>}
@@ -61,7 +61,7 @@ export default function AdminDashboard() {
             <button
               key={label}
               onClick={() => setActiveNav(label)}
-              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all text-sm font-medium ${activeNav === label ? 'bg-blue-600/20 text-blue-400 border border-blue-500/30' : 'text-white/50 hover:text-white hover:bg-white/5'}`}
+              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all text-sm font-medium ${activeNav === label ? 'bg-copper-600/20 text-copper-400 border border-copper-500/30' : 'chip-inactive'}`}
             >
               <Icon className="w-4 h-4 flex-shrink-0" />
               {sidebarOpen && <span>{label}</span>}
@@ -71,7 +71,7 @@ export default function AdminDashboard() {
 
         {/* Toggle + logout */}
         <div className="p-3 border-t border-white/5 space-y-1">
-          <button onClick={() => setSidebarOpen(!sidebarOpen)} className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-white/40 hover:text-white hover:bg-white/5 transition-all text-sm">
+          <button onClick={() => setSidebarOpen(!sidebarOpen)} className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl chip-inactive transition-all text-sm">
             {sidebarOpen ? <FiX className="w-4 h-4" /> : <FiMenu className="w-4 h-4" />}
             {sidebarOpen && 'Collapse'}
           </button>
@@ -95,11 +95,11 @@ export default function AdminDashboard() {
               <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
               <input type="text" placeholder="Search..." className="bg-white/5 border border-white/10 rounded-lg px-9 py-2 text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/20 w-48" />
             </div>
-            <button className="relative w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white transition-colors">
+            <button className="relative w-9 h-9 rounded-lg chip-inactive flex items-center justify-center transition-colors">
               <FiBell className="w-4 h-4" />
-              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-blue-500" />
+              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-copper-500" />
             </button>
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-600 to-blue-400 flex items-center justify-center text-white text-xs font-bold">
+            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-copper-600 to-copper-400 flex items-center justify-center text-white text-xs font-bold">
               A
             </div>
           </div>
@@ -121,7 +121,7 @@ export default function AdminDashboard() {
                   <div className={`w-10 h-10 rounded-xl ${bg} flex items-center justify-center`}>
                     <Icon className="w-5 h-5 text-white" />
                   </div>
-                  <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${change.startsWith('+') ? 'text-green-400 bg-green-400/10' : 'text-red-400 bg-red-400/10'}`}>
+                  <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${change.startsWith('+') ? 'text-copper-400 bg-copper-400/10' : 'text-copper-400 bg-copper-400/10'}`}>
                     {change}
                   </span>
                 </div>
@@ -136,7 +136,7 @@ export default function AdminDashboard() {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="xl:col-span-2 glass-card overflow-hidden">
               <div className="p-5 border-b border-white/5 flex items-center justify-between">
                 <h2 className="font-semibold text-white">Recent Applications</h2>
-                <button className="text-xs text-blue-400 hover:text-blue-300">View all</button>
+                <button className="text-xs text-copper-400 hover:text-copper-300">View all</button>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full">
@@ -166,7 +166,7 @@ export default function AdminDashboard() {
                         </td>
                         <td className="px-4 py-3 text-xs text-white/30 hidden sm:table-cell">{app.date}</td>
                         <td className="px-4 py-3">
-                          <button className="text-white/30 hover:text-white/60 transition-colors">
+                          <button className="text-copper-700/50 hover:text-copper-900 transition-colors">
                             <FiEye className="w-4 h-4" />
                           </button>
                         </td>
@@ -192,9 +192,9 @@ export default function AdminDashboard() {
                         <p className="text-xs text-white/30">{c.type}</p>
                       </div>
                       <span className={`text-xs px-2 py-0.5 rounded-full ${
-                        c.status === 'upcoming' ? 'bg-blue-400/10 text-blue-400' :
-                        c.status === 'completed' ? 'bg-green-400/10 text-green-400' :
-                        'bg-red-400/10 text-red-400'
+                        c.status === 'upcoming' ? 'bg-copper-400/10 text-copper-400' :
+                        c.status === 'completed' ? 'bg-copper-400/10 text-copper-400' :
+                        'bg-copper-400/10 text-copper-400'
                       }`}>
                         {c.status}
                       </span>
@@ -214,7 +214,7 @@ export default function AdminDashboard() {
             <h2 className="font-semibold text-white mb-4">Quick Actions</h2>
             <div className="flex flex-wrap gap-3">
               {['New Application', 'Schedule Consultation', 'Send Newsletter', 'Generate Report', 'Add Blog Post', 'Manage Team'].map(action => (
-                <button key={action} className="px-4 py-2 glass-card-hover rounded-lg text-sm text-white/60 hover:text-white transition-colors">
+                <button key={action} className="px-4 py-2 rounded-lg text-sm chip-inactive transition-colors">
                   {action}
                 </button>
               ))}

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiSearch, FiClock, FiUser, FiTag, FiArrowRight } from 'react-icons/fi'
 import AnimatedSection from '../components/AnimatedSection'
+import SectionBadge from '../components/SectionBadge'
 import ConsultationForm from '../components/home/ConsultationForm'
 
 const categories = ['All', 'Visa Guide', 'Scholarships', 'University Life', 'Career', 'PTE/IELTS', 'Destinations']
@@ -34,7 +35,7 @@ export default function Blog() {
     <div className="pt-20">
       {/* Hero */}
       <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/10 to-blue-900/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-copper-900/10 to-copper-900/20 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
             Latest <span className="gradient-text">Insights</span> & News
@@ -64,7 +65,7 @@ export default function Blog() {
               <button
                 key={c}
                 onClick={() => setCategory(c)}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${category === c ? 'bg-blue-600 text-white' : 'glass-card-hover text-slate-400'}`}
+                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${category === c ? 'bg-copper-600 text-white' : 'chip-inactive'}`}
               >
                 {c}
               </button>
@@ -78,11 +79,11 @@ export default function Blog() {
                 <div className="relative h-64 lg:h-auto overflow-hidden">
                   <img src={featured.image} alt={featured.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#1e293b]/80 hidden lg:block" />
-                  <span className="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">Featured</span>
+                  <SectionBadge variant="solid" className="absolute top-4 left-4 px-3 py-1 text-xs font-bold mb-0">Featured</SectionBadge>
                 </div>
                 <div className="p-8 flex flex-col justify-center">
-                  <span className="text-xs text-blue-400 font-medium mb-3">{featured.category}</span>
-                  <h2 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors">{featured.title}</h2>
+                  <span className="text-xs text-copper-400 font-medium mb-3">{featured.category}</span>
+                  <h2 className="text-2xl font-bold text-white mb-3 group-hover:text-copper-300 transition-colors">{featured.title}</h2>
                   <p className="text-slate-400 text-sm leading-relaxed mb-6">{featured.excerpt}</p>
                   <div className="flex items-center gap-4 text-xs text-slate-500 mb-6">
                     <span className="flex items-center gap-1"><FiUser className="w-3 h-3" /> {featured.author}</span>
@@ -105,19 +106,19 @@ export default function Blog() {
                   <div className="relative h-48 overflow-hidden">
                     <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1e293b]/60 to-transparent" />
-                    <span className="absolute top-3 left-3 bg-blue-600/80 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full">
+                    <SectionBadge variant="solid" className="absolute top-3 left-3 bg-copper-600/80 backdrop-blur-sm px-2.5 py-1 text-xs mb-0">
                       {post.category}
-                    </span>
+                    </SectionBadge>
                   </div>
                   <div className="p-5 flex flex-col flex-1">
-                    <h3 className="font-semibold text-white mb-2 group-hover:text-blue-300 transition-colors line-clamp-2">{post.title}</h3>
+                    <h3 className="font-semibold text-white mb-2 group-hover:text-copper-300 transition-colors line-clamp-2">{post.title}</h3>
                     <p className="text-xs text-slate-500 leading-relaxed mb-4 flex-1 line-clamp-3">{post.excerpt}</p>
                     <div className="flex items-center justify-between text-xs text-slate-600 pt-3 border-t border-slate-700/40">
                       <div className="flex items-center gap-3">
                         <span className="flex items-center gap-1"><FiUser className="w-3 h-3" /> {post.author}</span>
                         <span className="flex items-center gap-1"><FiClock className="w-3 h-3" /> {post.readTime}</span>
                       </div>
-                      <FiArrowRight className="w-4 h-4 text-blue-400 group-hover:translate-x-1 transition-transform" />
+                      <FiArrowRight className="w-4 h-4 text-copper-400 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </motion.div>

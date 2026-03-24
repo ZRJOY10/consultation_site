@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import CountUp from 'react-countup'
 import { useInView } from 'react-intersection-observer'
 import { motion } from 'framer-motion'
+import { useTheme } from '../../context/ThemeContext'
 
 const stats = [
   { value: 15000, suffix: '+', label: 'Students Placed', description: 'Across 6 countries worldwide' },
@@ -13,13 +14,14 @@ const stats = [
 ]
 
 export default function StatsSection() {
+  const { isDark } = useTheme()
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 })
 
   return (
     <section className="relative py-20 overflow-hidden" ref={ref}>
       {/* BG gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-blue-800/30 to-blue-900/20 pointer-events-none" />
-      <div className="absolute inset-0 border-y border-slate-700/40 pointer-events-none" />
+      <div className={`absolute inset-0 pointer-events-none ${isDark ? 'bg-gradient-to-r from-copper-900/20 via-copper-800/30 to-copper-900/20' : 'bg-gradient-to-r from-copper-100/30 via-copper-200/40 to-copper-100/30'}`} />
+      <div className={`absolute inset-0 border-y pointer-events-none ${isDark ? 'border-slate-700/40' : 'border-copper-300/40'}`} />
 
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -43,8 +45,8 @@ export default function StatsSection() {
                 )}
                 <span>{suffix}</span>
               </div>
-              <p className="text-sm font-semibold text-white mb-1">{label}</p>
-              <p className="text-xs text-slate-500 hidden md:block">{description}</p>
+              <p className={`text-sm font-semibold mb-1 ${isDark ? 'text-white' : 'text-copper-900'}`}>{label}</p>
+              <p className={`text-xs hidden md:block ${isDark ? 'text-slate-500' : 'text-copper-700/70'}`}>{description}</p>
             </motion.div>
           ))}
         </div>

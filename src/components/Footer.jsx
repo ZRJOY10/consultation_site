@@ -43,15 +43,15 @@ export default function Footer() {
   return (
     <footer className={`relative overflow-hidden border-t transition-colors duration-300 ${
       isDark
-        ? 'bg-[#080e1a] border-white/[0.04]'
-        : 'bg-[#f3ede6] border-copper-200/40'
+        ? 'bg-copper-950 border-copper-600/20'
+        : 'bg-copper-100/70 border-copper-300/40'
     }`}>
       {/* Glow */}
       <div className={`absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl pointer-events-none ${
-        isDark ? 'bg-sky-600/[0.03]' : 'bg-copper-400/[0.04]'
+        isDark ? 'bg-copper-600/[0.03]' : 'bg-copper-400/[0.04]'
       }`} />
       <div className={`absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl pointer-events-none ${
-        isDark ? 'bg-indigo-600/[0.02]' : 'bg-copper-300/[0.03]'
+        isDark ? 'bg-copper-600/[0.02]' : 'bg-copper-300/[0.03]'
       }`} />
 
       <div className="relative max-w-7xl mx-auto px-6 pt-16 pb-8">
@@ -64,10 +64,10 @@ export default function Footer() {
             <Link to="/" className="flex items-center gap-3 mb-6 group">
               <div className="relative w-10 h-10">
                 <div className={`absolute inset-0 rounded-xl rotate-6 group-hover:rotate-12 transition-transform duration-300 ${
-                  isDark ? 'bg-sky-700' : 'bg-copper-700'
+                  isDark ? 'bg-copper-700' : 'bg-copper-700'
                 }`} />
                 <div className={`absolute inset-0 rounded-xl flex items-center justify-center bg-gradient-to-br ${
-                  isDark ? 'from-sky-600 to-sky-500' : 'from-copper-600 to-copper-500'
+                  isDark ? 'from-copper-600 to-copper-500' : 'from-copper-600 to-copper-500'
                 }`}>
                   <HiAcademicCap className="w-6 h-6 text-white" />
                 </div>
@@ -91,7 +91,7 @@ export default function Footer() {
                   aria-label={label}
                   className={`w-9 h-9 rounded-lg border flex items-center justify-center transition-all duration-200 ${
                     isDark
-                      ? 'bg-white/[0.04] border-white/[0.06] text-slate-500 hover:text-white hover:bg-sky-600/10 hover:border-sky-500/20'
+                      ? 'bg-white/[0.04] border-white/[0.06] text-slate-500 hover:text-white hover:bg-copper-600/10 hover:border-copper-500/20'
                       : 'bg-copper-50 border-copper-200/40 text-copper-500 hover:text-copper-800 hover:bg-copper-100 hover:border-copper-300/40'
                   }`}
                 >
@@ -139,7 +139,7 @@ export default function Footer() {
             <a key={label} href={href} className="flex items-center gap-3 group">
               <div className={`w-10 h-10 rounded-lg border flex items-center justify-center transition-colors ${
                 isDark
-                  ? 'bg-sky-600/[0.08] border-sky-500/15 text-sky-400 group-hover:bg-sky-600/15'
+                  ? 'bg-copper-600/[0.08] border-copper-500/15 text-copper-400 group-hover:bg-copper-600/15'
                   : 'bg-copper-100/60 border-copper-200/40 text-copper-600 group-hover:bg-copper-100'
               }`}>
                 <Icon className="w-4 h-4" />

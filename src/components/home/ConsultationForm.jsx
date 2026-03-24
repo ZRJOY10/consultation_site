@@ -3,11 +3,14 @@ import { motion } from 'framer-motion'
 import { FiSend, FiUser, FiPhone, FiMail, FiGlobe, FiBook, FiCheckCircle } from 'react-icons/fi'
 import toast from 'react-hot-toast'
 import AnimatedSection from '../AnimatedSection'
+import SectionBadge from '../SectionBadge'
+import { useTheme } from '../../context/ThemeContext'
 
 const countries = ['Australia', 'Canada', 'United Kingdom', 'United States', 'New Zealand', 'Malta', 'Other']
 const levels = ['Foundation / Diploma', 'Bachelor\'s Degree', 'Master\'s Degree', 'PhD / Doctorate', 'Short Courses', 'English / PTE Training']
 
 export default function ConsultationForm() {
+  const { isDark } = useTheme()
   const [form, setForm] = useState({ name: '', phone: '', email: '', country: '', level: '', message: '' })
   const [loading, setLoading] = useState(false)
   const [submitted, setSubmitted] = useState(false)
@@ -26,21 +29,19 @@ export default function ConsultationForm() {
   return (
     <section className="py-28 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/20 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-copper-950/20 to-transparent pointer-events-none" />
       <div className="absolute inset-0 bg-hero-pattern opacity-20 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-copper-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left: Info */}
           <AnimatedSection direction="right">
-            <span className="inline-block px-4 py-1.5 bg-blue-600/10 border border-blue-500/20 rounded-full text-blue-400 text-sm font-medium mb-6">
-              Free Consultation
-            </span>
+            <SectionBadge variant="subtle" className="mb-6">Free Consultation</SectionBadge>
             <h2 className="section-title mb-6">
               Start Your <span className="gradient-text">Journey</span> Today
             </h2>
-            <p className="text-slate-400 text-lg leading-relaxed mb-8">
+            <p className={`text-lg leading-relaxed mb-8 ${isDark ? 'text-slate-400' : 'text-copper-700/70'}`}>
               Book a FREE consultation with our expert counsellors. Get personalized advice on courses, universities, 
               scholarships and visa processes. No obligation, just expert guidance.
             </p>
@@ -55,10 +56,10 @@ export default function ConsultationForm() {
                 'No hidden fees, no obligations',
               ].map((benefit) => (
                 <div key={benefit} className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center flex-shrink-0">
-                    <FiCheckCircle className="w-3 h-3 text-green-400" />
+                  <div className="w-5 h-5 rounded-full bg-copper-500/20 border border-copper-500/30 flex items-center justify-center flex-shrink-0">
+                    <FiCheckCircle className="w-3 h-3 text-copper-400" />
                   </div>
-                  <span className="text-sm text-slate-400">{benefit}</span>
+                  <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-copper-700/70'}`}>{benefit}</span>
                 </div>
               ))}
             </div>
@@ -66,7 +67,7 @@ export default function ConsultationForm() {
             {/* Trust badges */}
             <div className="flex flex-wrap gap-3">
               {['⭐ 4.9/5 Rating', '🎖️ MARA Registered', '🏆 Award Winning', '✅ 98% Visa Success'].map(badge => (
-                <span key={badge} className="px-3 py-1.5 glass-card text-xs text-slate-400 font-medium">
+                <span key={badge} className={`px-3 py-1.5 glass-card text-xs font-medium ${isDark ? 'text-slate-400' : 'text-copper-700/70'}`}>
                   {badge}
                 </span>
               ))}
@@ -81,24 +82,24 @@ export default function ConsultationForm() {
                 animate={{ scale: 1, opacity: 1 }}
                 className="glass-card p-10 text-center"
               >
-                <div className="w-20 h-20 rounded-full bg-green-500/20 border-2 border-green-500/30 flex items-center justify-center mx-auto mb-6">
-                  <FiCheckCircle className="w-10 h-10 text-green-400" />
+                <div className="w-20 h-20 rounded-full bg-copper-500/20 border-2 border-copper-500/30 flex items-center justify-center mx-auto mb-6">
+                  <FiCheckCircle className="w-10 h-10 text-copper-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">We'll Be In Touch!</h3>
-                <p className="text-slate-400 mb-6">Your consultation request has been received. Our team will contact you within 24 hours.</p>
-                <button onClick={() => setSubmitted(false)} className="btn-primary">
+                <h3 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-copper-900'} mb-3`}>We'll Be In Touch!</h3>
+                <p className={isDark ? 'text-slate-400' : 'text-copper-700/70'}>Your consultation request has been received. Our team will contact you within 24 hours.</p>
+                <button onClick={() => setSubmitted(false)} className="btn-primary mt-6">
                   Book Another
                 </button>
               </motion.div>
             ) : (
               <div className="glass-card p-8 md:p-10">
-                <h3 className="text-xl font-bold text-white mb-2">Get Free Expert Advice</h3>
-                <p className="text-sm text-slate-500 mb-7">Fill out the form and we'll contact you within 24 hours.</p>
+                <h3 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-copper-900'} mb-2`}>Get Free Expert Advice</h3>
+                <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-copper-700/60'} mb-7`}>Fill out the form and we'll contact you within 24 hours.</p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   {/* Name */}
                   <div className="relative">
-                    <FiUser className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-600" />
+                    <FiUser className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 ${isDark ? 'text-slate-600' : 'text-copper-700/40'}`} />
                     <input
                       type="text"
                       name="name"
@@ -113,7 +114,7 @@ export default function ConsultationForm() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Phone */}
                     <div className="relative">
-                      <FiPhone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-600" />
+                      <FiPhone className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 ${isDark ? 'text-slate-600' : 'text-copper-700/40'}`} />
                       <input
                         type="tel"
                         name="phone"
@@ -126,7 +127,7 @@ export default function ConsultationForm() {
                     </div>
                     {/* Email */}
                     <div className="relative">
-                      <FiMail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-600" />
+                      <FiMail className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 ${isDark ? 'text-slate-600' : 'text-copper-700/40'}`} />
                       <input
                         type="email"
                         name="email"
@@ -141,7 +142,7 @@ export default function ConsultationForm() {
 
                   {/* Country */}
                   <div className="relative">
-                    <FiGlobe className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-600 z-10 pointer-events-none" />
+                    <FiGlobe className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 ${isDark ? 'text-slate-600' : 'text-copper-700/40'} z-10 pointer-events-none`} />
                     <select
                       name="country"
                       required
@@ -150,13 +151,13 @@ export default function ConsultationForm() {
                       className="input-field pl-11 appearance-none cursor-pointer"
                     >
                       <option value="" disabled>Preferred Country *</option>
-                      {countries.map(c => <option key={c} value={c} className="bg-[#0f172a]">{c}</option>)}
+                      {countries.map(c => <option key={c} value={c}>{c}</option>)}
                     </select>
                   </div>
 
                   {/* Study level */}
                   <div className="relative">
-                    <FiBook className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-600 z-10 pointer-events-none" />
+                    <FiBook className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 ${isDark ? 'text-slate-600' : 'text-copper-700/40'} z-10 pointer-events-none`} />
                     <select
                       name="level"
                       required
@@ -165,7 +166,7 @@ export default function ConsultationForm() {
                       className="input-field pl-11 appearance-none cursor-pointer"
                     >
                       <option value="" disabled>Study Level *</option>
-                      {levels.map(l => <option key={l} value={l} className="bg-[#0f172a]">{l}</option>)}
+                      {levels.map(l => <option key={l} value={l}>{l}</option>)}
                     </select>
                   </div>
 
@@ -199,7 +200,7 @@ export default function ConsultationForm() {
                     )}
                   </motion.button>
 
-                  <p className="text-xs text-center text-slate-600">
+                  <p className={`text-xs text-center ${isDark ? 'text-slate-600' : 'text-copper-700/50'}`}>
                     By submitting, you agree to our privacy policy. We respect your data.
                   </p>
                 </form>
@@ -211,4 +212,3 @@ export default function ConsultationForm() {
     </section>
   )
 }
-

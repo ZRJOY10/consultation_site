@@ -4,6 +4,7 @@ import { FiStar, FiPlay, FiX, FiFilter } from 'react-icons/fi'
 import { HiCheckCircle } from 'react-icons/hi'
 import AnimatedSection from '../components/AnimatedSection'
 import ConsultationForm from '../components/home/ConsultationForm'
+import SectionBadge from '../components/SectionBadge'
 
 const stories = [
   { id: 1, name: 'Priya Sharma', photo: 'https://images.unsplash.com/photo-1494790108755-2616b332c3b0?w=200&h=200&fit=crop', country: 'Australia', flag: '🇦🇺', university: 'University of Melbourne', course: 'Master of Data Science', visa: 'Approved', scholarship: '$15,000', rating: 5, quote: 'Global Talent made my dream of studying in Australia a reality. They guided me step by step from course selection to visa approval.', year: '2024', tags: ['Scholarship', 'Visa'] },
@@ -28,7 +29,7 @@ export default function StudentSuccess() {
     <div className="pt-20">
       {/* Hero */}
       <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-900/10 to-blue-900/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-copper-900/10 to-copper-900/20 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
             Student <span className="gradient-text">Success Stories</span>
@@ -54,7 +55,7 @@ export default function StudentSuccess() {
               <button
                 key={c}
                 onClick={() => setFilter(c)}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-all ${filter === c ? 'bg-blue-600 text-white' : 'glass-card-hover text-slate-400'}`}
+                className={`px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-all ${filter === c ? 'bg-copper-600 text-white' : 'chip-inactive'}`}
               >
                 {c}
               </button>
@@ -79,7 +80,7 @@ export default function StudentSuccess() {
                   {/* Stars */}
                   <div className="flex gap-0.5 mb-3">
                     {[...Array(story.rating)].map((_, j) => (
-                      <FiStar key={j} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                      <FiStar key={j} className="w-3.5 h-3.5 fill-copper-400 text-copper-400" />
                     ))}
                   </div>
 
@@ -88,14 +89,14 @@ export default function StudentSuccess() {
 
                   {/* Course + badges */}
                   <div className="space-y-3">
-                    <p className="text-xs text-blue-400 font-medium">{story.course}</p>
+                    <p className="text-xs text-copper-400 font-medium">{story.course}</p>
                     <div className="flex flex-wrap gap-1.5">
-                      <span className="flex items-center gap-1 text-xs px-2 py-0.5 bg-green-600/20 border border-green-500/20 rounded-full text-green-400">
+                      <SectionBadge variant="subtle" size="xs" className="inline-flex items-center gap-1 mb-0">
                         <HiCheckCircle className="w-3 h-3" /> Visa {story.visa}
-                      </span>
-                      <span className="flex items-center gap-1 text-xs px-2 py-0.5 bg-amber-600/20 border border-amber-500/20 rounded-full text-amber-400">
+                      </SectionBadge>
+                      <SectionBadge variant="subtle" size="xs" className="inline-flex items-center gap-1 mb-0">
                         🎓 {story.scholarship}
-                      </span>
+                      </SectionBadge>
                     </div>
                   </div>
 
@@ -131,7 +132,7 @@ export default function StudentSuccess() {
               <FiX className="w-4 h-4" />
             </button>
             <div className="text-center text-slate-500">
-              <FiPlay className="w-12 h-12 mx-auto mb-3 text-blue-400" />
+              <FiPlay className="w-12 h-12 mx-auto mb-3 text-copper-400" />
               <p>Video testimonial plays here</p>
             </div>
           </motion.div>

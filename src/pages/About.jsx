@@ -48,13 +48,13 @@ export default function About() {
     <div className="pt-20">
       {/* Page hero */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/10 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-copper-900/20 to-copper-700/10 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-copper-600/5 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-block px-4 py-1.5 bg-blue-600/20 border border-blue-500/30 rounded-full text-blue-400 text-sm font-medium mb-4"
+            className="inline-block px-4 py-1.5 bg-copper-600/20 border border-copper-500/30 rounded-full text-copper-500 text-sm font-medium mb-4"
           >
             About Global Talent
           </motion.span>
@@ -70,7 +70,7 @@ export default function About() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-white/60 max-w-3xl mx-auto leading-relaxed"
+              className="text-xl text-copper-800/80 max-w-3xl mx-auto leading-relaxed"
           >
             Global Talent is Australia's most trusted study abroad consultancy. We've helped over 15,000 students 
             achieve their international education dreams with unmatched expertise, care and dedication.
@@ -90,13 +90,13 @@ export default function About() {
                     alt="Team"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-copper-900/50 to-transparent" />
                 </div>
                 {/* Floating badge */}
                 <div className="absolute -bottom-6 -right-6 glass-card p-4 shadow-2xl">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-blue-600/20 flex items-center justify-center">
-                      <HiAcademicCap className="w-6 h-6 text-blue-400" />
+                    <div className="w-12 h-12 rounded-xl bg-copper-600/20 flex items-center justify-center">
+                      <HiAcademicCap className="w-6 h-6 text-copper-400" />
                     </div>
                     <div>
                       <p className="text-2xl font-bold text-white">14+</p>
@@ -137,8 +137,8 @@ export default function About() {
             {values.map(({ icon: Icon, title, description }, i) => (
               <AnimatedSection key={title} delay={i * 0.1}>
                 <div className="glass-card-hover p-6 text-center">
-                  <div className="w-14 h-14 rounded-2xl bg-blue-600/20 border border-blue-500/20 flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-6 h-6 text-blue-400" />
+                  <div className="w-14 h-14 rounded-2xl bg-copper-600/20 border border-copper-500/20 flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-6 h-6 text-copper-400" />
                   </div>
                   <h3 className="font-semibold text-white mb-2">{title}</h3>
                   <p className="text-sm text-white/50 leading-relaxed">{description}</p>
@@ -165,14 +165,14 @@ export default function About() {
                 >
                   <div className="relative w-24 h-24 mx-auto mb-4">
                     <img src={photo} alt={name} className="w-full h-full rounded-2xl object-cover" />
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-copper-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
                   <h3 className="font-semibold text-white mb-1">{name}</h3>
-                  <p className="text-xs text-blue-400 mb-3">{role}</p>
+                  <p className="text-xs text-copper-400 mb-3">{role}</p>
                   <p className="text-xs text-white/50 leading-relaxed mb-4">{bio}</p>
                   <div className="flex flex-wrap gap-1 justify-center">
                     {expertise.map(tag => (
-                      <span key={tag} className="px-2 py-0.5 bg-blue-600/20 border border-blue-500/20 rounded-full text-xs text-blue-300">{tag}</span>
+                      <span key={tag} className="px-2 py-0.5 bg-copper-600/20 border border-copper-500/20 rounded-full text-xs text-copper-300">{tag}</span>
                     ))}
                   </div>
                 </motion.div>

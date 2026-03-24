@@ -42,8 +42,8 @@ export default function BookConsultation() {
     return (
       <div className="pt-20 min-h-screen flex items-center justify-center">
         <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="max-w-md w-full mx-auto px-6 text-center">
-          <div className="w-24 h-24 rounded-full bg-green-500/20 border-2 border-green-500/30 flex items-center justify-center mx-auto mb-6">
-            <FiCheckCircle className="w-12 h-12 text-green-400" />
+          <div className="w-24 h-24 rounded-full bg-copper-500/20 border-2 border-copper-500/30 flex items-center justify-center mx-auto mb-6">
+            <FiCheckCircle className="w-12 h-12 text-copper-400" />
           </div>
           <h2 className="text-3xl font-bold font-poppins text-white mb-3">Consultation Booked!</h2>
           <p className="text-white/60 mb-2">Your free consultation has been confirmed.</p>
@@ -66,16 +66,16 @@ export default function BookConsultation() {
     <div className="pt-20">
       {/* Hero */}
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/15 to-purple-900/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-copper-900/15 to-copper-700/10 pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex items-center justify-center gap-2 mb-4">
-            <HiSparkles className="w-5 h-5 text-amber-400" />
-            <span className="text-amber-400 font-medium">100% Free • No Obligation</span>
+            <HiSparkles className="w-5 h-5 text-copper-400" />
+            <span className="text-copper-400 font-medium">100% Free • No Obligation</span>
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
             Book Your <span className="gradient-text">Free Consultation</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-white/60 text-lg">
+          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-copper-800/80 text-lg">
             30 minutes with an expert counsellor. Get a personalized study plan, university recommendations and visa guidance.
           </motion.p>
         </div>
@@ -88,11 +88,11 @@ export default function BookConsultation() {
           <div className="flex items-center gap-2 mb-10">
             {steps.map((s, i) => (
               <div key={s} className="flex items-center gap-2 flex-1">
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-all ${i <= step ? 'bg-blue-600 text-white' : 'bg-white/10 text-white/40'}`}>
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-all ${i <= step ? 'bg-copper-600 text-white' : 'bg-copper-200/70 text-copper-700'}`}>
                   {i < step ? <FiCheckCircle className="w-4 h-4" /> : i + 1}
                 </div>
-                <span className={`text-xs hidden sm:block transition-colors ${i === step ? 'text-white' : 'text-white/40'}`}>{s}</span>
-                {i < steps.length - 1 && <div className={`flex-1 h-px transition-colors ${i < step ? 'bg-blue-600' : 'bg-white/10'}`} />}
+                <span className={`text-xs hidden sm:block transition-colors ${i === step ? 'text-copper-900' : 'text-copper-700/70'}`}>{s}</span>
+                {i < steps.length - 1 && <div className={`flex-1 h-px transition-colors ${i < step ? 'bg-copper-600' : 'bg-copper-300/40'}`} />}
               </div>
             ))}
           </div>
@@ -140,7 +140,7 @@ export default function BookConsultation() {
                   <p className="text-sm text-white/60 mb-3">Service Needed</p>
                   <div className="grid grid-cols-2 gap-2">
                     {services.map(s => (
-                      <button key={s} onClick={() => update('service', s)} className={`px-3 py-2 rounded-xl text-xs font-medium text-left transition-all ${form.service === s ? 'bg-blue-600 text-white' : 'glass-card-hover text-white/60'}`}>
+                      <button key={s} onClick={() => update('service', s)} className={`px-3 py-2 rounded-xl text-xs font-medium text-left transition-all ${form.service === s ? 'bg-copper-600 text-white' : 'chip-inactive'}`}>
                         {s}
                       </button>
                     ))}
@@ -161,7 +161,7 @@ export default function BookConsultation() {
                   <label className="text-sm text-white/60 mb-3 block">Preferred Time</label>
                   <div className="grid grid-cols-4 gap-2">
                     {timeSlots.map(t => (
-                      <button key={t} onClick={() => update('time', t)} className={`py-2 rounded-xl text-xs font-medium transition-all ${form.time === t ? 'bg-blue-600 text-white' : 'glass-card-hover text-white/60'}`}>
+                      <button key={t} onClick={() => update('time', t)} className={`py-2 rounded-xl text-xs font-medium transition-all ${form.time === t ? 'bg-copper-600 text-white' : 'chip-inactive'}`}>
                         {t}
                       </button>
                     ))}
@@ -174,14 +174,14 @@ export default function BookConsultation() {
                       <button
                         key={c.name}
                         onClick={() => c.available && update('counsellor', c.name)}
-                        className={`w-full flex items-center gap-3 p-3 rounded-xl transition-all ${form.counsellor === c.name ? 'bg-blue-600/20 border border-blue-500/40' : 'glass-card-hover'} ${!c.available && 'opacity-50 cursor-not-allowed'}`}
+                        className={`w-full flex items-center gap-3 p-3 rounded-xl transition-all ${form.counsellor === c.name ? 'bg-copper-600/20 border border-copper-500/40' : 'glass-card-hover'} ${!c.available && 'opacity-50 cursor-not-allowed'}`}
                       >
                         <img src={c.photo} alt={c.name} className="w-10 h-10 rounded-full object-cover flex-shrink-0" />
                         <div className="flex-1 text-left">
                           <p className="font-medium text-white text-sm">{c.name}</p>
                           <p className="text-xs text-white/40">{c.speciality}</p>
                         </div>
-                        <span className={`text-xs px-2 py-0.5 rounded-full ${c.available ? 'bg-green-500/20 text-green-400' : 'bg-gray-500/20 text-gray-400'}`}>
+                        <span className={`text-xs px-2 py-0.5 rounded-full ${c.available ? 'bg-copper-500/20 text-copper-400' : 'bg-gray-500/20 text-gray-400'}`}>
                           {c.available ? 'Available' : 'Busy'}
                         </span>
                       </button>

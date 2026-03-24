@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FiArrowRight, FiMapPin, FiUsers, FiBookOpen, FiDollarSign } from 'react-icons/fi'
 import AnimatedSection from '../AnimatedSection'
+import SectionBadge from '../SectionBadge'
 
 const destinations = [
   {
@@ -11,11 +12,11 @@ const destinations = [
     flag: '🇦🇺',
     image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=600&q=80',
     tag: 'Most Popular',
-    tagColor: 'bg-blue-500',
+    tagColor: 'bg-copper-500',
     students: '8,000+ students',
     courses: '1,100+ courses',
     avgCost: 'AUD 25K-45K/yr',
-    color: 'from-blue-600 to-blue-900',
+    color: 'from-copper-600 to-copper-900',
     highlight: 'Post-study work visa: 2-4 years',
   },
   {
@@ -37,11 +38,11 @@ const destinations = [
     flag: '🇬🇧',
     image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80',
     tag: 'Prestigious',
-    tagColor: 'bg-indigo-500',
+    tagColor: 'bg-copper-500',
     students: '3,500+ students',
     courses: '700+ courses',
     avgCost: 'GBP 15K-35K/yr',
-    color: 'from-indigo-700 to-indigo-900',
+    color: 'from-copper-700 to-copper-900',
     highlight: 'Graduate route visa: 2 years',
   },
   {
@@ -50,11 +51,11 @@ const destinations = [
     flag: '🇺🇸',
     image: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=600&q=80',
     tag: 'World Class',
-    tagColor: 'bg-sky-500',
+    tagColor: 'bg-copper-500',
     students: '2,800+ students',
     courses: '1,500+ courses',
     avgCost: 'USD 20K-55K/yr',
-    color: 'from-sky-700 to-sky-900',
+    color: 'from-copper-700 to-copper-900',
     highlight: 'OPT: 3 years STEM extension',
   },
   {
@@ -63,11 +64,11 @@ const destinations = [
     flag: '🇳🇿',
     image: 'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=600&q=80',
     tag: 'Scenic & Safe',
-    tagColor: 'bg-emerald-500',
+    tagColor: 'bg-copper-500',
     students: '1,200+ students',
     courses: '450+ courses',
     avgCost: 'NZD 22K-35K/yr',
-    color: 'from-emerald-700 to-emerald-900',
+    color: 'from-copper-700 to-copper-900',
     highlight: 'Post-study work: 1-3 years',
   },
   {
@@ -76,11 +77,11 @@ const destinations = [
     flag: '🇲🇹',
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
     tag: 'Affordable EU',
-    tagColor: 'bg-amber-500',
+    tagColor: 'bg-copper-500',
     students: '600+ students',
     courses: '200+ courses',
     avgCost: 'EUR 8K-18K/yr',
-    color: 'from-amber-700 to-amber-900',
+    color: 'from-copper-700 to-copper-900',
     highlight: 'EU work rights post-study',
   },
 ]
@@ -90,16 +91,14 @@ export default function StudyDestinations() {
 
   return (
     <section className="py-28 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-blue-950/10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-copper-950/10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 bg-amber-500/20 border border-amber-500/30 rounded-full text-amber-400 text-sm font-medium mb-4">
-            Study Destinations
-          </span>
-          <h2 className="section-title mb-4">
+          <SectionBadge variant="solid" size="lg">Explore Destinations</SectionBadge>
+          {/* <h2 className="section-title mb-4">
             Explore <span className="gradient-text-gold">Top Countries</span>
-          </h2>
+          </h2> */}
           <p className="section-subtitle">
             Choose from 6 world-class destinations and find the perfect country that matches your career goals and lifestyle.
           </p>
@@ -156,13 +155,13 @@ export default function StudyDestinations() {
                           { icon: FiBookOpen, text: dest.courses },
                           { icon: FiDollarSign, text: 'Scholarships' },
                         ].map(({ icon: Icon, text }) => (
-                          <div key={text} className="flex flex-col items-center gap-1 bg-slate-700/50 rounded-lg p-2">
-                            <Icon className="w-3.5 h-3.5 text-slate-300" />
+                          <div key={text} className="flex flex-col items-center gap-1 bg-copper-900/45 rounded-lg p-2">
+                            <Icon className="w-3.5 h-3.5 text-copper-200" />
                             <span className="text-xs text-white/80 text-center leading-tight">{text}</span>
                           </div>
                         ))}
                       </div>
-                      <p className="text-xs text-amber-300 font-medium">{dest.highlight}</p>
+                      <p className="text-xs text-copper-300 font-medium">{dest.highlight}</p>
                     </motion.div>
 
                     <div className="flex items-center justify-between mt-3">

@@ -4,10 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FiArrowRight, FiMapPin, FiUsers, FiBriefcase, FiBook, FiDollarSign, FiCheckCircle } from 'react-icons/fi'
 import AnimatedSection from '../components/AnimatedSection'
 import ConsultationForm from '../components/home/ConsultationForm'
+import { australiaCostTierUniversities, australiaUniversitiesDetailed, universityLinkMap } from '../data/universityList'
 
 const countryData = {
   australia: {
-    name: 'Australia', flag: '🇦🇺', color: 'from-blue-700 to-blue-900',
+    name: 'Australia', flag: '🇦🇺', color: 'from-copper-700 to-copper-900',
     image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=1200&q=80',
     tagline: 'World-class education, stunning lifestyle',
     description: 'Australia is one of the most popular destinations for international students, offering world-class education, diverse cultural experiences, and excellent career opportunities. With globally recognized universities such as the University of Melbourne, University of Sydney, and Monash University, students gain qualifications that are respected around the world. Australian institutions provide a wide range of programs across fields including business, engineering, information technology, health sciences, and education. The country is known for its strong academic standards, modern facilities, and research-driven learning environment. International students in Australia also benefit from flexible study pathways, scholarship opportunities, and the ability to work part-time while studying. After graduation, many students may access post-study work opportunities that allow them to gain valuable international work experience. With a welcoming multicultural society, safe cities, and a high quality of life, Australia provides an ideal environment for students to develop academically, professionally, and personally. Our consultancy supports students through every stage of the journey—from course selection and university applications to visa guidance and pre-departure preparation—helping them achieve their goal of studying in Australia.',
@@ -21,101 +22,24 @@ const countryData = {
       lower: {
         range: 'Under AUD $20,000/year',
         description: 'Budget-Friendly Australian Universities',
-        universities: [
-          { name: 'University of Divinity', tuition: '$16,000 – $19,000' },
-          { name: 'Federation University Australia', tuition: '$18,000 – $24,000' },
-          { name: 'Charles Sturt University', tuition: '$18,400 – $24,000' },
-        ],
+        universities: australiaCostTierUniversities.lower,
         note: 'Most affordable options with quality education. International scholarships can reduce tuition by 15–30%.',
       },
       middle: {
         range: 'AUD $20,000 - $30,000/year',
         description: '20 Australian Universities in the Mid-Range',
-        universities: [
-          { name: 'Southern Cross University', tuition: '$20,500 – $25,000' },
-          { name: 'Griffith University', tuition: '$20,000 – $25,000' },
-          { name: 'University of Southern Queensland', tuition: '$22,000 – $25,000' },
-          { name: 'University of the Sunshine Coast', tuition: '$22,000 – $25,000' },
-          { name: 'Charles Darwin University', tuition: '$21,000 – $25,000' },
-          { name: 'University of New England', tuition: '$22,000 – $25,000' },
-          { name: 'Central Queensland University', tuition: '$23,000 – $25,000' },
-          { name: 'Victoria University', tuition: '$20,400 – $24,000' },
-          { name: 'Australian Catholic University', tuition: '$23,000 – $25,000' },
-          { name: 'Western Sydney University', tuition: '$24,000 – $25,000' },
-          { name: 'Edith Cowan University', tuition: '$23,000 – $25,000' },
-          { name: 'University of Canberra', tuition: '$23,000 – $25,000' },
-          { name: 'James Cook University', tuition: '$23,000 – $25,000' },
-          { name: 'Murdoch University', tuition: '$23,000 – $25,000' },
-          { name: 'La Trobe University', tuition: '$24,000 – $25,000' },
-          { name: 'University of Tasmania', tuition: '$23,000 – $25,000' },
-          { name: 'Torrens University Australia', tuition: '$22,000 – $25,000' },
-          { name: 'RMIT University', tuition: '$26,000 – $30,000' },
-          { name: 'Deakin University', tuition: '$25,000 – $30,000' },
-          { name: 'University of Newcastle', tuition: '$24,000 – $30,000' },
-        ],
+        universities: australiaCostTierUniversities.middle,
         note: 'Good quality universities with competitive fees, strong industry connections, and scholarship opportunities.',
       },
       higher: {
         range: 'Above AUD $30,000/year',
         description: 'Premium Australian Universities',
-        universities: [
-          { name: 'University of Technology Sydney', tuition: '$28,000 – $35,000' },
-          { name: 'Macquarie University', tuition: '$27,000 – $34,000' },
-          { name: 'Curtin University', tuition: '$25,000 – $33,000' },
-          { name: 'Queensland University of Technology', tuition: '$26,000 – $34,000' },
-          { name: 'University of Melbourne', tuition: '$38,000 – $45,000' },
-          { name: 'University of Sydney', tuition: '$36,000 – $44,000' },
-          { name: 'UNSW Sydney', tuition: '$37,000 – $46,000' },
-          { name: 'Monash University', tuition: '$35,000 – $42,000' },
-          { name: 'University of Western Australia', tuition: '$35,000 – $43,000' },
-          { name: 'Australian National University', tuition: '$38,000 – $47,000' },
-        ],
+        universities: australiaCostTierUniversities.higher,
         note: 'World-renowned institutions with excellent global rankings, Go8 universities, and exceptional research opportunities.',
       },
     },
     // Full university list with tuition, typical scholarship and estimated net tuition (international students)
-        universities: [
-          { name: 'Federation University Australia', tuition: 'AUD 22,000 – 25,000', scholarship: '20% International Scholarship', net: 'AUD 17,600 – 20,000', link: 'https://federation.edu.au' },
-          { name: 'University of Southern Queensland', tuition: 'AUD 22,000 – 24,000', scholarship: '20% Scholarship', net: 'AUD 17,600 – 19,200', link: 'https://www.usq.edu.au' },
-          { name: 'Southern Cross University', tuition: 'AUD 23,000 – 26,000', scholarship: '$5,000–$8,000', net: 'AUD 18,000 – 21,000', link: 'https://www.scu.edu.au' },
-          { name: 'Charles Darwin University', tuition: 'AUD 22,000 – 25,000', scholarship: '25–50% Scholarship', net: 'AUD 12,500 – 18,750', link: 'https://www.cdu.edu.au' },
-          { name: 'University of the Sunshine Coast', tuition: 'AUD 23,000 – 26,000', scholarship: '15–20% Scholarship', net: 'AUD 18,500 – 21,000', link: 'https://www.usc.edu.au' },
-          { name: 'Charles Sturt University', tuition: 'AUD 22,000 – 26,000', scholarship: '20–30% Scholarship', net: 'AUD 16,000 – 20,000', link: 'https://www.csu.edu.au' },
-          { name: 'University of New England', tuition: 'AUD 24,000 – 27,000', scholarship: '20–30% Scholarship', net: 'AUD 17,000 – 21,000', link: 'https://www.une.edu.au' },
-          { name: 'Central Queensland University', tuition: 'AUD 26,000 – 30,000', scholarship: '20–25% Scholarship', net: 'AUD 20,000 – 24,000', link: 'https://www.cqu.edu.au' },
-          { name: 'Victoria University', tuition: 'AUD 24,000 – 28,000', scholarship: '20–30% Scholarship', net: 'AUD 18,000 – 22,000', link: 'https://www.vu.edu.au' },
-          { name: 'Australian Catholic University', tuition: 'AUD 24,000 – 27,000', scholarship: '20% Scholarship', net: 'AUD 19,000 – 21,000', link: 'https://www.acu.edu.au' },
-          { name: 'Western Sydney University', tuition: 'AUD 25,000 – 30,000', scholarship: '20% Scholarship', net: 'AUD 20,000 – 24,000', link: 'https://www.westernsydney.edu.au' },
-          { name: 'Edith Cowan University', tuition: 'AUD 25,000 – 29,000', scholarship: '20% Scholarship', net: 'AUD 20,000 – 23,000', link: 'https://www.ecu.edu.au' },
-          { name: 'University of Canberra', tuition: 'AUD 26,000 – 30,000', scholarship: '20–30% Scholarship', net: 'AUD 20,000 – 23,000', link: 'https://www.canberra.edu.au' },
-          { name: 'James Cook University', tuition: 'AUD 24,000 – 28,000', scholarship: '25% Scholarship', net: 'AUD 18,000 – 21,000', link: 'https://www.jcu.edu.au' },
-          { name: 'Murdoch University', tuition: 'AUD 25,000 – 29,000', scholarship: '20–25% Scholarship', net: 'AUD 20,000 – 23,000', link: 'https://www.murdoch.edu.au' },
-          { name: 'University of Tasmania', tuition: 'AUD 24,000 – 28,000', scholarship: '25% Scholarship', net: 'AUD 18,000 – 21,000', link: 'https://www.utas.edu.au' },
-          { name: 'La Trobe University', tuition: 'AUD 28,000 – 32,000', scholarship: '20–25% Scholarship', net: 'AUD 21,000 – 25,000', link: 'https://www.latrobe.edu.au' },
-          { name: 'Griffith University', tuition: 'AUD 26,000 – 30,000', scholarship: '20% Scholarship', net: 'AUD 21,000 – 24,000', link: 'https://www.griffith.edu.au' },
-          { name: 'University of Wollongong', tuition: 'AUD 28,000 – 35,000', scholarship: '20% Scholarship', net: 'AUD 22,000 – 28,000', link: 'https://www.uow.edu.au' },
-          { name: 'Macquarie University', tuition: 'AUD 30,000 – 38,000', scholarship: '10–20% Scholarship', net: 'AUD 24,000 – 32,000', link: 'https://www.mq.edu.au' },
-          { name: 'Curtin University', tuition: 'AUD 28,000 – 35,000', scholarship: '20–25% Scholarship', net: 'AUD 22,000 – 28,000', link: 'https://www.curtin.edu.au' },
-          { name: 'Deakin University', tuition: 'AUD 30,000 – 38,000', scholarship: '20–25% Scholarship', net: 'AUD 24,000 – 30,000', link: 'https://www.deakin.edu.au' },
-          { name: 'Swinburne University of Technology', tuition: 'AUD 30,000 – 36,000', scholarship: '20–30% Scholarship', net: 'AUD 22,000 – 28,000', link: 'https://www.swinburne.edu.au' },
-          { name: 'RMIT University', tuition: 'AUD 32,000 – 40,000', scholarship: '20% Scholarship', net: 'AUD 26,000 – 32,000', link: 'https://www.rmit.edu.au' },
-          { name: 'Queensland University of Technology', tuition: 'AUD 32,000 – 38,000', scholarship: '25% Scholarship', net: 'AUD 24,000 – 28,000', link: 'https://www.qut.edu.au' },
-          { name: 'University of Newcastle', tuition: 'AUD 30,000 – 38,000', scholarship: '20% Scholarship', net: 'AUD 24,000 – 30,000', link: 'https://www.newcastle.edu.au' },
-          { name: 'University of Adelaide', tuition: 'AUD 35,000 – 45,000', scholarship: '15–30% Scholarship', net: 'AUD 28,000 – 35,000', link: 'https://www.adelaide.edu.au' },
-          { name: 'University of South Australia', tuition: 'AUD 30,000 – 36,000', scholarship: '20% Scholarship', net: 'AUD 24,000 – 29,000', link: 'https://www.unisa.edu.au' },
-          { name: 'Bond University', tuition: 'AUD 35,000 – 45,000', scholarship: '25–50% Scholarship', net: 'AUD 25,000 – 35,000', link: 'https://bond.edu.au' },
-          { name: 'Flinders University', tuition: 'AUD 30,000 – 36,000', scholarship: '20% Scholarship', net: 'AUD 24,000 – 29,000', link: 'https://www.flinders.edu.au' },
-          { name: 'University of Queensland', tuition: 'AUD 38,000 – 45,000', scholarship: '20–30% Scholarship', net: 'AUD 28,000 – 35,000', link: 'https://www.uq.edu.au' },
-          { name: 'University of Sydney', tuition: 'AUD 40,000 – 60,000', scholarship: '10–20% Scholarship', net: 'AUD 32,000 – 50,000', link: 'https://www.sydney.edu.au' },
-          { name: 'University of Melbourne', tuition: 'AUD 40,000 – 60,000', scholarship: '10–20% Scholarship', net: 'AUD 32,000 – 50,000', link: 'https://www.unimelb.edu.au' },
-          { name: 'Monash University', tuition: 'AUD 38,000 – 50,000', scholarship: '10–20% Scholarship', net: 'AUD 30,000 – 40,000', link: 'https://www.monash.edu' },
-          { name: 'University of New South Wales', tuition: 'AUD 38,000 – 50,000', scholarship: '15–20% Scholarship', net: 'AUD 30,000 – 40,000', link: 'https://www.unsw.edu.au' },
-          { name: 'University of Western Australia', tuition: 'AUD 36,000 – 45,000', scholarship: '20% Scholarship', net: 'AUD 29,000 – 35,000', link: 'https://www.uwa.edu.au' },
-          { name: 'University of Divinity', tuition: 'AUD 16,000 – 19,000', scholarship: 'Limited', net: 'AUD 16,000 – 19,000', link: 'https://www.divinity.edu.au' },
-          { name: 'Torrens University Australia', tuition: 'AUD 22,000 – 27,000', scholarship: '20% Scholarship', net: 'AUD 18,000 – 22,000', link: 'https://www.torrens.edu.au' },
-          { name: 'University of Notre Dame Australia', tuition: 'AUD 26,000 – 32,000', scholarship: '20% Scholarship', net: 'AUD 21,000 – 26,000', link: 'https://www.notredame.edu.au' },
-          { name: 'CQUniversity Australia', tuition: 'AUD 26,000 – 30,000', scholarship: '20% Scholarship', net: 'AUD 20,000 – 24,000', link: 'https://www.cqu.edu.au' },
-        ],
+        universities: australiaUniversitiesDetailed,
         scholarships: [
           { uni: 'University of Adelaide', detail: 'Global Citizens Scholarship 15–30%' },
           { uni: 'University of Queensland', detail: 'Merit scholarships 25–50% (some programs)' },
@@ -131,7 +55,7 @@ const countryData = {
           universitiesNote: 'Tuition ranges are indicative. Scholarships and waivers vary by program and availability; use university pages for latest figures.',
         },
   canada: {
-    name: 'Canada', flag: '🇨🇦', color: 'from-red-700 to-red-900',
+    name: 'Canada', flag: '🇨🇦', color: 'from-copper-700 to-copper-900',
     image: 'https://images.unsplash.com/photo-1517935706615-2717063c2225?w=1200&q=80',
     tagline: 'Quality education meets PR pathways',
     description: 'Canada combines world-class education with one of the most immigrant-friendly environments in the world. Its diverse cities, affordable tuition compared to the US, and streamlined PR pathways make it a top choice.',
@@ -143,7 +67,7 @@ const countryData = {
     requirements: ['Acceptance letter from DLI', 'Proof of finances', 'Language test scores', 'Valid passport', 'Statement of purpose', 'Clean criminal record'],
   },
   uk: {
-    name: 'United Kingdom', flag: '🇬🇧', color: 'from-indigo-700 to-indigo-900',
+    name: 'United Kingdom', flag: '🇬🇧', color: 'from-copper-700 to-copper-900',
     image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&q=80',
     tagline: 'Prestigious institutions, rich heritage',
     description: 'The UK is home to some of the world\'s most prestigious universities including Oxford, Cambridge and Imperial College. UK degrees are recognized globally and the Graduate Route visa offers 2-year post-study work rights.',
@@ -155,7 +79,7 @@ const countryData = {
     requirements: ['CAS from UK institution', 'English proficiency', 'Financial evidence', 'Valid passport', 'No immigration violations', 'ATAS certificate (some subjects)'],
   },
   usa: {
-    name: 'United States', flag: '🇺🇸', color: 'from-sky-700 to-sky-900',
+    name: 'United States', flag: '🇺🇸', color: 'from-copper-700 to-copper-900',
     image: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=1200&q=80',
     tagline: 'World\'s top universities, global careers',
     description: 'The USA houses the world\'s top universities including MIT, Stanford and Harvard. With over 4,000 accredited institutions and the largest higher education system globally, the US offers unmatched diversity and opportunities.',
@@ -167,7 +91,7 @@ const countryData = {
     requirements: ['Form I-20 from SEVP institution', 'SEVIS fee payment', 'Financial documents', 'DS-160 application', 'Visa interview', 'English proficiency'],
   },
   'new-zealand': {
-    name: 'New Zealand', flag: '🇳🇿', color: 'from-emerald-700 to-emerald-900',
+    name: 'New Zealand', flag: '🇳🇿', color: 'from-copper-700 to-copper-900',
     image: 'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=1200&q=80',
     tagline: 'Safe, scenic, and internationally recognized',
     description: 'New Zealand offers a safe environment, stunning natural scenery, and internationally recognized qualifications. With a growing economy and welcoming immigration policies, NZ is increasingly popular for international students.',
@@ -179,7 +103,7 @@ const countryData = {
     requirements: ['Offer letter', 'English proficiency', 'Financial evidence', 'Health & character certificate', 'Travel insurance', 'Return ticket'],
   },
   malta: {
-    name: 'Malta', flag: '🇲🇹', color: 'from-amber-700 to-amber-900',
+    name: 'Malta', flag: '🇲🇹', color: 'from-copper-700 to-copper-900',
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80',
     tagline: 'Affordable EU education, Mediterranean lifestyle',
     description: 'Malta offers affordable EU-recognized education in an English-speaking Mediterranean island nation. As an EU member, Maltese qualifications are recognized across Europe, opening doors to 27+ countries.',
@@ -195,49 +119,7 @@ const countryData = {
 const allCountries = Object.keys(countryData)
 
 // Mapping of university display names to official website URLs (fallback for tier cards)
-const uniLinks = {
-  'Federation University Australia': 'https://federation.edu.au',
-  'University of Southern Queensland': 'https://www.usq.edu.au',
-  'Southern Cross University': 'https://www.scu.edu.au',
-  'Charles Darwin University': 'https://www.cdu.edu.au',
-  'University of the Sunshine Coast': 'https://www.usc.edu.au',
-  'Charles Sturt University': 'https://www.csu.edu.au',
-  'University of New England': 'https://www.une.edu.au',
-  'Central Queensland University': 'https://www.cqu.edu.au',
-  'CQUniversity Australia': 'https://www.cqu.edu.au',
-  'Victoria University': 'https://www.vu.edu.au',
-  'Australian Catholic University': 'https://www.acu.edu.au',
-  'Western Sydney University': 'https://www.westernsydney.edu.au',
-  'Edith Cowan University': 'https://www.ecu.edu.au',
-  'University of Canberra': 'https://www.canberra.edu.au',
-  'James Cook University': 'https://www.jcu.edu.au',
-  'Murdoch University': 'https://www.murdoch.edu.au',
-  'La Trobe University': 'https://www.latrobe.edu.au',
-  'University of Tasmania': 'https://www.utas.edu.au',
-  'Torrens University Australia': 'https://www.torrens.edu.au',
-  'RMIT University': 'https://www.rmit.edu.au',
-  'Deakin University': 'https://www.deakin.edu.au',
-  'University of Newcastle': 'https://www.newcastle.edu.au',
-  'University of Technology Sydney': 'https://www.uts.edu.au',
-  'Macquarie University': 'https://www.mq.edu.au',
-  'Curtin University': 'https://www.curtin.edu.au',
-  'Queensland University of Technology': 'https://www.qut.edu.au',
-  'University of Melbourne': 'https://www.unimelb.edu.au',
-  'University of Sydney': 'https://www.sydney.edu.au',
-  'UNSW Sydney': 'https://www.unsw.edu.au',
-  'Monash University': 'https://www.monash.edu',
-  'University of Western Australia': 'https://www.uwa.edu.au',
-  'Australian National University': 'https://www.anu.edu.au',
-  'University of Adelaide': 'https://www.adelaide.edu.au',
-  'University of South Australia': 'https://www.unisa.edu.au',
-  'Bond University': 'https://bond.edu.au',
-  'Flinders University': 'https://www.flinders.edu.au',
-  'University of Queensland': 'https://www.uq.edu.au',
-  'University of Wollongong': 'https://www.uow.edu.au',
-  'University of Divinity': 'https://www.divinity.edu.au',
-  'University of Notre Dame Australia': 'https://www.notredame.edu.au',
-  'Swinburne University of Technology': 'https://www.swinburne.edu.au',
-}
+const uniLinks = universityLinkMap
 
 export default function Destinations() {
   const { country: paramCountry } = useParams()
@@ -250,7 +132,7 @@ export default function Destinations() {
     <div className="pt-20">
       {/* Hero */}
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/10 to-blue-900/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-copper-900/10 to-copper-900/20 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
             Study <span className="gradient-text-gold">Destinations</span>
@@ -273,7 +155,7 @@ export default function Destinations() {
                   onClick={() => { setSelected(c === selected ? null : c); setActiveTab('overview') }}
                   className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ${
                     selected === c
-                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
+                      ? 'bg-copper-600 text-white shadow-lg shadow-copper-500/30'
                       : 'glass-card-hover text-white/70 hover:text-white'
                   }`}
                 >
@@ -324,7 +206,7 @@ export default function Destinations() {
                       key={tab}
                       onClick={() => setActiveTab(tab)}
                       className={`px-5 py-2 rounded-xl text-sm font-medium capitalize whitespace-nowrap transition-all ${
-                        activeTab === tab ? 'bg-blue-600 text-white' : 'glass-card-hover text-white/60'
+                        activeTab === tab ? 'bg-copper-600 text-white' : 'glass-card-hover text-white/60'
                       }`}
                     >
                       {tab}
@@ -348,7 +230,7 @@ export default function Destinations() {
                           <p className="text-white/60 leading-relaxed mb-6">{data.description}</p>
                           <h4 className="text-sm font-semibold text-white/60 uppercase tracking-wider mb-3">Intake Periods</h4>
                           <div className="flex gap-2 mb-6">
-                            {data.intakes.map(i => <span key={i} className="px-3 py-1 glass-card text-sm text-blue-300">{i}</span>)}
+                            {data.intakes.map(i => <span key={i} className="px-3 py-1 glass-card text-sm text-copper-400">{i}</span>)}
                           </div>
                         </div>
                         <div className="glass-card p-6">
@@ -356,7 +238,7 @@ export default function Destinations() {
                           <ul className="space-y-2">
                             {data.popular.map(c => (
                               <li key={c} className="flex items-center gap-2 text-sm text-white/60">
-                                <FiCheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" /> {c}
+                                <FiCheckCircle className="w-4 h-4 text-copper-400 flex-shrink-0" /> {c}
                               </li>
                             ))}
                           </ul>
@@ -380,9 +262,9 @@ export default function Destinations() {
                                   <h3 className="font-semibold text-white mb-6">Cost Breakdown</h3>
                                   <div className="space-y-4">
                                     {[
-                                      { label: 'Tuition Fees', value: data.cost.tuition, icon: FiBook, color: 'text-blue-400' },
-                                      { label: 'Living Expenses', value: data.cost.living, icon: FiMapPin, color: 'text-green-400' },
-                                      { label: 'Total Estimated', value: data.cost.total, icon: FiDollarSign, color: 'text-amber-400' },
+                                      { label: 'Tuition Fees', value: data.cost.tuition, icon: FiBook, color: 'text-copper-400' },
+                                      { label: 'Living Expenses', value: data.cost.living, icon: FiMapPin, color: 'text-copper-500' },
+                                      { label: 'Total Estimated', value: data.cost.total, icon: FiDollarSign, color: 'text-copper-600' },
                                     ].map(({ label, value, icon: Icon, color }) => (
                                       <div key={label} className="flex items-center justify-between p-4 glass-card">
                                         <div className="flex items-center gap-3">
@@ -405,9 +287,9 @@ export default function Destinations() {
                                       className="glass-card p-6"
                                     >
                                       <div className={`inline-block px-3 py-1 rounded-lg text-xs font-semibold mb-3 ${
-                                        tierKey === 'lower' ? 'bg-emerald-500/20 text-emerald-300' :
-                                        tierKey === 'middle' ? 'bg-blue-500/20 text-blue-300' :
-                                        'bg-purple-500/20 text-purple-300'
+                                        tierKey === 'lower' ? 'bg-copper-500/20 text-copper-300' :
+                                        tierKey === 'middle' ? 'bg-copper-500/20 text-copper-300' :
+                                        'bg-copper-500/20 text-copper-300'
                                       }`}>
                                         {tierKey.charAt(0).toUpperCase() + tierKey.slice(1)} Tier
                                       </div>
@@ -428,7 +310,7 @@ export default function Destinations() {
                                                 className="block relative p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors group"
                                               >
                                                 <span className="absolute top-2 right-2 text-[11px] bg-white/10 text-white/80 px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">Click to visit</span>
-                                                <p className="text-sm font-medium text-white group-hover:text-blue-300 transition-colors">{uni.name}</p>
+                                                <p className="text-sm font-medium text-white group-hover:text-copper-300 transition-colors">{uni.name}</p>
                                                 <p className="text-xs text-white/50">{uni.tuition}</p>
                                               </a>
                                             )
@@ -436,7 +318,7 @@ export default function Destinations() {
 
                                           return (
                                             <div key={idx} className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors group">
-                                              <p className="text-sm font-medium text-white group-hover:text-blue-300 transition-colors">{uni.name}</p>
+                                              <p className="text-sm font-medium text-white group-hover:text-copper-300 transition-colors">{uni.name}</p>
                                               <p className="text-xs text-white/50">{uni.tuition}</p>
                                             </div>
                                           )
@@ -510,9 +392,9 @@ export default function Destinations() {
                               <h3 className="font-semibold text-white mb-6">Cost Breakdown</h3>
                               <div className="space-y-4">
                                 {[
-                                  { label: 'Tuition Fees', value: data.cost.tuition, icon: FiBook, color: 'text-blue-400' },
-                                  { label: 'Living Expenses', value: data.cost.living, icon: FiMapPin, color: 'text-green-400' },
-                                  { label: 'Total Estimated', value: data.cost.total, icon: FiDollarSign, color: 'text-amber-400' },
+                                  { label: 'Tuition Fees', value: data.cost.tuition, icon: FiBook, color: 'text-copper-400' },
+                                  { label: 'Living Expenses', value: data.cost.living, icon: FiMapPin, color: 'text-copper-500' },
+                                  { label: 'Total Estimated', value: data.cost.total, icon: FiDollarSign, color: 'text-copper-600' },
                                 ].map(({ label, value, icon: Icon, color }) => (
                                   <div key={label} className="flex items-center justify-between p-4 glass-card">
                                     <div className="flex items-center gap-3">
@@ -559,7 +441,7 @@ export default function Destinations() {
                           <ul className="space-y-2">
                             {data.requirements.map(r => (
                               <li key={r} className="flex items-start gap-2 text-xs text-white/60">
-                                <FiCheckCircle className="w-3.5 h-3.5 text-green-400 flex-shrink-0 mt-0.5" /> {r}
+                                <FiCheckCircle className="w-3.5 h-3.5 text-copper-400 flex-shrink-0 mt-0.5" /> {r}
                               </li>
                             ))}
                           </ul>
@@ -577,7 +459,7 @@ export default function Destinations() {
                             transition={{ delay: i * 0.05 }}
                             className="glass-card-hover p-4 text-center"
                           >
-                            <FiBook className="w-6 h-6 text-blue-400 mx-auto mb-2" />
+                            <FiBook className="w-6 h-6 text-copper-400 mx-auto mb-2" />
                             <p className="text-sm text-white/70">{course}</p>
                           </motion.div>
                         ))}

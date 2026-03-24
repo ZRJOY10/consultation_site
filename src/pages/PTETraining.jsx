@@ -32,17 +32,17 @@ export default function PTETraining() {
     <div className="pt-20">
       {/* Hero */}
       <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/15 to-blue-900/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-copper-900/15 to-copper-900/20 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-block px-4 py-1.5 bg-cyan-600/20 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-medium mb-4">
+              <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-block px-4 py-1.5 bg-copper-600/20 border border-copper-500/30 rounded-full text-copper-400 text-sm font-medium mb-4">
                 English Proficiency Training
               </motion.span>
               <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
                 PTE & IELTS <span className="gradient-text">Training</span>
               </motion.h1>
-              <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-slate-400 text-lg mb-8 leading-relaxed">
+              <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-copper-700/70 text-lg mb-8 leading-relaxed">
                 Score-boosting preparation courses designed to help you achieve your target score and secure admission to your dream university.
               </motion.p>
               <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex gap-4">
@@ -75,11 +75,11 @@ export default function PTETraining() {
             {features.map(({ icon: Icon, title, desc }, i) => (
               <AnimatedSection key={title} delay={i * 0.1}>
                 <div className="glass-card-hover p-6 text-center">
-                  <div className="w-12 h-12 rounded-xl bg-cyan-600/20 border border-cyan-500/20 flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-5 h-5 text-cyan-400" />
+                  <div className="w-12 h-12 rounded-xl bg-copper-600/20 border border-copper-500/20 flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-5 h-5 text-copper-400" />
                   </div>
-                  <h3 className="font-semibold text-white mb-2">{title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">{desc}</p>
+                  <h3 className="font-semibold text-copper-900 mb-2">{title}</h3>
+                  <p className="text-sm text-copper-700/70 leading-relaxed">{desc}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -92,7 +92,7 @@ export default function PTETraining() {
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl font-bold font-poppins mb-4">Choose Your <span className="gradient-text">Course</span></h2>
-            <p className="text-slate-500">Select the program that fits your goals and schedule</p>
+            <p className="text-copper-700/70">Select the program that fits your goals and schedule</p>
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {courses.map(({ name, duration, sessions, price, target, popular, includes }, i) => (
@@ -100,19 +100,19 @@ export default function PTETraining() {
                 <motion.div
                   whileHover={{ y: -6 }}
                   onClick={() => setSelected(i)}
-                  className={`glass-card-hover p-6 cursor-pointer relative overflow-hidden ${selected === i ? 'border-blue-500/50' : ''}`}
+                  className={`glass-card-hover p-6 cursor-pointer relative overflow-hidden ${selected === i ? 'border-copper-500/50' : ''}`}
                 >
                   {popular && (
-                    <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-xl">POPULAR</div>
+                    <div className="absolute top-0 right-0 bg-copper-600 text-white text-xs font-bold px-3 py-1 rounded-bl-xl">POPULAR</div>
                   )}
-                  <h3 className="font-bold text-white mb-1">{name}</h3>
-                  <p className="text-blue-400 text-sm mb-4">Target: {target}</p>
+                  <h3 className="font-bold text-copper-900 mb-1">{name}</h3>
+                  <p className="text-copper-400 text-sm mb-4">Target: {target}</p>
                   <div className="text-3xl font-black gradient-text mb-1">{price}</div>
-                  <p className="text-xs text-slate-500 mb-4">{duration} • {sessions}</p>
+                  <p className="text-xs text-copper-700/70 mb-4">{duration} • {sessions}</p>
                   <ul className="space-y-1.5 mb-6">
                     {includes.map(item => (
-                      <li key={item} className="flex items-center gap-2 text-xs text-slate-400">
-                        <FiCheckCircle className="w-3.5 h-3.5 text-green-400 flex-shrink-0" /> {item}
+                      <li key={item} className="flex items-center gap-2 text-xs text-copper-700/70">
+                        <FiCheckCircle className="w-3.5 h-3.5 text-copper-400 flex-shrink-0" /> {item}
                       </li>
                     ))}
                   </ul>

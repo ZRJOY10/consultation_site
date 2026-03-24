@@ -97,20 +97,20 @@ export default function HeroSection() {
     <section className="relative min-h-[calc(100dvh-20rem)] flex items-center overflow-hidden">
       <div className={`absolute inset-0 transition-colors duration-500 ${
         isDark
-          ? 'bg-gradient-to-b from-[#080e1a] via-[#0c1222] to-[#0c1222]'
-          : 'bg-gradient-to-b from-[#faf8f5] via-[#f3ede6] to-[#faf8f5]'
+          ? 'bg-gradient-to-b from-copper-950 via-copper-900 to-copper-950'
+          : 'bg-gradient-to-b from-copper-50 via-copper-100 to-copper-50'
       }`} />
 
       <motion.div
         className={`absolute -top-[15%] left-[10%] w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] rounded-full blur-[180px] pointer-events-none ${
-          isDark ? 'bg-sky-600/[0.06]' : 'bg-copper-400/[0.08]'
+          isDark ? 'bg-copper-600/[0.06]' : 'bg-copper-400/[0.08]'
         }`}
         animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
         transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
         className={`absolute -bottom-[10%] right-[5%] w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] rounded-full blur-[160px] pointer-events-none ${
-          isDark ? 'bg-indigo-600/[0.05]' : 'bg-copper-300/[0.06]'
+          isDark ? 'bg-copper-600/[0.05]' : 'bg-copper-300/[0.06]'
         }`}
         animate={{ x: [0, -35, 0], y: [0, 30, 0] }}
         transition={{ duration: 30, repeat: Infinity, ease: 'easeInOut' }}
@@ -121,7 +121,7 @@ export default function HeroSection() {
           {stars.map((s) => (
             <motion.div
               key={s.id}
-              className="absolute rounded-full bg-slate-300"
+              className="absolute rounded-full bg-copper-300"
               style={{ left: s.left, top: s.top, width: s.size, height: s.size }}
               animate={{ opacity: [0.03, 0.35, 0.03] }}
               transition={{ duration: s.dur, repeat: Infinity, ease: 'easeInOut', delay: s.delay }}
@@ -275,15 +275,15 @@ export default function HeroSection() {
 
       <motion.div style={{ opacity }} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 w-full">
         <div className="max-w-4xl">
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+          {/* <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <span className={`inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium mb-6 border ${
-              isDark ? 'bg-sky-500/[0.08] border-sky-400/20 text-sky-300' : 'bg-copper-600/[0.06] border-copper-400/20 text-copper-700'
+              isDark ? 'bg-copper-500/[0.08] border-copper-400/20 text-copper-300' : 'bg-copper-600/[0.06] border-copper-400/20 text-copper-700'
             }`}>
-              <HiSparkles className={`w-4 h-4 ${isDark ? 'text-amber-400' : 'text-copper-500'}`} />
+              <HiSparkles className={`w-4 h-4 ${isDark ? 'text-copper-400' : 'text-copper-500'}`} />
               Trusted by 15,000+ students worldwide
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-copper-400 animate-pulse" />
             </span>
-          </motion.div>
+          </motion.div> */}
 
           <motion.h1 initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
@@ -299,7 +299,7 @@ export default function HeroSection() {
               isDark ? 'text-slate-400' : 'text-copper-700/70'
             }`}>
             Expert guidance for study abroad, visa processing, scholarships, and career planning.
-            Turn your international education goals into reality with Australia&apos;s #1 education consultancy.
+            Turn your international education goals into reality with Australia&apos;s  education consultancy.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}
@@ -323,7 +323,7 @@ export default function HeroSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5 + i * 0.1, duration: 0.5 }}
                 className="glass-card p-3 sm:p-4 text-center transition-all duration-300 hover:scale-[1.02]">
-                <Icon className={`w-4 sm:w-5 h-4 sm:h-5 mx-auto mb-1.5 sm:mb-2 ${isDark ? 'text-sky-400' : 'text-copper-600'}`} />
+                <Icon className={`w-4 sm:w-5 h-4 sm:h-5 mx-auto mb-1.5 sm:mb-2 ${isDark ? 'text-copper-400' : 'text-copper-600'}`} />
                 <div className={`text-lg sm:text-2xl font-bold font-poppins ${isDark ? 'text-white' : 'text-copper-900'}`}>{value}</div>
                 <div className={`text-[10px] sm:text-xs ${isDark ? 'text-slate-500' : 'text-copper-600/60'}`}>{label}</div>
               </motion.div>

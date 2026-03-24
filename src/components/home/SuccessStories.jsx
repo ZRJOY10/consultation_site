@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FiStar, FiPlay, FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import { HiCheckCircle } from 'react-icons/hi'
 import AnimatedSection from '../AnimatedSection'
+import SectionBadge from '../SectionBadge'
+import { useTheme } from '../../context/ThemeContext'
 import { Link } from 'react-router-dom'
 import { FiArrowRight } from 'react-icons/fi'
 
@@ -75,6 +77,7 @@ const stories = [
 ]
 
 export default function SuccessStories() {
+  const { isDark } = useTheme()
   const [active, setActive] = useState(0)
   const [videoModal, setVideoModal] = useState(false)
 
@@ -85,14 +88,12 @@ export default function SuccessStories() {
 
   return (
     <section className="py-28 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-950/5 to-transparent pointer-events-none" />
-      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-green-600/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-copper-950/5 to-transparent pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-copper-600/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2" />
 
       <div className="max-w-7xl mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 bg-green-600/20 border border-green-500/30 rounded-full text-green-400 text-sm font-medium mb-4">
-            Student Success
-          </span>
+          <SectionBadge>Student Success</SectionBadge>
           <h2 className="section-title mb-4">
             Real Students, <span className="gradient-text">Real Results</span>
           </h2>
@@ -116,11 +117,11 @@ export default function SuccessStories() {
                 {/* Stars */}
                 <div className="flex gap-1 mb-6">
                   {[...Array(story.rating)].map((_, i) => (
-                    <FiStar key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                    <FiStar key={i} className="w-5 h-5 fill-copper-400 text-copper-400" />
                   ))}
                 </div>
 
-                <blockquote className="text-xl text-white/80 leading-relaxed mb-8 italic">
+                <blockquote className={`text-xl ${isDark ? 'text-white/80' : 'text-copper-900/80'} leading-relaxed mb-8 italic`}>
                   "{story.quote}"
                 </blockquote>
 
@@ -129,33 +130,33 @@ export default function SuccessStories() {
                   <img
                     src={story.photo}
                     alt={story.name}
-                    className="w-14 h-14 rounded-full object-cover border-2 border-blue-500/30"
+                    className="w-14 h-14 rounded-full object-cover border-2 border-copper-500/30"
                   />
                   <div>
-                    <p className="font-semibold text-white">{story.name}</p>
-                    <p className="text-sm text-white/50">{story.course}</p>
-                    <p className="text-sm text-blue-400">{story.university}</p>
+                    <p className={`font-semibold ${isDark ? 'text-white' : 'text-copper-900'}`}>{story.name}</p>
+                    <p className={`text-sm ${isDark ? 'text-white/50' : 'text-copper-700/50'}`}>{story.course}</p>
+                    <p className="text-sm text-copper-400">{story.university}</p>
                   </div>
                   <div className="ml-auto text-2xl">{story.country.split(' ')[0]}</div>
                 </div>
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="flex items-center gap-1 px-3 py-1.5 bg-green-600/20 border border-green-500/30 rounded-full text-xs text-green-400 font-medium">
+                  <SectionBadge className="inline-flex items-center gap-1 px-3 py-1.5 text-xs mb-0">
                     <HiCheckCircle className="w-3.5 h-3.5" /> {story.visa}
-                  </span>
-                  <span className="flex items-center gap-1 px-3 py-1.5 bg-amber-600/20 border border-amber-500/30 rounded-full text-xs text-amber-400 font-medium">
+                  </SectionBadge>
+                  <SectionBadge className="inline-flex items-center gap-1 px-3 py-1.5 text-xs mb-0">
                     <HiCheckCircle className="w-3.5 h-3.5" /> {story.scholarship}
-                  </span>
+                  </SectionBadge>
                 </div>
 
                 {/* Video CTA */}
                 <button
                   onClick={() => setVideoModal(true)}
-                  className="flex items-center gap-3 text-sm font-medium text-white/60 hover:text-white transition-colors group"
+                  className={`flex items-center gap-3 text-sm font-medium ${isDark ? 'text-white/60 hover:text-white' : 'text-copper-700/70 hover:text-copper-900'} transition-colors group`}
                 >
-                  <div className="w-10 h-10 rounded-full bg-blue-600/20 border border-blue-500/30 flex items-center justify-center group-hover:bg-blue-600/40 transition-colors">
-                    <FiPlay className="w-4 h-4 text-blue-400" />
+                  <div className="w-10 h-10 rounded-full bg-copper-600/20 border border-copper-500/30 flex items-center justify-center group-hover:bg-copper-600/40 transition-colors">
+                    <FiPlay className="w-4 h-4 text-copper-400" />
                   </div>
                   Watch video testimonial
                 </button>
@@ -164,7 +165,7 @@ export default function SuccessStories() {
 
             {/* Controls */}
             <div className="flex items-center gap-4 mt-6">
-              <button onClick={prev} className="w-10 h-10 rounded-full glass-card hover:bg-white/10 flex items-center justify-center text-white transition-colors">
+              <button onClick={prev} className={`w-10 h-10 rounded-full glass-card flex items-center justify-center ${isDark ? 'hover:bg-white/10 text-white' : 'hover:bg-copper-600/10 text-copper-900'} transition-colors`}>
                 <FiChevronLeft className="w-5 h-5" />
               </button>
               <div className="flex gap-2">
@@ -172,11 +173,11 @@ export default function SuccessStories() {
                   <button
                     key={i}
                     onClick={() => setActive(i)}
-                    className={`transition-all duration-300 rounded-full ${i === active ? 'w-8 h-2 bg-blue-500' : 'w-2 h-2 bg-white/20 hover:bg-white/40'}`}
+                    className={`transition-all duration-300 rounded-full ${i === active ? 'w-8 h-2 bg-copper-500' : `w-2 h-2 ${isDark ? 'bg-white/20 hover:bg-white/40' : 'bg-copper-700/20 hover:bg-copper-700/40'}`}`}
                   />
                 ))}
               </div>
-              <button onClick={next} className="w-10 h-10 rounded-full glass-card hover:bg-white/10 flex items-center justify-center text-white transition-colors">
+              <button onClick={next} className={`w-10 h-10 rounded-full glass-card flex items-center justify-center ${isDark ? 'hover:bg-white/10 text-white' : 'hover:bg-copper-600/10 text-copper-900'} transition-colors`}>
                 <FiChevronRight className="w-5 h-5" />
               </button>
             </div>
@@ -198,11 +199,11 @@ export default function SuccessStories() {
                     className="w-12 h-12 rounded-full object-cover flex-shrink-0 border-2 border-white/10"
                   />
                   <div className="flex-1 min-w-0">
-                    <p className="font-medium text-white text-sm">{s.name}</p>
-                    <p className="text-xs text-white/40 truncate">{s.university}</p>
+                    <p className={`font-medium ${isDark ? 'text-white' : 'text-copper-900'} text-sm`}>{s.name}</p>
+                    <p className={`text-xs ${isDark ? 'text-white/40' : 'text-copper-700/40'} truncate`}>{s.university}</p>
                     <div className="flex gap-1 mt-1">
                       {[...Array(5)].map((_, i) => (
-                        <FiStar key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
+                        <FiStar key={i} className="w-3 h-3 fill-copper-400 text-copper-400" />
                       ))}
                     </div>
                   </div>
@@ -237,13 +238,13 @@ export default function SuccessStories() {
             >
               <button
                 onClick={() => setVideoModal(false)}
-                className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-black/50 flex items-center justify-center text-white hover:bg-black/80 transition-colors"
+                className={`absolute top-4 right-4 z-10 w-8 h-8 rounded-full ${isDark ? 'bg-black/50' : 'bg-copper-600/30'} flex items-center justify-center ${isDark ? 'text-white hover:bg-black/80' : 'text-copper-900 hover:bg-copper-600/50'} transition-colors`}
               >
                 <FiX className="w-4 h-4" />
               </button>
-              <div className="w-full h-full flex items-center justify-center text-white/40">
+              <div className={`w-full h-full flex items-center justify-center ${isDark ? 'text-white/40' : 'text-copper-700/40'}`}>
                 <div className="text-center">
-                  <FiPlay className="w-16 h-16 mx-auto mb-4 text-blue-400" />
+                  <FiPlay className="w-16 h-16 mx-auto mb-4 text-copper-400" />
                   <p className="text-sm">Video testimonial would play here</p>
                 </div>
               </div>

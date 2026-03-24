@@ -5,10 +5,10 @@ import AnimatedSection from '../components/AnimatedSection'
 import toast from 'react-hot-toast'
 
 const contactInfo = [
-  { icon: FiPhone, title: 'Call Us', value: '+61 2 3456 7890', sub: 'Mon-Sat 9AM-6PM', href: 'tel:+61234567890', color: 'from-blue-600 to-blue-400' },
-  { icon: FiMail, title: 'Email Us', value: 'info@globaltalent.com.au', sub: 'Reply within 24 hours', href: 'mailto:info@globaltalent.com.au', color: 'from-purple-600 to-purple-400' },
-  { icon: FiMapPin, title: 'Visit Us', value: '123 Collins St', sub: 'Melbourne VIC 3000', href: '#', color: 'from-green-600 to-green-400' },
-  { icon: FiClock, title: 'Office Hours', value: 'Mon - Saturday', sub: '9:00 AM – 6:00 PM', href: null, color: 'from-amber-600 to-amber-400' },
+  { icon: FiPhone, title: 'Call Us', value: '+61 2 3456 7890', sub: 'Mon-Sat 9AM-6PM', href: 'tel:+61234567890', color: 'from-copper-600 to-copper-400' },
+  { icon: FiMail, title: 'Email Us', value: 'info@globaltalent.com.au', sub: 'Reply within 24 hours', href: 'mailto:info@globaltalent.com.au', color: 'from-copper-600 to-copper-400' },
+  { icon: FiMapPin, title: 'Visit Us', value: '123 Collins St', sub: 'Melbourne VIC 3000', href: '#', color: 'from-copper-600 to-copper-400' },
+  { icon: FiClock, title: 'Office Hours', value: 'Mon - Saturday', sub: '9:00 AM – 6:00 PM', href: null, color: 'from-copper-600 to-copper-400' },
 ]
 
 const offices = [
@@ -35,12 +35,12 @@ export default function Contact() {
     <div className="pt-20">
       {/* Hero */}
       <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 to-purple-900/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-copper-900/10 to-copper-900/10 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
             Get In <span className="gradient-text">Touch</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-xl text-white/60 max-w-2xl mx-auto">
+          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-xl text-copper-800/80 max-w-2xl mx-auto">
             Have questions about studying abroad? Our team is ready to help. Reach out and we'll respond within 24 hours.
           </motion.p>
         </div>
@@ -71,8 +71,8 @@ export default function Contact() {
             <AnimatedSection direction="right">
               {sent ? (
                 <motion.div initial={{ scale: 0.9 }} animate={{ scale: 1 }} className="glass-card p-10 text-center">
-                  <div className="w-20 h-20 rounded-full bg-green-500/20 border-2 border-green-500/30 flex items-center justify-center mx-auto mb-6">
-                    <FiCheckCircle className="w-10 h-10 text-green-400" />
+                  <div className="w-20 h-20 rounded-full bg-copper-500/20 border-2 border-copper-500/30 flex items-center justify-center mx-auto mb-6">
+                    <FiCheckCircle className="w-10 h-10 text-copper-400" />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-3">Message Sent!</h3>
                   <p className="text-white/60 mb-6">Thank you for contacting us. We'll get back to you within 24 hours.</p>
@@ -118,9 +118,9 @@ export default function Contact() {
             <AnimatedSection direction="left">
               {/* Map placeholder */}
               <div className="glass-card overflow-hidden rounded-2xl mb-6 h-56 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/20 flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-copper-900/30 to-copper-900/20 flex items-center justify-center">
                   <div className="text-center">
-                    <FiMapPin className="w-10 h-10 text-blue-400 mx-auto mb-2" />
+                    <FiMapPin className="w-10 h-10 text-copper-400 mx-auto mb-2" />
                     <p className="text-white/60 text-sm">123 Collins Street</p>
                     <p className="text-white/40 text-xs">Melbourne VIC 3000</p>
                   </div>
@@ -134,13 +134,13 @@ export default function Contact() {
                 <h3 className="font-semibold text-white mb-4">Our Office Locations</h3>
                 {offices.map(({ city, address, phone }) => (
                   <div key={city} className="glass-card-hover p-4 flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-blue-600/20 flex items-center justify-center flex-shrink-0">
-                      <FiMapPin className="w-4 h-4 text-blue-400" />
+                    <div className="w-10 h-10 rounded-lg bg-copper-600/20 flex items-center justify-center flex-shrink-0">
+                      <FiMapPin className="w-4 h-4 text-copper-400" />
                     </div>
                     <div>
                       <p className="font-medium text-white text-sm">{city}</p>
                       <p className="text-xs text-white/40">{address}</p>
-                      <p className="text-xs text-blue-400">{phone}</p>
+                      <p className="text-xs text-copper-400">{phone}</p>
                     </div>
                   </div>
                 ))}

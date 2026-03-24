@@ -9,7 +9,7 @@ const services = [
     icon: FiGlobe,
     title: 'Study Abroad Counselling',
     description: 'Our certified counsellors provide comprehensive guidance to help you choose the right country, university and course that perfectly aligns with your academic background and career aspirations.',
-    color: 'from-blue-600 to-blue-400',
+    color: 'from-copper-600 to-copper-400',
     includes: [
       'In-depth profile evaluation',
       'Country and course selection',
@@ -24,7 +24,7 @@ const services = [
     icon: FiFileText,
     title: 'Visa Processing',
     description: 'End-to-end visa application management with a 98% success rate. We handle all documentation, provide mock interviews and stay with you until your visa is in hand.',
-    color: 'from-green-600 to-green-400',
+    color: 'from-copper-600 to-copper-400',
     includes: [
       'Complete documentation checklist',
       'Document verification & review',
@@ -39,7 +39,7 @@ const services = [
     icon: FiDollarSign,
     title: 'Scholarship Assistance',
     description: 'We identify scholarships you qualify for and provide expert guidance on how to write compelling applications that win. Our students have collectively won over $5 million in scholarships.',
-    color: 'from-amber-600 to-amber-400',
+    color: 'from-copper-600 to-copper-400',
     includes: [
       'Scholarship eligibility assessment',
       'Database of 500+ scholarships',
@@ -54,7 +54,7 @@ const services = [
     icon: FiBriefcase,
     title: 'Career Counselling',
     description: 'Strategic career planning to ensure your international degree translates to maximum career growth and ROI. We map your course selection to your 5-year career vision.',
-    color: 'from-purple-600 to-purple-400',
+    color: 'from-copper-600 to-copper-400',
     includes: [
       'Career goal assessment',
       'Industry-course alignment',
@@ -69,7 +69,7 @@ const services = [
     icon: FiHome,
     title: 'Migration Advice',
     description: 'Expert permanent residency and migration planning. We help you structure your study choices today to maximize your PR chances tomorrow.',
-    color: 'from-rose-600 to-rose-400',
+    color: 'from-copper-600 to-copper-400',
     includes: [
       'PR eligibility points assessment',
       'State nomination guidance',
@@ -84,7 +84,7 @@ const services = [
     icon: FiBook,
     title: 'PTE / IELTS Training',
     description: 'Dedicated English proficiency test preparation with experienced instructors and guaranteed score improvement programs.',
-    color: 'from-cyan-600 to-cyan-400',
+    color: 'from-copper-600 to-copper-400',
     includes: [
       'Diagnostic test assessment',
       'Personalized study plan',
@@ -102,9 +102,9 @@ export default function Services() {
     <div className="pt-20">
       {/* Hero */}
       <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-900/10 to-blue-900/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-copper-900/10 to-copper-900/20 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-block px-4 py-1.5 bg-green-600/20 border border-green-500/30 rounded-full text-green-400 text-sm font-medium mb-4">
+          <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-block px-4 py-1.5 bg-copper-600/20 border border-copper-500/30 rounded-full text-copper-400 text-sm font-medium mb-4">
             Our Services
           </motion.span>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
@@ -133,7 +133,7 @@ export default function Services() {
                     <h2 className="text-2xl font-bold text-white mb-3">{title}</h2>
                     <p className="text-slate-400 text-sm leading-relaxed mb-6">{description}</p>
                     <Link to="/book-consultation" className={`inline-flex items-center gap-2 text-sm font-medium bg-gradient-to-r ${color} bg-clip-text text-transparent`}>
-                      Get Started <FiArrowRight className="w-4 h-4 text-blue-400" />
+                      Get Started <FiArrowRight className="w-4 h-4 text-copper-400" />
                     </Link>
                   </div>
 
