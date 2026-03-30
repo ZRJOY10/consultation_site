@@ -31,7 +31,7 @@ const navLinks = [
     ]
   },
   { label: 'Universities', path: '/universities' },
-  { label: 'Success Stories', path: '/student-success' },
+  // { label: 'Success Stories', path: '/student-success' },
   { label: 'Blog', path: '/blog' },
   { label: 'Contact', path: '/contact' },
 ]
