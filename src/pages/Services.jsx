@@ -3,6 +3,7 @@ import { FiGlobe, FiFileText, FiDollarSign, FiBriefcase, FiHome, FiBook, FiArrow
 import AnimatedSection from '../components/AnimatedSection'
 import ConsultationForm from '../components/home/ConsultationForm'
 import { Link } from 'react-router-dom'
+import SectionBadge from '../components/SectionBadge'
 
 const services = [
   {
@@ -15,10 +16,11 @@ const services = [
       'Country and course selection',
       'University shortlisting (3-5 options)',
       'Application strategy planning',
+      'Scholarship application guidance',
       'SOP and LOR guidance',
       'Interview preparation',
     ],
-    process: ['Profile Assessment', 'Goal Setting', 'University Shortlisting', 'Application Support'],
+    process: ['Profile Assessment', 'Goal Setting','Course Selection Guidance', 'University Shortlisting', 'SOP Writing', 'Application Support', ],
   },
   {
     icon: FiFileText,
@@ -78,7 +80,7 @@ const services = [
       'Family migration planning',
       'Citizenship pathway guidance',
     ],
-    process: ['Points Assessment', 'Pathway Planning', 'Visa Application', 'PR Grant'],
+    process: ['Skill Assessment Assistance', 'University Application (UI) Submission', 'Pathway Planning', 'Visa Application', 'PR Grant'],
   },
   {
     icon: FiBook,
@@ -104,13 +106,11 @@ export default function Services() {
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/10 to-copper-900/20 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-block px-4 py-1.5 bg-copper-600/20 border border-copper-500/30 rounded-full text-copper-400 text-sm font-medium mb-4">
-            Our Services
-          </motion.span>
+          <SectionBadge variant="solid" size="lg" className="mb-4">Our Services</SectionBadge>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
             Complete <span className="gradient-text">Study Abroad</span> Solutions
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-xl text-slate-400 max-w-3xl mx-auto">
+          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-xl text-copper-800/80 max-w-3xl mx-auto">
             From initial counselling to landing at your dream university — we handle every step with expertise and care.
           </motion.p>
         </div>
@@ -126,7 +126,7 @@ export default function Services() {
                   {/* Main info */}
                   <div className="lg:col-span-1">
                     <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${color} p-0.5 mb-4 shadow-lg`}>
-                      <div className="w-full h-full bg-[#0f172a] rounded-2xl flex items-center justify-center">
+                      <div className="w-full h-full  rounded-2xl flex items-center justify-center">
                         <Icon className="w-6 h-6 text-white" />
                       </div>
                     </div>

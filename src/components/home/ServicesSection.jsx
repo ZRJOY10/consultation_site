@@ -87,9 +87,9 @@ export default function ServicesSection() {
                   <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-[0.05] transition-opacity duration-500 pointer-events-none`} />
 
                   {/* Icon */}
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${color} p-0.5 mb-6 shadow-lg`}>
-                    <div className={`w-full h-full ${isDark ? 'bg-[#0f172a]' : 'bg-white'} rounded-2xl flex items-center justify-center`}>
-                      <Icon className={`w-6 h-6 ${isDark ? 'text-white' : 'text-copper-600'}`} />
+                  <div className={`w-14 h-14 rounded-2xl !bg-gradient-to-br ${color} p-0.5 mb-6 shadow-lg`}>
+                    <div className={`w-full h-full rounded-2xl flex items-center justify-center ${isDark ? '!bg-copper-950/90' : '!bg-white'}`}>
+                      <Icon className={`w-6 h-6 ${isDark ? '!text-copper-300' : '!text-copper-600'}`} />
                     </div>
                   </div>
 

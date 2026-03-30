@@ -5,6 +5,7 @@ import FeaturedUniversities from '../components/home/FeaturedUniversities'
 import ServicesSection from '../components/home/ServicesSection'
 import SuccessStories from '../components/home/SuccessStories'
 import ConsultationForm from '../components/home/ConsultationForm'
+import SocialPreviewSection from '../components/home/SocialPreviewSection'
 import StatsSection from '../components/home/StatsSection'
 
 export default function Home() {
@@ -16,8 +17,9 @@ export default function Home() {
       <StudyDestinations />
       <FeaturedUniversities />
       <ServicesSection />
-      <SuccessStories />
+      {/* <SuccessStories /> */}
       <ConsultationForm />
+      <SocialPreviewSection />
     </>
   )
 }

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { FiSearch, FiFilter } from 'react-icons/fi'
 import AnimatedSection from '../components/AnimatedSection'
 import ConsultationForm from '../components/home/ConsultationForm'
+import UniversityLogo from '../components/UniversityLogo'
 import { australiaUniversitiesForPage, globalUniversitiesForPage } from '../data/universityList'
 
 const universities = [...australiaUniversitiesForPage, ...globalUniversitiesForPage]
@@ -13,16 +14,6 @@ export default function Universities() {
   const [search, setSearch] = useState('')
   const [country, setCountry] = useState('All')
   const [sort, setSort] = useState('rank')
-
-  const getInitials = (name) => name.split(' ').slice(0, 2).map(w => w[0]).join('')
-  const getLogoUrl = (link) => {
-    try {
-      const hostname = new URL(link).hostname.replace('www.', '')
-      return `https://logo.clearbit.com/${hostname}`
-    } catch {
-      return ''
-    }
-  }
 
   const filtered = universities
     .filter(u => {
@@ -49,7 +40,7 @@ export default function Universities() {
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
             Partner <span className="gradient-text">Universities</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-xl text-slate-400 max-w-2xl mx-auto">
+          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-xl text-copper-500 max-w-2xl mx-auto">
             Access 200+ world-ranked partner universities with exclusive admission advantages through Global Talent.
           </motion.p>
         </div>
@@ -107,18 +98,13 @@ export default function Universities() {
                 >
                   {/* Logo */}
                   <div className="flex items-start justify-between mb-4">
-                    <div className="w-14 h-14 rounded-xl bg-copper-200/60 border border-copper-300/40 flex items-center justify-center text-base font-bold text-copper-900 relative overflow-hidden">
-                      <span>{getInitials(uni.name)}</span>
-                      {getLogoUrl(uni.link) && (
-                        <img
-                          src={getLogoUrl(uni.link)}
-                          alt={`${uni.name} logo`}
-                          className="absolute inset-0 w-full h-full object-contain p-1 bg-copper-50"
-                          loading="lazy"
-                          onError={(e) => { e.currentTarget.style.display = 'none' }}
-                        />
-                      )}
-                    </div>
+                    <UniversityLogo
+                      name={uni.name}
+                      link={uni.link}
+                      containerClassName="w-14 h-14 rounded-xl bg-copper-200/60 border border-copper-300/40 flex items-center justify-center text-base font-bold text-copper-900"
+                      initialsClassName="inline-flex items-center justify-center w-full h-full"
+                      imageClassName="absolute inset-0 w-full h-full object-contain p-1.5 bg-copper-50"
+                    />
                     <div className="text-right">
                       <span className="text-xs text-copper-400 font-semibold block">{uni.rank ? `QS #${uni.rank}` : 'QS N/A'}</span>
                       <span className="text-lg">{uni.flag}</span>

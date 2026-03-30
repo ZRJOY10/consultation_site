@@ -30,11 +30,11 @@ const footerLinks = {
 }
 
 const socials = [
-  { icon: FiFacebook, href: '#', label: 'Facebook' },
-  { icon: FiInstagram, href: '#', label: 'Instagram' },
-  { icon: FiLinkedin, href: '#', label: 'LinkedIn' },
-  { icon: FiYoutube, href: '#', label: 'YouTube' },
-  { icon: FiTwitter, href: '#', label: 'Twitter' },
+  { icon: FiFacebook, href: 'https://www.facebook.com/share/1HyZANYn9a/?mibextid=wwXIfr', label: 'Facebook' },
+  { icon: FiInstagram, href: 'https://www.instagram.com/global_talent/', label: 'Instagram' },
+  { icon: FiLinkedin, href: 'https://www.linkedin.com/company/global-talent', label: 'LinkedIn' },
+  { icon: FiYoutube, href: 'https://www.youtube.com/@GlobalTalent', label: 'YouTube' },
+  { icon: FiTwitter, href: 'https://twitter.com/GlobalTalent', label: 'Twitter' },
 ]
 
 export default function Footer() {
@@ -132,9 +132,9 @@ export default function Footer() {
           isDark ? 'border-white/[0.04]' : 'border-copper-200/30'
         }`}>
           {[
-            { icon: FiPhone, label: 'Call Us', value: '+61 2 3456 7890', href: 'tel:+61234567890' },
-            { icon: FiMail, label: 'Email Us', value: 'info@globaltalent.com.au', href: 'mailto:info@globaltalent.com.au' },
-            { icon: FiMapPin, label: 'Visit Us', value: '123 Collins St, Melbourne VIC 3000', href: '#' },
+            { icon: FiPhone, label: 'Call Us', value: '+61 414 248 167', href: 'tel:+61414248167' },
+            { icon: FiMail, label: 'Email Us', value: 'info@globaltalentedu.au', href: 'mailto:info@globaltalentedu.au' },
+            { icon: FiMapPin, label: 'Visit Us', value: '2/13 Moore lane , Lilyfield-2040, NSW, Australia', href: '#' },
           ].map(({ icon: Icon, label, value, href }) => (
             <a key={label} href={href} className="flex items-center gap-3 group">
               <div className={`w-10 h-10 rounded-lg border flex items-center justify-center transition-colors ${

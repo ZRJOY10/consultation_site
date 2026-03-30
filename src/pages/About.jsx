@@ -9,28 +9,28 @@ const team = [
   {
     name: 'Sarah Mitchell',
     role: 'Founder & CEO',
-    photo: 'https://images.unsplash.com/photo-1494790108755-2616b332c3b0?w=300&h=300&fit=crop',
+    photo: 'https://images.unsplash.com/photo-1494790108755-2616b332c3b0?auto=format&fit=crop&w=300&h=300&q=80',
     bio: 'Former international student with 15+ years in education consulting. MARA registered migration agent.',
     expertise: ['Australia', 'Canada', 'UK'],
   },
   {
     name: 'David Chen',
     role: 'Head of Visa Operations',
-    photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop',
+    photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&h=300&q=80',
     bio: 'Certified visa consultant with 12+ years expertise. 3000+ successful visa applications processed.',
     expertise: ['Visa', 'Migration', 'PR'],
   },
   {
     name: 'Priya Kapoor',
     role: 'Senior Education Counsellor',
-    photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop',
+    photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300&h=300&q=80',
     bio: 'Masters from Melbourne University. Expert in scholarship applications and university shortlisting.',
     expertise: ['Scholarships', 'Australia', 'NZ'],
   },
   {
     name: 'Michael Torres',
     role: 'USA & Canada Specialist',
-    photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop',
+    photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&h=300&q=80',
     bio: 'Former admissions officer at University of Toronto. Deep knowledge of North American education.',
     expertise: ['USA', 'Canada', 'Ivy League'],
   },
@@ -64,7 +64,7 @@ export default function About() {
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-6xl font-black font-poppins mb-6"
           >
-            Shaping <span className="gradient-text">Global Futures</span> Since 2010
+            Shaping <span className="gradient-text">Global Futures</span> 
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -72,7 +72,7 @@ export default function About() {
             transition={{ delay: 0.2 }}
               className="text-xl text-copper-800/80 max-w-3xl mx-auto leading-relaxed"
           >
-            Global Talent is Australia's most trusted study abroad consultancy. We've helped over 15,000 students 
+            Global Talent is Australia's most trusted study abroad consultancy. We've helped the students 
             achieve their international education dreams with unmatched expertise, care and dedication.
           </motion.p>
         </div>
@@ -84,11 +84,12 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection direction="right">
               <div className="relative">
-                <div className="aspect-square max-w-md mx-auto rounded-3xl overflow-hidden">
+                <div className="aspect-square max-w-md mx-auto rounded-3xl overflow-hidden relative">
                   <img
-                    src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80"
-                    alt="Team"
+                    src="https://unsplash.com/photos/nXt5HtLmlgE/download?force=true&w=1200"
+                    alt="Global world map on desk"
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-copper-900/50 to-transparent" />
                 </div>
@@ -99,8 +100,8 @@ export default function About() {
                       <HiAcademicCap className="w-6 h-6 text-copper-400" />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-white">14+</p>
-                      <p className="text-xs text-white/50">Years Excellence</p>
+                      <p className="text-2xl font-bold text-white">15+</p>
+                      <p className="text-xs text-white/50">years of experience in academia and research</p>
                     </div>
                   </div>
                 </div>
@@ -111,11 +112,11 @@ export default function About() {
               <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-6">
                 Our <span className="gradient-text">Story</span>
               </h2>
-              <div className="space-y-4 text-white/60 leading-relaxed">
-                <p>Founded in Melbourne in 2010, Global Talent began with a simple mission: to make quality international education accessible to every ambitious student.</p>
-                <p>Our founder, Sarah Mitchell, experienced firsthand the challenges of navigating study abroad processes as an international student. She built Global Talent to be the trustworthy guide she wished she had.</p>
-                <p>Today, we're a team of 50+ certified counsellors, visa agents, and education specialists who have collectively helped over 15,000 students realize their dreams across 6 countries.</p>
-                <p>We're proudly MARA registered, PIER certified, and winners of multiple education excellence awards. But our greatest achievement? Every student who lands at their dream university.</p>
+              <div className="space-y-4 text-black/70 leading-relaxed">
+                <p>With over 15 years of experience in academia and research, I bring deep insight into international education and student success. I completed my PhD from the University of Sydney and later undertook a postdoctoral fellowship, gaining extensive experience in research, teaching, and academic development.</p>
+                <p>Currently, I am part of a teaching support team, where I work closely with students and academic processes. Through this journey, I have developed a strong understanding of the challenges students face when pursuing higher education, especially in international environments.</p>
+                <p>This experience inspired me to establish Global Talent Education Consultancy, a platform where I can use my academic background and research expertise to guide students more effectively. Unlike many traditional agencies, I provide in-depth, research-driven advice, particularly for students interested in Master&apos;s by Research and PhD pathways, including supervisor identification and research proposal development.</p>
+                <p>My goal is to ensure that students not only gain admission but also make informed decisions that align with their long-term academic and career goals. I am committed to providing honest, transparent, and personalized guidance to help students succeed in their global education journey.</p>
               </div>
               <div className="mt-8">
                 <Link to="/book-consultation" className="btn-primary">
@@ -150,7 +151,7 @@ export default function About() {
       </section>
 
       {/* Team */}
-      <section className="py-20">
+      {/* <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl font-bold font-poppins mb-4">Meet Our <span className="gradient-text">Expert Team</span></h2>
@@ -164,7 +165,7 @@ export default function About() {
                   className="glass-card-hover p-6 text-center group"
                 >
                   <div className="relative w-24 h-24 mx-auto mb-4">
-                    <img src={photo} alt={name} className="w-full h-full rounded-2xl object-cover" />
+                    <img src={photo} alt={name} className="w-full h-full rounded-2xl object-cover" loading="lazy" />
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-copper-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
                   <h3 className="font-semibold text-white mb-1">{name}</h3>
@@ -180,7 +181,7 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <ConsultationForm />
     </div>

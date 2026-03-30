@@ -70,12 +70,12 @@ export default function Navbar() {
             <a href="tel:+61234567890" className={`flex items-center gap-1.5 transition-colors ${
               isDark ? 'hover:text-slate-300' : 'hover:text-copper-800'
             }`}>
-              <FiPhone className="w-3 h-3" /> +61 2 3456 7890
+              <FiPhone className="w-3 h-3" /> +61 414 248 167
             </a>
-            <a href="mailto:info@globaltalent.com.au" className={`flex items-center gap-1.5 transition-colors ${
+            <a href="mailto:info@globaltalentedu.au" className={`flex items-center gap-1.5 transition-colors ${
               isDark ? 'hover:text-slate-300' : 'hover:text-copper-800'
             }`}>
-              <FiMail className="w-3 h-3" /> info@globaltalent.com.au
+              <FiMail className="w-3 h-3" /> info@globaltalentedu.au
             </a>
           </div>
           <div className="flex items-center gap-4">

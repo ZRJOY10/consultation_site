@@ -14,7 +14,7 @@ const countryData = {
     description: 'Australia is one of the most popular destinations for international students, offering world-class education, diverse cultural experiences, and excellent career opportunities. With globally recognized universities such as the University of Melbourne, University of Sydney, and Monash University, students gain qualifications that are respected around the world. Australian institutions provide a wide range of programs across fields including business, engineering, information technology, health sciences, and education. The country is known for its strong academic standards, modern facilities, and research-driven learning environment. International students in Australia also benefit from flexible study pathways, scholarship opportunities, and the ability to work part-time while studying. After graduation, many students may access post-study work opportunities that allow them to gain valuable international work experience. With a welcoming multicultural society, safe cities, and a high quality of life, Australia provides an ideal environment for students to develop academically, professionally, and personally. Our consultancy supports students through every stage of the journey—from course selection and university applications to visa guidance and pre-departure preparation—helping them achieve their goal of studying in Australia.',
     stats: [{ label: 'International Students', value: '700K+' }, { label: 'Top 100 Universities', value: '8' }, { label: 'Work Hours/Week', value: '48hrs' }, { label: 'Post-Study Visa', value: '4 yrs' }],
     intakes: ['February (Main)', 'July (Secondary)'],
-    popular: ['Business & Commerce', 'Engineering', 'IT & Computer Science', 'Health & Medicine', 'Education'],
+    popular: ['Nursing','Social Work','Business Analytics','Laboratory Medicine','Early Childhood Education', 'Business Management', 'Fintech', 'Engineering', 'IT & Computer Science', 'Health & Medicine', 'Education'],
     cost: { tuition: 'AUD 20,000 – 45,000/year', living: 'AUD 18,000 – 25,000/year', total: 'AUD 38,000 – 70,000/year' },
     visa: { type: 'Student Visa (Subclass 500)', duration: 'Duration of course', work: '48 hrs/fortnight during study', processing: '4–6 weeks' },
     requirements: ['Offer of enrollment from registered provider', 'English proficiency (IELTS/PTE)', 'Genuine Temporary Entrant (GTE) statement', 'Financial capacity evidence', 'Health insurance (OSHC)', 'Health examinations'],
@@ -137,7 +137,7 @@ export default function Destinations() {
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
             Study <span className="gradient-text-gold">Destinations</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-xl text-white/60 max-w-2xl mx-auto">
+          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-xl text-copper-500 max-w-2xl mx-auto">
             Explore top study destinations and find your perfect country to begin your international journey.
           </motion.p>
         </div>
@@ -287,9 +287,9 @@ export default function Destinations() {
                                       className="glass-card p-6"
                                     >
                                       <div className={`inline-block px-3 py-1 rounded-lg text-xs font-semibold mb-3 ${
-                                        tierKey === 'lower' ? 'bg-copper-500/20 text-copper-300' :
-                                        tierKey === 'middle' ? 'bg-copper-500/20 text-copper-300' :
-                                        'bg-copper-500/20 text-copper-300'
+                                        tierKey === 'lower' ? 'bg-copper-500 text-white' :
+                                        tierKey === 'middle' ? 'bg-copper-500 text-white' :
+                                        'bg-copper-500 text-white'
                                       }`}>
                                         {tierKey.charAt(0).toUpperCase() + tierKey.slice(1)} Tier
                                       </div>
@@ -310,16 +310,16 @@ export default function Destinations() {
                                                 className="block relative p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors group"
                                               >
                                                 <span className="absolute top-2 right-2 text-[11px] bg-white/10 text-white/80 px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">Click to visit</span>
-                                                <p className="text-sm font-medium text-white group-hover:text-copper-300 transition-colors">{uni.name}</p>
-                                                <p className="text-xs text-white/50">{uni.tuition}</p>
+                                                <p className="text-sm font-semibold text-copper-500 group-hover:text-copper-400 transition-colors">{uni.name}</p>
+                                                <p className="text-xs text-white/55 mt-0.5">{uni.tuition}</p>
                                               </a>
                                             )
                                           }
 
                                           return (
                                             <div key={idx} className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors group">
-                                              <p className="text-sm font-medium text-white group-hover:text-copper-300 transition-colors">{uni.name}</p>
-                                              <p className="text-xs text-white/50">{uni.tuition}</p>
+                                              <p className="text-sm font-semibold text-copper-500 group-hover:text-copper-400 transition-colors">{uni.name}</p>
+                                              <p className="text-xs text-white/55 mt-0.5">{uni.tuition}</p>
                                             </div>
                                           )
                                         })}
@@ -334,13 +334,14 @@ export default function Destinations() {
                               </div>
 
                               {/* Scholarships column */}
-                              <div className="glass-card p-6">
+                              <div className="glass-card p-6 h-full flex flex-col">
                                 <h3 className="font-semibold text-white mb-4">Scholarships & Awards</h3>
                                 <p className="text-sm text-white/60 mb-3">{data.universitiesNote}</p>
-                                <ul className="space-y-2 max-h-56 overflow-y-auto">
+                                <ul className="space-y-3 flex-1 overflow-y-auto pr-1">
                                   {data.scholarships && data.scholarships.map((s, i) => (
-                                    <li key={i} className="text-sm text-white/60">
-                                      <span className="font-medium text-white">{s.uni}</span> — {s.detail}
+                                    <li key={i} className="text-sm text-white/60 border-b border-white/5 pb-2 last:border-b-0 last:pb-0">
+                                      <span className="block font-semibold text-copper-500 mb-0.5">{s.uni}</span>
+                                      <span>{s.detail}</span>
                                     </li>
                                   ))}
                                 </ul>
@@ -367,7 +368,7 @@ export default function Destinations() {
                                   <tbody>
                                     {data.universities.map((u, i) => (
                                       <tr key={i} className="border-t border-white/5 hover:bg-white/5">
-                                        <td className="px-3 py-3 text-white">{u.name}</td>
+                                        <td className="px-3 py-3 text-copper-500 font-semibold">{u.name}</td>
                                         <td className="px-3 py-3 text-white/60">{u.tuition}</td>
                                         <td className="px-3 py-3 text-white/60">{u.scholarship}</td>
                                         <td className="px-3 py-3 text-white/60">{u.net}</td>

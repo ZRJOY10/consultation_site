@@ -5,16 +5,15 @@ import AnimatedSection from '../components/AnimatedSection'
 import toast from 'react-hot-toast'
 
 const contactInfo = [
-  { icon: FiPhone, title: 'Call Us', value: '+61 2 3456 7890', sub: 'Mon-Sat 9AM-6PM', href: 'tel:+61234567890', color: 'from-copper-600 to-copper-400' },
-  { icon: FiMail, title: 'Email Us', value: 'info@globaltalent.com.au', sub: 'Reply within 24 hours', href: 'mailto:info@globaltalent.com.au', color: 'from-copper-600 to-copper-400' },
-  { icon: FiMapPin, title: 'Visit Us', value: '123 Collins St', sub: 'Melbourne VIC 3000', href: '#', color: 'from-copper-600 to-copper-400' },
+  { icon: FiPhone, title: 'Call Us', value: '+61 414 248 167', sub: 'Mon-Sat 9AM-6PM', href: 'tel:+61414248167', color: 'from-copper-600 to-copper-400' },
+  { icon: FiMail, title: 'Email Us', value: 'info@globaltalentedu.au', sub: 'Reply within 24 hours', href: 'mailto:info@globaltalentedu.au', color: 'from-copper-600 to-copper-400' },
+  { icon: FiMapPin, title: 'Visit Us', value: '2/13 Moore lane ', sub: 'Lilyfield-2040, NSW', href: '#', color: 'from-copper-600 to-copper-400' },
   { icon: FiClock, title: 'Office Hours', value: 'Mon - Saturday', sub: '9:00 AM – 6:00 PM', href: null, color: 'from-copper-600 to-copper-400' },
 ]
 
 const offices = [
-  { city: 'Melbourne', address: '123 Collins Street, Melbourne VIC 3000', phone: '+61 3 9000 0001' },
-  { city: 'Sydney', address: '456 George Street, Sydney NSW 2000', phone: '+61 2 9000 0002' },
-  { city: 'Brisbane', address: '789 Queen Street, Brisbane QLD 4000', phone: '+61 7 3000 0003' },
+  { city: 'Sydney', address: '2/13 Moore lane , Lilyfield-2040, NSW, Australia', phone: '+61 414 248 167' },
+
 ]
 
 export default function Contact() {
@@ -54,7 +53,7 @@ export default function Contact() {
               <AnimatedSection key={title} delay={i * 0.1}>
                 <a href={href || '#'} className={`glass-card-hover p-6 flex flex-col items-center text-center group ${!href && 'cursor-default'}`}>
                   <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${color} p-0.5 mb-4 shadow-lg`}>
-                    <div className="w-full h-full bg-[#0a0a0f] rounded-2xl flex items-center justify-center">
+                    <div className="w-full h-full  rounded-2xl flex items-center justify-center">
                       <Icon className="w-6 h-6 text-white" />
                     </div>
                   </div>

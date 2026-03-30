@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { FiArrowRight, FiMapPin, FiUsers, FiBookOpen, FiDollarSign } from 'react-icons/fi'
 import AnimatedSection from '../AnimatedSection'
 import SectionBadge from '../SectionBadge'
+import { useTheme } from '../../context/ThemeContext'
 
 const destinations = [
   {
@@ -87,11 +88,12 @@ const destinations = [
 ]
 
 export default function StudyDestinations() {
+  const { isDark } = useTheme()
   const [hovered, setHovered] = useState(null)
 
   return (
     <section className="py-28 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-copper-950/10 pointer-events-none" />
+      <div className={`absolute inset-0 pointer-events-none ${isDark ? 'bg-gradient-to-b from-transparent to-copper-950/10' : 'bg-gradient-to-b from-transparent to-copper-100/20'}`} />
 
       <div className="max-w-7xl mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
@@ -140,7 +142,7 @@ export default function StudyDestinations() {
                   <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-3xl">{dest.flag}</span>
-                      <h3 className="text-xl font-bold text-white font-poppins">{dest.name}</h3>
+                      <h3 className={`text-xl font-bold font-poppins ${isDark ? 'text-white' : 'text-black'}`}>{dest.name}</h3>
                     </div>
 
                     <motion.div
@@ -155,20 +157,20 @@ export default function StudyDestinations() {
                           { icon: FiBookOpen, text: dest.courses },
                           { icon: FiDollarSign, text: 'Scholarships' },
                         ].map(({ icon: Icon, text }) => (
-                          <div key={text} className="flex flex-col items-center gap-1 bg-copper-900/45 rounded-lg p-2">
-                            <Icon className="w-3.5 h-3.5 text-copper-200" />
-                            <span className="text-xs text-white/80 text-center leading-tight">{text}</span>
+                          <div key={text} className={`flex flex-col items-center gap-1 rounded-lg p-2 ${isDark ? 'bg-copper-900/45' : 'bg-copper-600/30'}`}>
+                            <Icon className={`w-3.5 h-3.5 ${isDark ? 'text-copper-200' : 'text-black'}`} />
+                            <span className={`text-xs text-center leading-tight ${isDark ? 'text-white/80' : 'text-black'}`}>{text}</span>
                           </div>
                         ))}
                       </div>
-                      <p className="text-xs text-copper-300 font-medium">{dest.highlight}</p>
+                      <p className={`text-xs font-medium ${isDark ? 'text-copper-300' : 'text-black'}`}>{dest.highlight}</p>
                     </motion.div>
 
                     <div className="flex items-center justify-between mt-3">
-                      <span className="text-xs text-slate-400">{dest.avgCost}</span>
+                      <span className={`text-xs ${isDark ? 'text-slate-400' : 'text-black'}`}>{dest.avgCost}</span>
                       <motion.div
                         animate={{ x: hovered === dest.id ? 0 : -5, opacity: hovered === dest.id ? 1 : 0 }}
-                        className="flex items-center gap-1 text-white text-xs font-medium"
+                        className={`flex items-center gap-1 text-xs font-medium ${isDark ? 'text-white' : 'text-black'}`}
                       >
                         Explore <FiArrowRight className="w-3 h-3" />
                       </motion.div>

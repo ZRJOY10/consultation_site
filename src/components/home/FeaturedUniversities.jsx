@@ -3,23 +3,12 @@ import AnimatedSection from '../AnimatedSection'
 import { Link } from 'react-router-dom'
 import { FiArrowRight } from 'react-icons/fi'
 import { useTheme } from '../../context/ThemeContext'
-import { useState } from 'react'
 import { featuredAustralianUniversities as universities } from '../../data/universityList'
-
-// Get initials for logo placeholder
-const getInitials = (name) => name.split(' ').slice(0, 2).map(w => w[0]).join('')
-const getLogoUrl = (link) => {
-  try {
-    const hostname = new URL(link).hostname.replace('www.', '')
-    return `https://logo.clearbit.com/${hostname}`
-  } catch {
-    return ''
-  }
-}
+import SectionBadge from '../SectionBadge'
+import UniversityLogo from '../UniversityLogo'
 
 export default function FeaturedUniversities() {
   const { isDark } = useTheme()
-  const [brokenLogos, setBrokenLogos] = useState({})
 
   return (
     <section className="py-28 relative overflow-hidden">
@@ -32,14 +21,7 @@ export default function FeaturedUniversities() {
 
       <div className="max-w-7xl mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
-          <span className={`inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 border ${
-            isDark ? 'bg-copper-600/20 border-copper-500/30 text-copper-400' : 'bg-copper-600/10 border-copper-400/20 text-copper-700'
-          }`}>
-            Our University Partners
-          </span>
-          <h2 className="section-title mb-4">
-            Top <span className="gradient-text">Universities</span> We Work With
-          </h2>
+          <SectionBadge variant="solid" size="lg">Our University Partners</SectionBadge>
           <p className="section-subtitle">
             Selected Australian universities from our destination cost section with direct website links.
           </p>
@@ -55,21 +37,15 @@ export default function FeaturedUniversities() {
                   transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                   className={`${isDark ? 'bg-copper-900/30 glass-card-hover' : 'bg-copper-50 border border-copper-200/40 rounded-2xl shadow-sm hover:shadow-md'} p-5 flex flex-col items-center text-center gap-3 cursor-pointer`}
                 >
-                  <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-lg font-bold font-poppins overflow-hidden ${
-                    isDark ? 'bg-copper-800/60 border border-copper-700/60 text-white' : 'bg-copper-100 text-copper-800'
-                  }`}>
-                    {!brokenLogos[uni.name] && getLogoUrl(uni.link) ? (
-                      <img
-                        src={getLogoUrl(uni.link)}
-                        alt={`${uni.name} logo`}
-                        className="w-9 h-9 object-contain"
-                        loading="lazy"
-                        onError={() => setBrokenLogos(prev => ({ ...prev, [uni.name]: true }))}
-                      />
-                    ) : (
-                      <span>{getInitials(uni.name)}</span>
-                    )}
-                  </div>
+                  <UniversityLogo
+                    name={uni.name}
+                    link={uni.link}
+                    containerClassName={`w-14 h-14 rounded-xl flex items-center justify-center text-lg font-bold font-poppins ${
+                      isDark ? 'bg-copper-800/60 border border-copper-700/60 text-white' : 'bg-copper-100 text-copper-800'
+                    }`}
+                    initialsClassName="inline-flex items-center justify-center w-full h-full"
+                    imageClassName="absolute inset-0 w-full h-full object-contain p-2 bg-white"
+                  />
                   <div>
                     <p className={`text-sm font-semibold leading-tight mb-1 ${isDark ? 'text-white' : 'text-copper-900'}`}>{uni.name}</p>
                     <div className="flex items-center justify-center gap-2">
