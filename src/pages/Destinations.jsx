@@ -5,6 +5,7 @@ import { FiArrowRight, FiMapPin, FiUsers, FiBriefcase, FiBook, FiDollarSign, FiC
 import AnimatedSection from '../components/AnimatedSection'
 import ConsultationForm from '../components/home/ConsultationForm'
 import { australiaCostTierUniversities, australiaUniversitiesDetailed, universityLinkMap } from '../data/universityList'
+import { toCourseSlug } from '../data/courseGuides'
 
 const countryData = {
   australia: {
@@ -237,8 +238,16 @@ export default function Destinations() {
                           <h3 className="font-semibold text-white mb-4">Popular Courses</h3>
                           <ul className="space-y-2">
                             {data.popular.map(c => (
-                              <li key={c} className="flex items-center gap-2 text-sm text-white/60">
-                                <FiCheckCircle className="w-4 h-4 text-copper-400 flex-shrink-0" /> {c}
+                              <li key={c} className="text-sm text-white/60">
+                                <Link
+                                  to={`/destinations/${selected}/${toCourseSlug(c)}`}
+                                  className="flex items-center justify-between gap-2 hover:text-copper-400 transition-colors"
+                                >
+                                  <span className="flex items-center gap-2">
+                                    <FiCheckCircle className="w-4 h-4 text-copper-400 flex-shrink-0" /> {c}
+                                  </span>
+                                  <FiArrowRight className="w-4 h-4 text-copper-400" />
+                                </Link>
                               </li>
                             ))}
                           </ul>
@@ -460,8 +469,16 @@ export default function Destinations() {
                             transition={{ delay: i * 0.05 }}
                             className="glass-card-hover p-4 text-center"
                           >
-                            <FiBook className="w-6 h-6 text-copper-400 mx-auto mb-2" />
-                            <p className="text-sm text-white/70">{course}</p>
+                            <Link
+                              to={`/destinations/${selected}/${toCourseSlug(course)}`}
+                              className="block hover:text-copper-400 transition-colors"
+                            >
+                              <FiBook className="w-6 h-6 text-copper-400 mx-auto mb-2" />
+                              <p className="text-sm text-white/70">{course}</p>
+                              <p className="text-xs text-copper-500 mt-1 inline-flex items-center gap-1">
+                                View details <FiArrowRight className="w-3 h-3" />
+                              </p>
+                            </Link>
                           </motion.div>
                         ))}
                       </div>

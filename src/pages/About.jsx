@@ -4,6 +4,7 @@ import { HiAcademicCap } from 'react-icons/hi'
 import AnimatedSection from '../components/AnimatedSection'
 import ConsultationForm from '../components/home/ConsultationForm'
 import { Link } from 'react-router-dom'
+import { useTheme } from '../context/ThemeContext'
 
 const team = [
   {
@@ -44,6 +45,8 @@ const values = [
 ]
 
 export default function About() {
+  const { isDark } = useTheme()
+
   return (
     <div className="pt-20">
       {/* Page hero */}
@@ -72,7 +75,7 @@ export default function About() {
             transition={{ delay: 0.2 }}
               className="text-xl text-copper-800/80 max-w-3xl mx-auto leading-relaxed"
           >
-            Global Talent is Australia's most trusted study abroad consultancy. We've helped the students 
+            Global Talent is study abroad consultancy. We've helped the students 
             achieve their international education dreams with unmatched expertise, care and dedication.
           </motion.p>
         </div>
@@ -112,7 +115,7 @@ export default function About() {
               <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-6">
                 Our <span className="gradient-text">Story</span>
               </h2>
-              <div className="space-y-4 text-black/70 leading-relaxed">
+              <div className={`space-y-4 leading-relaxed ${isDark ? 'text-white/80' : 'text-black/70'}`}>
                 <p>With over 15 years of experience in academia and research, I bring deep insight into international education and student success. I completed my PhD from the University of Sydney and later undertook a postdoctoral fellowship, gaining extensive experience in research, teaching, and academic development.</p>
                 <p>Currently, I am part of a teaching support team, where I work closely with students and academic processes. Through this journey, I have developed a strong understanding of the challenges students face when pursuing higher education, especially in international environments.</p>
                 <p>This experience inspired me to establish Global Talent Education Consultancy, a platform where I can use my academic background and research expertise to guide students more effectively. Unlike many traditional agencies, I provide in-depth, research-driven advice, particularly for students interested in Master&apos;s by Research and PhD pathways, including supervisor identification and research proposal development.</p>

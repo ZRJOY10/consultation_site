@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiMenu, FiX, FiChevronDown, FiPhone, FiMail, FiSun, FiMoon } from 'react-icons/fi'
-import { HiAcademicCap } from 'react-icons/hi'
+import { FiMenu, FiX, FiChevronDown, FiMail, FiSun, FiMoon, FiFacebook, FiInstagram, FiLinkedin, FiYoutube } from 'react-icons/fi'
+import { FaWhatsapp } from 'react-icons/fa6'
 import { useTheme } from '../context/ThemeContext'
+import mainLogo from '../assets/images/logo.png'
 
 const navLinks = [
   { label: 'Home', path: '/' },
@@ -36,6 +37,13 @@ const navLinks = [
   { label: 'Contact', path: '/contact' },
 ]
 
+const socialLinks = [
+  { icon: FiFacebook, href: 'https://www.facebook.com/share/1HyZANYn9a/?mibextid=wwXIfr', label: 'Facebook' },
+  { icon: FiInstagram, href: 'https://www.instagram.com/global_talent/', label: 'Instagram' },
+  { icon: FiLinkedin, href: 'https://www.linkedin.com/company/global-talent', label: 'LinkedIn' },
+  { icon: FiYoutube, href: 'https://www.youtube.com/@GlobalTalent', label: 'YouTube' },
+]
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -66,11 +74,17 @@ export default function Navbar() {
         <div className={`max-w-7xl mx-auto px-6 py-2 flex justify-between items-center text-xs ${
           isDark ? 'text-slate-500' : 'text-copper-700/60'
         }`}>
-          <div className="flex items-center gap-6">
-            <a href="tel:+61234567890" className={`flex items-center gap-1.5 transition-colors ${
-              isDark ? 'hover:text-slate-300' : 'hover:text-copper-800'
-            }`}>
-              <FiPhone className="w-3 h-3" /> +61 414 248 167
+          <div className="flex items-center gap-4 xl:gap-6">
+            <a
+              href="https://wa.me/61414248167"
+              target="_blank"
+              rel="noreferrer"
+              className={`flex items-center gap-1.5 transition-colors ${
+                isDark ? 'hover:text-green-400' : 'hover:text-green-700'
+              }`}
+              aria-label="Chat on WhatsApp"
+            >
+              <FaWhatsapp className="w-3.5 h-3.5" /> +61 414 248 167
             </a>
             <a href="mailto:info@globaltalentedu.au" className={`flex items-center gap-1.5 transition-colors ${
               isDark ? 'hover:text-slate-300' : 'hover:text-copper-800'
@@ -82,6 +96,25 @@ export default function Navbar() {
             <span>Mon - Sat: 9AM - 6PM</span>
             <span className={`w-1 h-1 rounded-full ${isDark ? 'bg-slate-600' : 'bg-copper-400/40'}`} />
             <span className={isDark ? 'text-copper-400/70' : 'text-copper-600'}>Free consultation available</span>
+            <span className={`w-1 h-1 rounded-full ${isDark ? 'bg-slate-600' : 'bg-copper-400/40'}`} />
+            <div className="flex items-center gap-2">
+              {socialLinks.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={label}
+                  className={`w-6 h-6 rounded-md border flex items-center justify-center transition-all duration-200 ${
+                    isDark
+                      ? 'bg-white/[0.03] border-white/[0.08] text-slate-400 hover:text-white hover:bg-white/[0.08]'
+                      : 'bg-copper-50 border-copper-300/40 text-copper-700 hover:text-copper-900 hover:bg-copper-100'
+                  }`}
+                >
+                  <Icon className="w-3 h-3" />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -97,22 +130,16 @@ export default function Navbar() {
         <nav className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
-              <div className="relative w-10 h-10">
-                <div className={`absolute inset-0 rounded-xl rotate-6 group-hover:rotate-12 transition-transform duration-300 ${
-                  isDark ? 'bg-copper-700' : 'bg-copper-700'
-                }`} />
-                <div className={`absolute inset-0 rounded-xl flex items-center justify-center ${
-                  isDark ? 'bg-gradient-to-br from-copper-600 to-copper-500' : 'bg-gradient-to-br from-copper-600 to-copper-500'
-                }`}>
-                  <HiAcademicCap className="w-6 h-6 text-white" />
-                </div>
-              </div>
-              <div>
-                <span className={`text-xl font-bold font-poppins ${isDark ? 'text-white' : 'text-copper-900'}`}>
-                  Global <span className="gradient-text">Talent</span>
-                </span>
-                <p className={`text-xs leading-none ${isDark ? 'text-slate-500' : 'text-copper-600/60'}`}>Study Abroad Experts</p>
+            <Link to="/" className="flex items-center group">
+              <div className={`rounded-xl transition-all duration-300 ${
+                isDark ? '' : 'bg-copper-900/95 ring-1 ring-copper-700/40 px-2 py-1 shadow-sm'
+              }`}>
+                <img
+                  src={mainLogo}
+                  alt="Global Talent"
+                  className="h-11 sm:h-12 lg:h-14 w-auto max-w-[170px] sm:max-w-[230px] lg:max-w-[280px] object-contain"
+                  loading="eager"
+                />
               </div>
             </Link>
 

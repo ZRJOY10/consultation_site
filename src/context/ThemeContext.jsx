@@ -6,7 +6,7 @@ export function ThemeProvider({ children }) {
   const [isDark, setIsDark] = useState(() => {
     const stored = localStorage.getItem('global-talent-theme')
     if (stored) return stored === 'dark'
-    return false // Light mode is default
+    return true // Dark mode is default
   })
 
   useEffect(() => {

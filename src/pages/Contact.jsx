@@ -1,11 +1,11 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FiPhone, FiMail, FiMapPin, FiClock, FiSend, FiUser, FiMessageSquare, FiCheckCircle } from 'react-icons/fi'
+import { FiPhone, FiMail, FiMapPin, FiClock } from 'react-icons/fi'
+import { FaWhatsapp } from 'react-icons/fa6'
 import AnimatedSection from '../components/AnimatedSection'
-import toast from 'react-hot-toast'
+import ContactForm from '../components/forms/ContactForm'
 
 const contactInfo = [
-  { icon: FiPhone, title: 'Call Us', value: '+61 414 248 167', sub: 'Mon-Sat 9AM-6PM', href: 'tel:+61414248167', color: 'from-copper-600 to-copper-400' },
+  { icon: FaWhatsapp, title: 'WhatsApp Us', value: '+61 414 248 167', sub: 'Mon-Sat 9AM-6PM', href: 'https://wa.me/61414248167', color: 'from-copper-600 to-copper-400' },
   { icon: FiMail, title: 'Email Us', value: 'info@globaltalentedu.au', sub: 'Reply within 24 hours', href: 'mailto:info@globaltalentedu.au', color: 'from-copper-600 to-copper-400' },
   { icon: FiMapPin, title: 'Visit Us', value: '2/13 Moore lane ', sub: 'Lilyfield-2040, NSW', href: '#', color: 'from-copper-600 to-copper-400' },
   { icon: FiClock, title: 'Office Hours', value: 'Mon - Saturday', sub: '9:00 AM – 6:00 PM', href: null, color: 'from-copper-600 to-copper-400' },
@@ -17,19 +17,6 @@ const offices = [
 ]
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' })
-  const [loading, setLoading] = useState(false)
-  const [sent, setSent] = useState(false)
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-    await new Promise(r => setTimeout(r, 1500))
-    setLoading(false)
-    setSent(true)
-    toast.success('Message sent! We\'ll reply within 24 hours.')
-  }
-
   return (
     <div className="pt-20">
       {/* Hero */}
@@ -68,49 +55,15 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Form */}
             <AnimatedSection direction="right">
-              {sent ? (
-                <motion.div initial={{ scale: 0.9 }} animate={{ scale: 1 }} className="glass-card p-10 text-center">
-                  <div className="w-20 h-20 rounded-full bg-copper-500/20 border-2 border-copper-500/30 flex items-center justify-center mx-auto mb-6">
-                    <FiCheckCircle className="w-10 h-10 text-copper-400" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-3">Message Sent!</h3>
-                  <p className="text-white/60 mb-6">Thank you for contacting us. We'll get back to you within 24 hours.</p>
-                  <button onClick={() => setSent(false)} className="btn-primary">Send Another Message</button>
-                </motion.div>
-              ) : (
-                <div className="glass-card p-8">
-                  <h2 className="text-2xl font-bold text-white mb-2">Send a Message</h2>
-                  <p className="text-white/40 text-sm mb-6">Fill out the form and we'll get back to you shortly.</p>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="relative">
-                        <FiUser className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
-                        <input type="text" name="name" placeholder="Your Name *" required value={form.name} onChange={e => setForm({...form, name: e.target.value})} className="input-field pl-11" />
-                      </div>
-                      <div className="relative">
-                        <FiPhone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
-                        <input type="tel" name="phone" placeholder="Phone" value={form.phone} onChange={e => setForm({...form, phone: e.target.value})} className="input-field pl-11" />
-                      </div>
-                    </div>
-                    <div className="relative">
-                      <FiMail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
-                      <input type="email" name="email" placeholder="Email Address *" required value={form.email} onChange={e => setForm({...form, email: e.target.value})} className="input-field pl-11" />
-                    </div>
-                    <div className="relative">
-                      <FiMessageSquare className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
-                      <input type="text" name="subject" placeholder="Subject" value={form.subject} onChange={e => setForm({...form, subject: e.target.value})} className="input-field pl-11" />
-                    </div>
-                    <textarea name="message" placeholder="Your message... *" required rows={5} value={form.message} onChange={e => setForm({...form, message: e.target.value})} className="input-field resize-none" />
-                    <motion.button type="submit" disabled={loading} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full btn-primary justify-center disabled:opacity-70">
-                      {loading ? (
-                        <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Sending...</>
-                      ) : (
-                        <><FiSend className="w-4 h-4" /> Send Message</>
-                      )}
-                    </motion.button>
-                  </form>
-                </div>
-              )}
+              <ContactForm
+                heading="Send a Message"
+                description="Fill out the form and we'll get back to you shortly."
+                submitLabel="Send Message"
+                successTitle="Message Sent!"
+                successDescription="Thank you for contacting us. We'll get back to you within 24 hours."
+                source="Contact Page"
+                defaultSubject="New contact enquiry"
+              />
             </AnimatedSection>
 
             {/* Map + Offices */}
@@ -139,7 +92,14 @@ export default function Contact() {
                     <div>
                       <p className="font-medium text-white text-sm">{city}</p>
                       <p className="text-xs text-white/40">{address}</p>
-                      <p className="text-xs text-copper-400">{phone}</p>
+                      <a
+                        href="https://wa.me/61414248167"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-xs text-copper-400 hover:text-copper-300 inline-flex items-center gap-1 mt-1"
+                      >
+                        <FaWhatsapp className="w-3 h-3" /> {phone}
+                      </a>
                     </div>
                   </div>
                 ))}

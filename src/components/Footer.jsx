@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FiPhone, FiMail, FiMapPin, FiFacebook, FiInstagram, FiLinkedin, FiYoutube, FiTwitter } from 'react-icons/fi'
-import { HiAcademicCap } from 'react-icons/hi'
+import { FaWhatsapp } from 'react-icons/fa6'
 import { useTheme } from '../context/ThemeContext'
+import mainLogo from '../assets/images/logo.png'
 
 const footerLinks = {
   company: [
@@ -61,22 +62,16 @@ export default function Footer() {
         }`}>
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-6 group">
-              <div className="relative w-10 h-10">
-                <div className={`absolute inset-0 rounded-xl rotate-6 group-hover:rotate-12 transition-transform duration-300 ${
-                  isDark ? 'bg-copper-700' : 'bg-copper-700'
-                }`} />
-                <div className={`absolute inset-0 rounded-xl flex items-center justify-center bg-gradient-to-br ${
-                  isDark ? 'from-copper-600 to-copper-500' : 'from-copper-600 to-copper-500'
-                }`}>
-                  <HiAcademicCap className="w-6 h-6 text-white" />
-                </div>
-              </div>
-              <div>
-                <span className={`text-xl font-bold font-poppins ${isDark ? 'text-white' : 'text-copper-900'}`}>
-                  Global <span className="gradient-text">Talent</span>
-                </span>
-                <p className={`text-xs leading-none ${isDark ? 'text-slate-500' : 'text-copper-600/60'}`}>Study Abroad Experts</p>
+            <Link to="/" className="inline-flex mb-6">
+              <div className={`rounded-xl transition-all duration-300 ${
+                isDark ? '' : 'bg-copper-900/95 ring-1 ring-copper-700/40 px-2 py-1 shadow-sm'
+              }`}>
+                <img
+                  src={mainLogo}
+                  alt="Global Talent"
+                  className="h-11 sm:h-12 w-auto max-w-[170px] sm:max-w-[220px] object-contain"
+                  loading="lazy"
+                />
               </div>
             </Link>
             <p className={`text-sm leading-relaxed mb-6 max-w-xs ${isDark ? 'text-slate-500' : 'text-copper-700/60'}`}>
@@ -132,7 +127,7 @@ export default function Footer() {
           isDark ? 'border-white/[0.04]' : 'border-copper-200/30'
         }`}>
           {[
-            { icon: FiPhone, label: 'Call Us', value: '+61 414 248 167', href: 'tel:+61414248167' },
+            { icon: FaWhatsapp, label: 'WhatsApp Us', value: '+61 414 248 167', href: 'https://wa.me/61414248167' },
             { icon: FiMail, label: 'Email Us', value: 'info@globaltalentedu.au', href: 'mailto:info@globaltalentedu.au' },
             { icon: FiMapPin, label: 'Visit Us', value: '2/13 Moore lane , Lilyfield-2040, NSW, Australia', href: '#' },
           ].map(({ icon: Icon, label, value, href }) => (

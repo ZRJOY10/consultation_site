@@ -15,6 +15,7 @@ import Blog from './pages/Blog'
 import Contact from './pages/Contact'
 import BookConsultation from './pages/BookConsultation'
 import AdminDashboard from './pages/AdminDashboard'
+import DestinationCourse from './pages/DestinationCourse'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -59,6 +60,7 @@ export default function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/destinations" element={<Destinations />} />
             <Route path="/destinations/:country" element={<Destinations />} />
+            <Route path="/destinations/:country/:course" element={<DestinationCourse />} />
             <Route path="/universities" element={<Universities />} />
             <Route path="/pte-training" element={<PTETraining />} />
             <Route path="/student-success" element={<StudentSuccess />} />

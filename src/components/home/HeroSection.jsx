@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { FiArrowRight, FiPlay, FiStar, FiUsers, FiAward, FiGlobe } from 'react-icons/fi'
+import { FiArrowRight, FiPlay, FiPlusCircle, FiUsers, FiBarChart2, FiActivity } from 'react-icons/fi'
 import { HiSparkles } from 'react-icons/hi'
 import { useTheme } from '../../context/ThemeContext'
 import worldSvg from '../../assets/svg/world.svg'
+import { toCourseSlug } from '../../data/courseGuides'
 
-/* Stats */
-const stats = [
-  { icon: FiUsers, value: '15,000+', label: 'Students Placed' },
-  { icon: FiStar, value: '98%', label: 'Visa Success Rate' },
-  { icon: FiGlobe, value: '50+', label: 'Top Universities' },
-  { icon: FiAward, value: '14+', label: 'Years Experience' },
+const topAustraliaCourses = [
+  { name: 'Nursing', meta: 'Healthcare Pathway', icon: FiPlusCircle },
+  { name: 'Social Work', meta: 'Community Impact', icon: FiUsers },
+  { name: 'Business Analytics', meta: 'Data & Strategy', icon: FiBarChart2 },
+  { name: 'Laboratory Medicine', meta: 'Clinical Science', icon: FiActivity },
 ]
 
 /* Subtle stars (25) dark mode only */
@@ -318,14 +318,24 @@ export default function HeroSection() {
           <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 mb-12">
-            {stats.map(({ icon: Icon, value, label }, i) => (
-              <motion.div key={label} initial={{ opacity: 0, scale: 0.9 }}
+            {topAustraliaCourses.map(({ name, meta, icon: Icon }, i) => (
+              <motion.div key={name} initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5 + i * 0.1, duration: 0.5 }}
-                className="glass-card p-3 sm:p-4 text-center transition-all duration-300 hover:scale-[1.02]">
-                <Icon className={`w-4 sm:w-5 h-4 sm:h-5 mx-auto mb-1.5 sm:mb-2 ${isDark ? 'text-copper-400' : 'text-copper-600'}`} />
-                <div className={`text-lg sm:text-2xl font-bold font-poppins ${isDark ? 'text-white' : 'text-copper-900'}`}>{value}</div>
-                <div className={`text-[10px] sm:text-xs ${isDark ? 'text-slate-500' : 'text-copper-600/60'}`}>{label}</div>
+                className="glass-card transition-all duration-300 hover:scale-[1.02] hover:border-copper-500/30">
+                <Link
+                  to={`/destinations/australia/${toCourseSlug(name)}`}
+                  className="block p-3 sm:p-4 text-center"
+                >
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 mx-auto mb-2 rounded-lg bg-copper-600/15 border border-copper-500/20 flex items-center justify-center">
+                    <Icon className={`w-4 h-4 ${isDark ? 'text-copper-400' : 'text-copper-700'}`} />
+                  </div>
+                  <div className={`text-sm sm:text-base font-semibold font-poppins ${isDark ? 'text-white' : 'text-copper-900'}`}>{name}</div>
+                  <div className={`text-[10px] sm:text-xs mt-1 ${isDark ? 'text-slate-500' : 'text-copper-600/60'}`}>{meta}</div>
+                  <div className="text-[10px] sm:text-xs mt-2 text-copper-500 inline-flex items-center gap-1">
+                    View course <FiArrowRight className="w-3 h-3" />
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </motion.div>
