@@ -8,7 +8,7 @@ export default function ConsultationForm() {
   const { isDark } = useTheme()
 
   return (
-    <section className="py-28 relative overflow-hidden">
+    <section aria-label="Free consultation form" className="py-28 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-copper-950/20 to-transparent pointer-events-none" />
       <div className="absolute inset-0 bg-hero-pattern opacity-20 pointer-events-none" />

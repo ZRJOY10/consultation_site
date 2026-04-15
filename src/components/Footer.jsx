@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { FiPhone, FiMail, FiMapPin, FiFacebook, FiInstagram, FiLinkedin, FiYoutube, FiTwitter } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa6'
 import { useTheme } from '../context/ThemeContext'
-import mainLogo from '../assets/images/logo.png'
+import mainLogo from '../assets/images/logo.webp'
 
 const footerLinks = {
   company: [
@@ -34,7 +34,7 @@ const socials = [
   { icon: FiFacebook, href: 'https://www.facebook.com/share/1HyZANYn9a/?mibextid=wwXIfr', label: 'Facebook' },
   { icon: FiInstagram, href: 'https://www.instagram.com/global_talent/', label: 'Instagram' },
   { icon: FiLinkedin, href: 'https://www.linkedin.com/company/global-talent', label: 'LinkedIn' },
-  { icon: FiYoutube, href: 'https://www.youtube.com/@GlobalTalent', label: 'YouTube' },
+  { icon: FiYoutube, href: 'https://youtube.com/@globaltalenteducationcon?si=PUDihdRoqSX8CLri', label: 'YouTube' },
   { icon: FiTwitter, href: 'https://twitter.com/GlobalTalent', label: 'Twitter' },
 ]
 
@@ -68,9 +68,12 @@ export default function Footer() {
               }`}>
                 <img
                   src={mainLogo}
-                  alt="Global Talent"
+                  alt="Global Talent Education logo"
+                  width="7609"
+                  height="2453"
                   className="h-11 sm:h-12 w-auto max-w-[170px] sm:max-w-[220px] object-contain"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             </Link>
@@ -155,9 +158,9 @@ export default function Footer() {
             © {new Date().getFullYear()} Global Talent Education. All rights reserved.
           </p>
           <div className={`flex items-center gap-6 text-xs ${isDark ? 'text-slate-600' : 'text-copper-500/50'}`}>
-            <Link to="#" className={`transition-colors ${isDark ? 'hover:text-slate-400' : 'hover:text-copper-700'}`}>Privacy Policy</Link>
-            <Link to="#" className={`transition-colors ${isDark ? 'hover:text-slate-400' : 'hover:text-copper-700'}`}>Terms of Service</Link>
-            <Link to="#" className={`transition-colors ${isDark ? 'hover:text-slate-400' : 'hover:text-copper-700'}`}>Cookie Policy</Link>
+            <Link to="/privacy-policy" className={`transition-colors ${isDark ? 'hover:text-slate-400' : 'hover:text-copper-700'}`}>Privacy Policy</Link>
+            <Link to="/terms-of-service" className={`transition-colors ${isDark ? 'hover:text-slate-400' : 'hover:text-copper-700'}`}>Terms of Service</Link>
+            <Link to="/cookie-policy" className={`transition-colors ${isDark ? 'hover:text-slate-400' : 'hover:text-copper-700'}`}>Cookie Policy</Link>
           </div>
         </div>
       </div>

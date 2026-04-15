@@ -4,6 +4,7 @@ import { FiSearch, FiClock, FiUser, FiTag, FiArrowRight } from 'react-icons/fi'
 import AnimatedSection from '../components/AnimatedSection'
 import SectionBadge from '../components/SectionBadge'
 import ConsultationForm from '../components/home/ConsultationForm'
+import { optimizeImageUrl } from '../utils/imageOptimization'
 
 const categories = ['All', 'Visa Guide', 'Scholarships', 'University Life', 'Career', 'PTE/IELTS', 'Destinations']
 
@@ -34,7 +35,7 @@ export default function Blog() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="py-24 relative overflow-hidden">
+      <section aria-label="Blog page hero" className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/10 to-copper-900/20 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
@@ -57,8 +58,9 @@ export default function Blog() {
         </div>
       </section>
 
-      <section className="pb-20">
+      <section aria-label="Blog articles listing" className="pb-20">
         <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-2xl font-bold text-white mb-6">Study Abroad Articles and Guides</h2>
           {/* Category filter */}
           <div className="flex flex-wrap gap-2 mb-10">
             {categories.map(c => (
@@ -75,9 +77,17 @@ export default function Blog() {
           {/* Featured */}
           {featured && (
             <AnimatedSection className="mb-10">
-              <motion.div whileHover={{ scale: 1.01 }} className="glass-card-hover overflow-hidden rounded-2xl grid grid-cols-1 lg:grid-cols-2 cursor-pointer group">
+              <motion.article whileHover={{ scale: 1.01 }} className="glass-card-hover overflow-hidden rounded-2xl grid grid-cols-1 lg:grid-cols-2 cursor-pointer group">
                 <div className="relative h-64 lg:h-auto overflow-hidden">
-                  <img src={featured.image} alt={featured.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img
+                    src={optimizeImageUrl(featured.image, { width: 1200, height: 675 })}
+                    alt={`Featured article image: ${featured.title}`}
+                    width="1200"
+                    height="675"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#1e293b]/80 hidden lg:block" />
                   <SectionBadge variant="solid" className="absolute top-4 left-4 px-3 py-1 text-xs font-bold mb-0">Featured</SectionBadge>
                 </div>
@@ -94,7 +104,7 @@ export default function Blog() {
                     Read Article <FiArrowRight className="w-4 h-4" />
                   </button>
                 </div>
-              </motion.div>
+              </motion.article>
             </AnimatedSection>
           )}
 
@@ -102,9 +112,17 @@ export default function Blog() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {rest.map((post, i) => (
               <AnimatedSection key={post.id} delay={i * 0.06}>
-                <motion.div whileHover={{ y: -6 }} className="glass-card-hover overflow-hidden rounded-2xl cursor-pointer group h-full flex flex-col">
+                <motion.article whileHover={{ y: -6 }} className="glass-card-hover overflow-hidden rounded-2xl cursor-pointer group h-full flex flex-col">
                   <div className="relative h-48 overflow-hidden">
-                    <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                    <img
+                      src={optimizeImageUrl(post.image, { width: 900, height: 540 })}
+                      alt={`Article image: ${post.title}`}
+                      width="900"
+                      height="540"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1e293b]/60 to-transparent" />
                     <SectionBadge variant="solid" className="absolute top-3 left-3 bg-copper-600/80 backdrop-blur-sm px-2.5 py-1 text-xs mb-0">
                       {post.category}
@@ -121,7 +139,7 @@ export default function Blog() {
                       <FiArrowRight className="w-4 h-4 text-copper-400 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
-                </motion.div>
+                </motion.article>
               </AnimatedSection>
             ))}
           </div>

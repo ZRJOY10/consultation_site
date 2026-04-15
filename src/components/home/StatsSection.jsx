@@ -18,7 +18,7 @@ export default function StatsSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 })
 
   return (
-    <section className="relative py-20 overflow-hidden" ref={ref}>
+    <section aria-label="Performance statistics" className="relative py-20 overflow-hidden" ref={ref}>
       {/* BG gradient */}
       <div className={`absolute inset-0 pointer-events-none ${isDark ? 'bg-gradient-to-r from-copper-900/20 via-copper-800/30 to-copper-900/20' : 'bg-gradient-to-r from-copper-100/30 via-copper-200/40 to-copper-100/30'}`} />
       <div className={`absolute inset-0 border-y pointer-events-none ${isDark ? 'border-slate-700/40' : 'border-copper-300/40'}`} />

@@ -81,7 +81,7 @@ export default function WhyChooseUs() {
   const { isDark } = useTheme()
 
   return (
-    <section className="relative py-28 overflow-hidden">
+    <section aria-label="Why choose Global Talent" className="relative py-28 overflow-hidden">
       {/* BG */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-copper-950/10 to-transparent pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-copper-600/5 rounded-full blur-3xl pointer-events-none" />

@@ -7,6 +7,7 @@ import SectionBadge from '../SectionBadge'
 import { useTheme } from '../../context/ThemeContext'
 import { Link } from 'react-router-dom'
 import { FiArrowRight } from 'react-icons/fi'
+import { optimizeImageUrl } from '../../utils/imageOptimization'
 
 const stories = [
   {
@@ -87,7 +88,7 @@ export default function SuccessStories() {
   const story = stories[active]
 
   return (
-    <section className="py-28 relative overflow-hidden">
+    <section aria-label="Student success testimonials" className="py-28 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-copper-950/5 to-transparent pointer-events-none" />
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-copper-600/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2" />
 
@@ -106,7 +107,7 @@ export default function SuccessStories() {
           {/* Left: Main testimonial */}
           <AnimatedSection direction="right">
             <AnimatePresence mode="wait">
-              <motion.div
+              <motion.article
                 key={story.id}
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -128,9 +129,13 @@ export default function SuccessStories() {
                 {/* Profile */}
                 <div className="flex items-center gap-4 mb-6">
                   <img
-                    src={story.photo}
-                    alt={story.name}
+                    src={optimizeImageUrl(story.photo, { width: 112, height: 112 })}
+                    alt={`Profile photo of ${story.name}, featured testimonial`}
+                    width="56"
+                    height="56"
                     className="w-14 h-14 rounded-full object-cover border-2 border-copper-500/30"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div>
                     <p className={`font-semibold ${isDark ? 'text-white' : 'text-copper-900'}`}>{story.name}</p>
@@ -160,7 +165,7 @@ export default function SuccessStories() {
                   </div>
                   Watch video testimonial
                 </button>
-              </motion.div>
+              </motion.article>
             </AnimatePresence>
 
             {/* Controls */}
@@ -187,16 +192,20 @@ export default function SuccessStories() {
           <AnimatedSection direction="left">
             <div className="grid grid-cols-1 gap-4">
               {stories.filter((_, i) => i !== active).slice(0, 3).map((s) => (
-                <motion.div
+                <motion.article
                   key={s.id}
                   whileHover={{ x: 6 }}
                   onClick={() => setActive(stories.indexOf(s))}
                   className="glass-card-hover p-5 flex items-center gap-4 cursor-pointer"
                 >
                   <img
-                    src={s.photo}
-                    alt={s.name}
+                    src={optimizeImageUrl(s.photo, { width: 96, height: 96 })}
+                    alt={`Profile photo of ${s.name}, student story`}
+                    width="48"
+                    height="48"
                     className="w-12 h-12 rounded-full object-cover flex-shrink-0 border-2 border-white/10"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="flex-1 min-w-0">
                     <p className={`font-medium ${isDark ? 'text-white' : 'text-copper-900'} text-sm`}>{s.name}</p>
@@ -208,7 +217,7 @@ export default function SuccessStories() {
                     </div>
                   </div>
                   <span className="text-xl">{s.country.split(' ')[0]}</span>
-                </motion.div>
+                </motion.article>
               ))}
 
               <Link to="/student-success" className="btn-primary justify-center mt-4">

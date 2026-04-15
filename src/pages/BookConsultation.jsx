@@ -6,7 +6,7 @@ import ContactForm from '../components/forms/ContactForm'
 export default function BookConsultation() {
   return (
     <div className="pt-20">
-      <section className="py-20 relative overflow-hidden">
+      <section aria-label="Consultation booking hero" className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/15 to-copper-700/10 pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
@@ -36,8 +36,9 @@ export default function BookConsultation() {
         </div>
       </section>
 
-      <section className="pb-24">
+      <section aria-label="Consultation booking form" className="pb-24">
         <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-2xl font-bold text-white mb-6 text-center">Free Consultation Booking Form</h2>
           <AnimatedSection>
             <ContactForm
               heading="Get Free Expert Advice"

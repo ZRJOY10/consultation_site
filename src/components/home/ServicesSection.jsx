@@ -60,7 +60,7 @@ export default function ServicesSection() {
   const { isDark } = useTheme()
 
   return (
-    <section className="py-28 relative overflow-hidden">
+    <section aria-label="Core services overview" className="py-28 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-copper-950/5 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">

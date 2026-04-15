@@ -5,6 +5,7 @@ import { FiArrowRight, FiMapPin, FiUsers, FiBookOpen, FiDollarSign } from 'react
 import AnimatedSection from '../AnimatedSection'
 import SectionBadge from '../SectionBadge'
 import { useTheme } from '../../context/ThemeContext'
+import { optimizeImageUrl } from '../../utils/imageOptimization'
 
 const destinations = [
   {
@@ -92,7 +93,7 @@ export default function StudyDestinations() {
   const [hovered, setHovered] = useState(null)
 
   return (
-    <section className="py-28 relative overflow-hidden">
+    <section aria-label="Top study destinations" className="py-28 relative overflow-hidden">
       <div className={`absolute inset-0 pointer-events-none ${isDark ? 'bg-gradient-to-b from-transparent to-copper-950/10' : 'bg-gradient-to-b from-transparent to-copper-100/20'}`} />
 
       <div className="max-w-7xl mx-auto px-6">
@@ -110,7 +111,7 @@ export default function StudyDestinations() {
           {destinations.map((dest, i) => (
             <AnimatedSection key={dest.id} delay={i * 0.08}>
               <Link to={`/destinations/${dest.id}`}>
-                <motion.div
+                <motion.article
                   onHoverStart={() => setHovered(dest.id)}
                   onHoverEnd={() => setHovered(null)}
                   className="country-card h-72 md:h-80"
@@ -122,10 +123,13 @@ export default function StudyDestinations() {
                     className="absolute inset-0"
                   >
                     <img
-                      src={dest.image}
-                      alt={dest.name}
+                      src={optimizeImageUrl(dest.image, { width: 900, height: 600 })}
+                      alt={`Study destination card image for ${dest.name}`}
+                      width="900"
+                      height="600"
                       className="w-full h-full object-cover"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div className={`absolute inset-0 bg-gradient-to-t ${dest.color} opacity-70`} />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -176,7 +180,7 @@ export default function StudyDestinations() {
                       </motion.div>
                     </div>
                   </div>
-                </motion.div>
+                </motion.article>
               </Link>
             </AnimatedSection>
           ))}

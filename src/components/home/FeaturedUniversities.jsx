@@ -11,7 +11,7 @@ export default function FeaturedUniversities() {
   const { isDark } = useTheme()
 
   return (
-    <section className="py-28 relative overflow-hidden">
+    <section aria-label="Featured university partners" className="py-28 relative overflow-hidden">
       <div className={`absolute inset-0 pointer-events-none ${
         isDark ? 'bg-gradient-to-b from-copper-950/10 to-transparent' : 'bg-gradient-to-b from-copper-100/30 to-transparent'
       }`} />

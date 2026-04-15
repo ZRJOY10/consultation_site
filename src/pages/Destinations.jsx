@@ -6,6 +6,7 @@ import AnimatedSection from '../components/AnimatedSection'
 import ConsultationForm from '../components/home/ConsultationForm'
 import { australiaCostTierUniversities, australiaUniversitiesDetailed, universityLinkMap } from '../data/universityList'
 import { toCourseSlug } from '../data/courseGuides'
+import { optimizeImageUrl } from '../utils/imageOptimization'
 
 const countryData = {
   australia: {
@@ -132,7 +133,7 @@ export default function Destinations() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="py-20 relative overflow-hidden">
+      <section aria-label="Destinations page hero" className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/10 to-copper-900/20 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
@@ -145,8 +146,9 @@ export default function Destinations() {
       </section>
 
       {/* Country selector */}
-      <section className="pb-12">
+      <section aria-label="Destination comparison and country details" className="pb-12">
         <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-2xl font-bold text-white mb-6 text-center">Compare Study Destinations by Country</h2>
           <div className="flex flex-wrap gap-3 justify-center mb-12">
             {allCountries.map(c => {
               const d = countryData[c]
@@ -179,7 +181,16 @@ export default function Destinations() {
               >
                 {/* Hero banner */}
                 <div className="relative rounded-3xl overflow-hidden h-64 md:h-80 mb-8">
-                  <img src={data.image} alt={data.name} className="w-full h-full object-cover" />
+                  <img
+                    src={optimizeImageUrl(data.image, { width: 1600, height: 900 })}
+                    alt={`Study in ${data.name} destination banner`}
+                    width="1600"
+                    height="900"
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                    decoding="async"
+                    fetchPriority="high"
+                  />
                   <div className={`absolute inset-0 bg-gradient-to-t ${data.color} opacity-70`} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                   <div className="absolute bottom-8 left-8 z-10">
@@ -496,12 +507,20 @@ export default function Destinations() {
                 const d = countryData[c]
                 return (
                   <AnimatedSection key={c} delay={i * 0.08}>
-                    <motion.div
+                    <motion.article
                       whileHover={{ y: -6, scale: 1.02 }}
                       onClick={() => setSelected(c)}
                       className="country-card h-64 cursor-pointer"
                     >
-                      <img src={d.image} alt={d.name} className="absolute inset-0 w-full h-full object-cover" />
+                      <img
+                        src={optimizeImageUrl(d.image, { width: 800, height: 512 })}
+                        alt={`Study destination image for ${d.name}`}
+                        width="800"
+                        height="512"
+                        className="absolute inset-0 w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                      />
                       <div className={`absolute inset-0 bg-gradient-to-t ${d.color} opacity-60`} />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                       <div className="absolute bottom-6 left-6 z-10">
@@ -511,7 +530,7 @@ export default function Destinations() {
                         </div>
                         <p className="text-sm text-white/60">{d.tagline}</p>
                       </div>
-                    </motion.div>
+                    </motion.article>
                   </AnimatedSection>
                 )
               })}

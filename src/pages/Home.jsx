@@ -3,10 +3,9 @@ import WhyChooseUs from '../components/home/WhyChooseUs'
 import StudyDestinations from '../components/home/StudyDestinations'
 import FeaturedUniversities from '../components/home/FeaturedUniversities'
 import ServicesSection from '../components/home/ServicesSection'
-import SuccessStories from '../components/home/SuccessStories'
 import ConsultationForm from '../components/home/ConsultationForm'
 import SocialPreviewSection from '../components/home/SocialPreviewSection'
-import StatsSection from '../components/home/StatsSection'
+import HomeFaqSection from '../components/home/HomeFaqSection'
 
 export default function Home() {
   return (
@@ -17,7 +16,7 @@ export default function Home() {
       <StudyDestinations />
       <FeaturedUniversities />
       <ServicesSection />
-      {/* <SuccessStories /> */}
+      <HomeFaqSection />
       <ConsultationForm />
       <SocialPreviewSection />
     </>

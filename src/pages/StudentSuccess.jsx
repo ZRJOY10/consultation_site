@@ -5,6 +5,7 @@ import { HiCheckCircle } from 'react-icons/hi'
 import AnimatedSection from '../components/AnimatedSection'
 import ConsultationForm from '../components/home/ConsultationForm'
 import SectionBadge from '../components/SectionBadge'
+import { optimizeImageUrl } from '../utils/imageOptimization'
 
 const stories = [
   { id: 1, name: 'Priya Sharma', photo: 'https://images.unsplash.com/photo-1494790108755-2616b332c3b0?w=200&h=200&fit=crop', country: 'Australia', flag: '🇦🇺', university: 'University of Melbourne', course: 'Master of Data Science', visa: 'Approved', scholarship: '$15,000', rating: 5, quote: 'Global Talent made my dream of studying in Australia a reality. They guided me step by step from course selection to visa approval.', year: '2024', tags: ['Scholarship', 'Visa'] },
@@ -28,7 +29,7 @@ export default function StudentSuccess() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="py-24 relative overflow-hidden">
+      <section aria-label="Student success hero" className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/10 to-copper-900/20 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
@@ -47,8 +48,9 @@ export default function StudentSuccess() {
       </section>
 
       {/* Filter */}
-      <section className="pb-6">
+      <section aria-label="Success story filters and grid" className="pb-6">
         <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-2xl font-bold text-white mb-6">Success Stories by Destination</h2>
           <div className="flex items-center gap-2 mb-8 overflow-x-auto pb-2">
             <FiFilter className="w-4 h-4 text-slate-500 flex-shrink-0" />
             {countries.map(c => (
@@ -66,10 +68,18 @@ export default function StudentSuccess() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filtered.map((story, i) => (
               <AnimatedSection key={story.id} delay={i * 0.06}>
-                <motion.div whileHover={{ y: -6 }} className="glass-card-hover p-6 flex flex-col h-full group">
+                <motion.article whileHover={{ y: -6 }} className="glass-card-hover p-6 flex flex-col h-full group">
                   {/* Header */}
                   <div className="flex items-center gap-3 mb-4">
-                    <img src={story.photo} alt={story.name} className="w-12 h-12 rounded-full object-cover border-2 border-slate-700/50" />
+                    <img
+                      src={optimizeImageUrl(story.photo, { width: 96, height: 96 })}
+                      alt={`Profile photo of ${story.name}, student success story`}
+                      width="48"
+                      height="48"
+                      className="w-12 h-12 rounded-full object-cover border-2 border-slate-700/50"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <div className="flex-1 min-w-0">
                       <p className="font-semibold text-white text-sm">{story.name}</p>
                       <p className="text-xs text-slate-500 truncate">{story.university}</p>
@@ -107,7 +117,7 @@ export default function StudentSuccess() {
                   >
                     <FiPlay className="w-3.5 h-3.5" /> Watch video
                   </button>
-                </motion.div>
+                </motion.article>
               </AnimatedSection>
             ))}
           </div>

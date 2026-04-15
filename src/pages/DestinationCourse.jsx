@@ -30,7 +30,7 @@ export default function DestinationCourse() {
   if (!guide) {
     return (
       <div className="pt-20">
-        <section className="py-20 relative overflow-hidden">
+        <section aria-label="Course page unavailable message" className="py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-copper-900/20 to-copper-700/10 pointer-events-none" />
           <div className="max-w-5xl mx-auto px-6">
             <Link to={`/destinations/${country}`} className="inline-flex items-center gap-2 text-sm text-copper-500 hover:text-copper-400 transition-colors mb-6">
@@ -53,7 +53,7 @@ export default function DestinationCourse() {
 
   return (
     <div className="pt-20">
-      <section className="py-20 relative overflow-hidden">
+      <section aria-label="Course guide hero" className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/30 to-copper-700/10 pointer-events-none" />
         <div className="absolute -top-24 -right-20 w-80 h-80 bg-copper-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-copper-700/10 rounded-full blur-3xl pointer-events-none" />
@@ -89,7 +89,7 @@ export default function DestinationCourse() {
         </div>
       </section>
 
-      <section className="pb-24 mt-10">
+      <section aria-label="Course guide details" className="pb-24 mt-10">
         <div className="max-w-7xl mx-auto px-6 space-y-8">
           <div className="glass-card p-6 md:p-8 rounded-3xl">
             <h2 className="text-2xl font-bold text-white mb-5">Why Study {guide.courseName} in {guide.countryName}?</h2>

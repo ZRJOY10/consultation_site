@@ -7,6 +7,8 @@ import { useTheme } from '../../context/ThemeContext'
 import worldSvg from '../../assets/svg/world.svg'
 import { toCourseSlug } from '../../data/courseGuides'
 
+const heroMapPreloadUrl = new URL('../../assets/svg/world.svg', import.meta.url).href
+
 const topAustraliaCourses = [
   { name: 'Nursing', meta: 'Healthcare Pathway', icon: FiPlusCircle },
   { name: 'Social Work', meta: 'Community Impact', icon: FiUsers },
@@ -86,6 +88,20 @@ export default function HeroSection() {
     return () => mq.removeEventListener('change', handle)
   }, [])
 
+  useEffect(() => {
+    const preloadId = 'hero-map-preload'
+    let preload = document.getElementById(preloadId)
+
+    if (!preload) {
+      preload = document.createElement('link')
+      preload.id = preloadId
+      preload.rel = 'preload'
+      preload.as = 'image'
+      preload.href = heroMapPreloadUrl
+      document.head.appendChild(preload)
+    }
+  }, [])
+
   const accent = isDark ? '#38bdf8' : '#b87333'
   const gridColor = isDark ? '#475569' : '#b87333'
   const viewBox = isSmall ? '1150 50 950 807' : '50 0 2000 857'
@@ -94,7 +110,7 @@ export default function HeroSection() {
     : '0.5 0.1 0 0 0.2  0.3 0.1 0 0 0.1  0.1 0.05 0 0 0.02  0 0 0 1 0'
 
   return (
-    <section className="relative min-h-[calc(100dvh-20rem)] flex items-center overflow-hidden">
+    <section aria-label="Hero banner" className="relative min-h-[calc(100dvh-20rem)] flex items-center overflow-hidden">
       <div className={`absolute inset-0 transition-colors duration-500 ${
         isDark
           ? 'bg-gradient-to-b from-copper-950 via-copper-900 to-copper-950'
@@ -288,9 +304,9 @@ export default function HeroSection() {
           <motion.h1 initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-4xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black font-poppins leading-[1.05] mb-4 sm:mb-6 tracking-widest">
-            <span className={isDark ? 'text-white' : 'text-copper-900'}>Your Dream </span> <br />
-            <span className="gradient-text">University</span><br />
-            <span className={isDark ? 'text-white' : 'text-copper-900'}>Awaits Abroad</span>
+            <span className={isDark ? 'text-white' : 'text-copper-900'}>Study Abroad </span> <br />
+            <span className="gradient-text">Consultancy</span><br />
+            <span className={isDark ? 'text-white' : 'text-copper-900'}>For Your Dream University</span>
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}

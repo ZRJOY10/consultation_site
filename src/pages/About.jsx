@@ -5,6 +5,7 @@ import AnimatedSection from '../components/AnimatedSection'
 import ConsultationForm from '../components/home/ConsultationForm'
 import { Link } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
+import { optimizeImageUrl } from '../utils/imageOptimization'
 
 const team = [
   {
@@ -50,7 +51,7 @@ export default function About() {
   return (
     <div className="pt-20">
       {/* Page hero */}
-      <section className="relative py-24 overflow-hidden">
+      <section aria-label="About page hero" className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/20 to-copper-700/10 pointer-events-none" />
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-copper-600/5 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 text-center">
@@ -82,17 +83,20 @@ export default function About() {
       </section>
 
       {/* Story */}
-      <section className="py-20">
+      <section aria-label="Our story" className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection direction="right">
               <div className="relative">
                 <div className="aspect-square max-w-md mx-auto rounded-3xl overflow-hidden relative">
                   <img
-                    src="https://unsplash.com/photos/nXt5HtLmlgE/download?force=true&w=1200"
+                    src={optimizeImageUrl('https://unsplash.com/photos/nXt5HtLmlgE/download?force=true&w=1200', { width: 1200, height: 1200 })}
                     alt="Global world map on desk"
+                    width="1200"
+                    height="1200"
                     className="w-full h-full object-cover"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-copper-900/50 to-transparent" />
                 </div>
@@ -132,7 +136,7 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-20">
+      <section aria-label="Core values" className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl font-bold font-poppins mb-4">Our <span className="gradient-text">Core Values</span></h2>

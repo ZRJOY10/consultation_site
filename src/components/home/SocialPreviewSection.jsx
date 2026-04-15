@@ -3,6 +3,7 @@ import { FaFacebookF, FaYoutube } from 'react-icons/fa'
 import AnimatedSection from '../AnimatedSection'
 import SectionBadge from '../SectionBadge'
 import { useTheme } from '../../context/ThemeContext'
+import { optimizeImageUrl } from '../../utils/imageOptimization'
 
 const socialPlatforms = [
   {
@@ -27,7 +28,7 @@ const socialPlatforms = [
     profileImage: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=160&q=80',
     coverImage: 'https://images.unsplash.com/photo-1588702547919-26089e690ecc?auto=format&fit=crop&w=1200&q=80',
     description: 'Visa walkthroughs, country guides, and interview preparation classes.',
-    url: 'https://www.youtube.com/share/1HyZANYn9a/?mibextid=wwXIfr',
+    url: 'https://youtube.com/@globaltalenteducationcon?si=PUDihdRoqSX8CLri',
     icon: FaYoutube,
     color: 'from-red-700 to-red-500',
     cardBorder: 'border-red-500/35',
@@ -42,7 +43,7 @@ export default function SocialPreviewSection() {
   const { isDark } = useTheme()
 
   return (
-    <section className="py-24 md:py-28 relative overflow-hidden">
+    <section aria-label="Official social media channels" className="py-24 md:py-28 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-copper-900/15 to-transparent pointer-events-none" />
       <div className="absolute -top-16 -left-20 w-80 h-80 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-24 -right-20 w-96 h-96 rounded-full bg-red-500/10 blur-3xl pointer-events-none" />
@@ -80,13 +81,29 @@ export default function SocialPreviewSection() {
                 <AnimatedSection key={platform.id} direction="left" delay={platform.id === 'youtube' ? 0.12 : 0}>
                   <article className={`glass-card overflow-hidden border ${platform.cardBorder} ${platform.glow}`}>
                     <div className="relative h-44">
-                      <img src={platform.coverImage} alt={`${platform.title} cover`} className="w-full h-full object-cover" loading="lazy" />
+                      <img
+                        src={optimizeImageUrl(platform.coverImage, { width: 1200, height: 440 })}
+                        alt={`${platform.title} cover image preview`}
+                        width="1200"
+                        height="440"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
 
                       <div className="absolute left-4 right-4 bottom-4 flex items-end justify-between gap-3">
                         <div className="flex items-center gap-3 min-w-0">
                           <div className="w-12 h-12 rounded-xl overflow-hidden border-2 border-white/80 shadow-lg shrink-0">
-                            <img src={platform.profileImage} alt={`${platform.title} profile`} className="w-full h-full object-cover" loading="lazy" />
+                            <img
+                              src={optimizeImageUrl(platform.profileImage, { width: 160, height: 160 })}
+                              alt={`${platform.title} profile picture`}
+                              width="48"
+                              height="48"
+                              className="w-full h-full object-cover"
+                              loading="lazy"
+                              decoding="async"
+                            />
                           </div>
                           <div className="min-w-0">
                             <p className="text-white font-semibold truncate">{platform.title}</p>

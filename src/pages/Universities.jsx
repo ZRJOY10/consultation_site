@@ -34,7 +34,7 @@ export default function Universities() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="py-24 relative overflow-hidden">
+      <section aria-label="Universities page hero" className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/10 to-copper-900/20 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
@@ -47,8 +47,9 @@ export default function Universities() {
       </section>
 
       {/* Filters */}
-      <section className="pb-6">
+      <section aria-label="University search and filters" className="pb-6">
         <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-2xl font-bold text-white mb-6">Find Your Best-Fit University</h2>
           <div className="flex flex-col md:flex-row gap-4 mb-8">
             <div className="relative flex-1">
               <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-600" />

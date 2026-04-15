@@ -50,9 +50,12 @@ export default function UniversityLogo({
       {currentSource && (
         <img
           src={currentSource}
-          alt={`${name} logo`}
+          alt={`Official logo of ${name}`}
+          width="128"
+          height="128"
           className={imageClassName}
           loading="lazy"
+          decoding="async"
           onLoad={() => setLoaded(true)}
           onError={() => {
             setLoaded(false)

@@ -31,7 +31,7 @@ export default function PTETraining() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="py-24 relative overflow-hidden">
+      <section aria-label="PTE and IELTS training hero" className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/15 to-copper-900/20 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -69,7 +69,7 @@ export default function PTETraining() {
       </section>
 
       {/* Features */}
-      <section className="py-16">
+      <section aria-label="Training program features" className="py-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map(({ icon: Icon, title, desc }, i) => (
@@ -88,7 +88,7 @@ export default function PTETraining() {
       </section>
 
       {/* Courses */}
-      <section id="courses" className="py-16">
+      <section id="courses" aria-label="Available training courses" className="py-16">
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl font-bold font-poppins mb-4">Choose Your <span className="gradient-text">Course</span></h2>

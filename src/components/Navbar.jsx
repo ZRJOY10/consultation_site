@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FiMenu, FiX, FiChevronDown, FiMail, FiSun, FiMoon, FiFacebook, FiInstagram, FiLinkedin, FiYoutube } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa6'
 import { useTheme } from '../context/ThemeContext'
-import mainLogo from '../assets/images/logo.png'
+import mainLogo from '../assets/images/logo.webp'
 
 const navLinks = [
   { label: 'Home', path: '/' },
@@ -41,7 +41,7 @@ const socialLinks = [
   { icon: FiFacebook, href: 'https://www.facebook.com/share/1HyZANYn9a/?mibextid=wwXIfr', label: 'Facebook' },
   { icon: FiInstagram, href: 'https://www.instagram.com/global_talent/', label: 'Instagram' },
   { icon: FiLinkedin, href: 'https://www.linkedin.com/company/global-talent', label: 'LinkedIn' },
-  { icon: FiYoutube, href: 'https://www.youtube.com/@GlobalTalent', label: 'YouTube' },
+  { icon: FiYoutube, href: 'https://youtube.com/@globaltalenteducationcon?si=PUDihdRoqSX8CLri', label: 'YouTube' },
 ]
 
 export default function Navbar() {
@@ -136,9 +136,13 @@ export default function Navbar() {
               }`}>
                 <img
                   src={mainLogo}
-                  alt="Global Talent"
+                  alt="Global Talent Education logo"
+                  width="7609"
+                  height="2453"
                   className="h-11 sm:h-12 lg:h-14 w-auto max-w-[170px] sm:max-w-[230px] lg:max-w-[280px] object-contain"
                   loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
                 />
               </div>
             </Link>

@@ -103,7 +103,7 @@ export default function Services() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="py-24 relative overflow-hidden">
+      <section aria-label="Services page hero" className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/10 to-copper-900/20 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 text-center">
           <SectionBadge variant="solid" size="lg" className="mb-4">Our Services</SectionBadge>
@@ -117,7 +117,7 @@ export default function Services() {
       </section>
 
       {/* Services */}
-      <section className="py-12">
+      <section aria-label="Detailed service offerings" className="py-12">
         <div className="max-w-7xl mx-auto px-6 space-y-8">
           {services.map(({ icon: Icon, title, description, color, includes, process }, i) => (
             <AnimatedSection key={title} delay={0.1}>
@@ -139,7 +139,7 @@ export default function Services() {
 
                   {/* What's included */}
                   <div>
-                    <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">What's Included</h4>
+                    <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">What's Included</h3>
                     <ul className="space-y-2">
                       {includes.map(item => (
                         <li key={item} className="flex items-center gap-2 text-sm text-slate-300">
@@ -154,7 +154,7 @@ export default function Services() {
 
                   {/* Process */}
                   <div>
-                    <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Our Process</h4>
+                    <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Our Process</h3>
                     <div className="space-y-3">
                       {process.map((step, j) => (
                         <div key={step} className="flex items-center gap-3">

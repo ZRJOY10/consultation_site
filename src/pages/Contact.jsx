@@ -20,7 +20,7 @@ export default function Contact() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="py-24 relative overflow-hidden">
+      <section aria-label="Contact page hero" className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/10 to-copper-900/10 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
@@ -33,8 +33,9 @@ export default function Contact() {
       </section>
 
       {/* Contact cards */}
-      <section className="pb-16">
+      <section aria-label="Contact methods and form" className="pb-16">
         <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-2xl font-bold text-white mb-6">Contact Our Study Abroad Team</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
             {contactInfo.map(({ icon: Icon, title, value, sub, href, color }, i) => (
               <AnimatedSection key={title} delay={i * 0.1}>

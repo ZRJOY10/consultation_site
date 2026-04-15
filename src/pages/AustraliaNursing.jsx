@@ -67,7 +67,7 @@ const employers = [
 export default function AustraliaNursing() {
   return (
     <div className="pt-20">
-      <section className="py-20 relative overflow-hidden">
+      <section aria-label="Australia nursing hero" className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/20 to-copper-700/10 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6">
           <Link to="/destinations/australia" className="inline-flex items-center gap-2 text-sm text-copper-500 hover:text-copper-400 transition-colors mb-6">
@@ -87,7 +87,7 @@ export default function AustraliaNursing() {
         </div>
       </section>
 
-      <section className="pb-24">
+      <section aria-label="Australia nursing course details" className="pb-24">
         <div className="max-w-7xl mx-auto px-6 space-y-8">
           <div className="glass-card p-6 md:p-8">
             <h2 className="text-2xl font-bold text-white mb-5">Why Study Nursing in Australia?</h2>

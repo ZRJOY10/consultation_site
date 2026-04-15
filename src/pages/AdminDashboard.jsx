@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiUsers, FiFileText, FiTrendingUp, FiDollarSign, FiCheckCircle, FiClock, FiAlertCircle, FiMenu, FiX, FiHome, FiBook, FiSettings, FiLogOut, FiBell, FiSearch, FiMoreVertical, FiEye } from 'react-icons/fi'
-import mainLogo from '../assets/images/logo.png'
+import mainLogo from '../assets/images/logo.webp'
 
 const stats = [
   { label: 'Total Enquiries', value: '1,284', change: '+12.5%', icon: FiUsers, color: 'from-copper-600 to-copper-400', bg: 'bg-copper-600/10' },
@@ -51,9 +51,12 @@ export default function AdminDashboard() {
         <div className="p-4 border-b border-white/5 flex items-center justify-center">
           <img
             src={mainLogo}
-            alt="Global Talent"
+            alt="Global Talent Education admin logo"
+            width="7609"
+            height="2453"
             className={`object-contain transition-all duration-300 ${sidebarOpen ? 'h-8 w-auto max-w-[150px]' : 'h-8 w-8'}`}
-            loading="lazy"
+            loading="eager"
+            decoding="async"
           />
         </div>
 
