@@ -36,11 +36,11 @@ export default function Universities() {
       {/* Hero */}
       <section aria-label="Universities page hero" className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/10 to-copper-900/20 pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-poppins leading-tight mb-6">
             Partner <span className="gradient-text">Universities</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-xl text-copper-500 max-w-2xl mx-auto">
+          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-base sm:text-lg md:text-xl text-copper-500 max-w-2xl mx-auto">
             Access 200+ world-ranked partner universities with exclusive admission advantages through Global Talent.
           </motion.p>
         </div>
@@ -48,7 +48,7 @@ export default function Universities() {
 
       {/* Filters */}
       <section aria-label="University search and filters" className="pb-6">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <h2 className="text-2xl font-bold text-white mb-6">Find Your Best-Fit University</h2>
           <div className="flex flex-col md:flex-row gap-4 mb-8">
             <div className="relative flex-1">

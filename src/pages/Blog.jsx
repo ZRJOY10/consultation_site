@@ -37,11 +37,11 @@ export default function Blog() {
       {/* Hero */}
       <section aria-label="Blog page hero" className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/10 to-copper-900/20 pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-poppins leading-tight mb-6">
             Latest <span className="gradient-text">Insights</span> & News
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-xl text-slate-400 max-w-2xl mx-auto mb-8">
+          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-8">
             Expert guides, visa updates, scholarship news and study abroad tips from our counsellors.
           </motion.p>
           {/* Search */}
@@ -59,7 +59,7 @@ export default function Blog() {
       </section>
 
       <section aria-label="Blog articles listing" className="pb-20">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <h2 className="text-2xl font-bold text-white mb-6">Study Abroad Articles and Guides</h2>
           {/* Category filter */}
           <div className="flex flex-wrap gap-2 mb-10">

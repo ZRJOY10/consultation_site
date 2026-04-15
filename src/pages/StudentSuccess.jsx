@@ -31,11 +31,11 @@ export default function StudentSuccess() {
       {/* Hero */}
       <section aria-label="Student success hero" className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/10 to-copper-900/20 pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-poppins leading-tight mb-6">
             Student <span className="gradient-text">Success Stories</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-xl text-slate-400 max-w-2xl mx-auto mb-10">
+          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10">
             Real students. Real universities. Real visa approvals. Here are the stories that inspire us every day.
           </motion.p>
           {/* Key stats */}
@@ -49,7 +49,7 @@ export default function StudentSuccess() {
 
       {/* Filter */}
       <section aria-label="Success story filters and grid" className="pb-6">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <h2 className="text-2xl font-bold text-white mb-6">Success Stories by Destination</h2>
           <div className="flex items-center gap-2 mb-8 overflow-x-auto pb-2">
             <FiFilter className="w-4 h-4 text-slate-500 flex-shrink-0" />

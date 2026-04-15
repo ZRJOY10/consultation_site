@@ -54,7 +54,7 @@ export default function About() {
       <section aria-label="About page hero" className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/20 to-copper-700/10 pointer-events-none" />
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-copper-600/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -66,7 +66,7 @@ export default function About() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-6xl font-black font-poppins mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-poppins leading-tight mb-6"
           >
             Shaping <span className="gradient-text">Global Futures</span> 
           </motion.h1>
@@ -74,7 +74,7 @@ export default function About() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-              className="text-xl text-copper-800/80 max-w-3xl mx-auto leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-copper-800/80 max-w-3xl mx-auto leading-relaxed"
           >
             Global Talent is study abroad consultancy. We've helped the students 
             achieve their international education dreams with unmatched expertise, care and dedication.
@@ -84,7 +84,7 @@ export default function About() {
 
       {/* Story */}
       <section aria-label="Our story" className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection direction="right">
               <div className="relative">
@@ -101,7 +101,7 @@ export default function About() {
                   <div className="absolute inset-0 bg-gradient-to-t from-copper-900/50 to-transparent" />
                 </div>
                 {/* Floating badge */}
-                <div className="absolute -bottom-6 -right-6 glass-card p-4 shadow-2xl">
+                <div className="absolute -bottom-6 right-2 sm:-right-6 glass-card p-4 shadow-2xl">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-xl bg-copper-600/20 flex items-center justify-center">
                       <HiAcademicCap className="w-6 h-6 text-copper-400" />
@@ -137,7 +137,7 @@ export default function About() {
 
       {/* Values */}
       <section aria-label="Core values" className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl font-bold font-poppins mb-4">Our <span className="gradient-text">Core Values</span></h2>
           </AnimatedSection>

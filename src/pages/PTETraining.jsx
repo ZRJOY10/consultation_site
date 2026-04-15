@@ -33,25 +33,25 @@ export default function PTETraining() {
       {/* Hero */}
       <section aria-label="PTE and IELTS training hero" className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/15 to-copper-900/20 pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-block px-4 py-1.5 bg-copper-600/20 border border-copper-500/30 rounded-full text-copper-400 text-sm font-medium mb-4">
                 English Proficiency Training
               </motion.span>
-              <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
+              <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-poppins leading-tight mb-6">
                 PTE & IELTS <span className="gradient-text">Training</span>
               </motion.h1>
-              <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-copper-700/70 text-lg mb-8 leading-relaxed">
+              <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-copper-700/70 text-base sm:text-lg mb-8 leading-relaxed">
                 Score-boosting preparation courses designed to help you achieve your target score and secure admission to your dream university.
               </motion.p>
-              <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex gap-4">
+              <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-col sm:flex-row gap-4">
                 <Link to="/book-consultation" className="btn-primary">Enroll Now <FiArrowRight className="w-4 h-4" /></Link>
                 <a href="#courses" className="btn-secondary">View Courses</a>
               </motion.div>
             </div>
             {/* Stats */}
-            <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }} className="grid grid-cols-2 gap-4">
+            <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 { value: '5,000+', label: 'Students Trained' },
                 { value: '89%', label: 'Achieve Target Score' },
@@ -70,7 +70,7 @@ export default function PTETraining() {
 
       {/* Features */}
       <section aria-label="Training program features" className="py-16">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map(({ icon: Icon, title, desc }, i) => (
               <AnimatedSection key={title} delay={i * 0.1}>
@@ -89,7 +89,7 @@ export default function PTETraining() {
 
       {/* Courses */}
       <section id="courses" aria-label="Available training courses" className="py-16">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl font-bold font-poppins mb-4">Choose Your <span className="gradient-text">Course</span></h2>
             <p className="text-copper-700/70">Select the program that fits your goals and schedule</p>

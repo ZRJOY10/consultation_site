@@ -105,12 +105,12 @@ export default function Services() {
       {/* Hero */}
       <section aria-label="Services page hero" className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/10 to-copper-900/20 pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <SectionBadge variant="solid" size="lg" className="mb-4">Our Services</SectionBadge>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-poppins leading-tight mb-6">
             Complete <span className="gradient-text">Study Abroad</span> Solutions
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-xl text-copper-800/80 max-w-3xl mx-auto">
+          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-base sm:text-lg md:text-xl text-copper-800/80 max-w-3xl mx-auto">
             From initial counselling to landing at your dream university — we handle every step with expertise and care.
           </motion.p>
         </div>
@@ -118,7 +118,7 @@ export default function Services() {
 
       {/* Services */}
       <section aria-label="Detailed service offerings" className="py-12">
-        <div className="max-w-7xl mx-auto px-6 space-y-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-8">
           {services.map(({ icon: Icon, title, description, color, includes, process }, i) => (
             <AnimatedSection key={title} delay={0.1}>
               <div className="glass-card-hover p-8 md:p-10 group">

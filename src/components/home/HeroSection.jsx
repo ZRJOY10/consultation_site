@@ -303,7 +303,7 @@ export default function HeroSection() {
 
           <motion.h1 initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-4xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black font-poppins leading-[1.05] mb-4 sm:mb-6 tracking-widest">
+            className="text-[2.1rem] sm:text-4xl md:text-5xl lg:text-6xl font-black font-poppins leading-[0.96] sm:leading-[1.02] mb-4 sm:mb-6 tracking-tight sm:tracking-[0.04em]">
             <span className={isDark ? 'text-white' : 'text-copper-900'}>Study Abroad </span> <br />
             <span className="gradient-text">Consultancy</span><br />
             <span className={isDark ? 'text-white' : 'text-copper-900'}>For Your Dream University</span>
@@ -311,11 +311,11 @@ export default function HeroSection() {
 
           <motion.p initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className={`text-md sm:text-md md:text-lg max-w-2xl mb-8 sm:mb-10 leading-relaxed ${
+            className={`text-sm sm:text-base md:text-lg max-w-2xl mb-8 sm:mb-10 leading-relaxed ${
               isDark ? 'text-slate-400' : 'text-copper-700/70'
             }`}>
             Expert guidance for study abroad, visa processing, scholarships, and career planning.
-            Turn your international education goals into reality with Australia&apos;s  education consultancy.
+            Turn your international education goals into reality with Australia&apos;s trusted education consultancy.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}

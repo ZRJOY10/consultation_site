@@ -69,7 +69,7 @@ export default function AustraliaNursing() {
     <div className="pt-20">
       <section aria-label="Australia nursing hero" className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/20 to-copper-700/10 pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <Link to="/destinations/australia" className="inline-flex items-center gap-2 text-sm text-copper-500 hover:text-copper-400 transition-colors mb-6">
             <FiArrowLeft className="w-4 h-4" /> Back to Australia
           </Link>
@@ -77,18 +77,18 @@ export default function AustraliaNursing() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-black font-poppins text-white mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-black font-poppins text-white mb-4 leading-tight"
           >
             Study Nursing in <span className="gradient-text">Australia</span>
           </motion.h1>
-          <p className="text-copper-500 max-w-3xl text-lg">
+          <p className="text-copper-500 max-w-3xl text-base sm:text-lg">
             Complete guide for international students: university options, fees, admission requirements, clinical training, and career outcomes.
           </p>
         </div>
       </section>
 
       <section aria-label="Australia nursing course details" className="pb-24">
-        <div className="max-w-7xl mx-auto px-6 space-y-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-8">
           <div className="glass-card p-6 md:p-8">
             <h2 className="text-2xl font-bold text-white mb-5">Why Study Nursing in Australia?</h2>
             <ul className="space-y-4 text-white/70">

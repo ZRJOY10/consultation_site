@@ -22,11 +22,11 @@ export default function Contact() {
       {/* Hero */}
       <section aria-label="Contact page hero" className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/10 to-copper-900/10 pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-poppins leading-tight mb-6">
             Get In <span className="gradient-text">Touch</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-xl text-copper-800/80 max-w-2xl mx-auto">
+          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-base sm:text-lg md:text-xl text-copper-800/80 max-w-2xl mx-auto">
             Have questions about studying abroad? Our team is ready to help. Reach out and we'll respond within 24 hours.
           </motion.p>
         </div>
@@ -34,7 +34,7 @@ export default function Contact() {
 
       {/* Contact cards */}
       <section aria-label="Contact methods and form" className="pb-16">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <h2 className="text-2xl font-bold text-white mb-6">Contact Our Study Abroad Team</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
             {contactInfo.map(({ icon: Icon, title, value, sub, href, color }, i) => (

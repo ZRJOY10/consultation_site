@@ -135,11 +135,11 @@ export default function Destinations() {
       {/* Hero */}
       <section aria-label="Destinations page hero" className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/10 to-copper-900/20 pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-6xl font-black font-poppins mb-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-poppins leading-tight mb-6">
             Study <span className="gradient-text-gold">Destinations</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-xl text-copper-500 max-w-2xl mx-auto">
+          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-base sm:text-lg md:text-xl text-copper-500 max-w-2xl mx-auto">
             Explore top study destinations and find your perfect country to begin your international journey.
           </motion.p>
         </div>
@@ -147,7 +147,7 @@ export default function Destinations() {
 
       {/* Country selector */}
       <section aria-label="Destination comparison and country details" className="pb-12">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <h2 className="text-2xl font-bold text-white mb-6 text-center">Compare Study Destinations by Country</h2>
           <div className="flex flex-wrap gap-3 justify-center mb-12">
             {allCountries.map(c => {
@@ -180,7 +180,7 @@ export default function Destinations() {
                 transition={{ duration: 0.4 }}
               >
                 {/* Hero banner */}
-                <div className="relative rounded-3xl overflow-hidden h-64 md:h-80 mb-8">
+                <div className="relative rounded-3xl overflow-hidden min-h-[320px] md:h-80 mb-8">
                   <img
                     src={optimizeImageUrl(data.image, { width: 1600, height: 900 })}
                     alt={`Study in ${data.name} destination banner`}
@@ -193,17 +193,17 @@ export default function Destinations() {
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t ${data.color} opacity-70`} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                  <div className="absolute bottom-8 left-8 z-10">
+                  <div className="absolute left-4 right-4 md:left-8 md:right-auto bottom-20 md:bottom-8 z-10">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="text-5xl">{data.flag}</span>
-                      <h2 className="text-4xl font-black text-white font-poppins">{data.name}</h2>
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white font-poppins leading-tight">{data.name}</h2>
                     </div>
-                    <p className="text-white/80">{data.tagline}</p>
+                    <p className="text-sm sm:text-base text-white/80">{data.tagline}</p>
                   </div>
                   {/* Stats */}
-                  <div className="absolute right-8 bottom-8 z-10 flex gap-3">
+                  <div className="absolute left-4 right-4 md:left-auto md:right-8 bottom-4 md:bottom-8 z-10 flex gap-2 md:gap-3 overflow-x-auto pb-1">
                     {data.stats.map(s => (
-                      <div key={s.label} className="glass-card px-3 py-2 text-center min-w-[80px]">
+                      <div key={s.label} className="glass-card px-3 py-2 text-center min-w-[88px]">
                         <p className="text-lg font-bold text-white">{s.value}</p>
                         <p className="text-xs text-white/50">{s.label}</p>
                       </div>
@@ -298,7 +298,7 @@ export default function Destinations() {
                                 </div>
 
                                 {/* University Cost Tiers */}
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                   {Object.entries(data.costTiers).map(([tierKey, tier]) => (
                                     <motion.div
                                       key={tierKey}
@@ -443,7 +443,7 @@ export default function Destinations() {
                       <>
                         <div className="lg:col-span-2 glass-card p-6">
                           <h3 className="font-semibold text-white mb-6">Visa Information</h3>
-                          <div className="grid grid-cols-2 gap-4 mb-6">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                             {[
                               { label: 'Visa Type', value: data.visa.type },
                               { label: 'Duration', value: data.visa.duration },
@@ -471,7 +471,7 @@ export default function Destinations() {
                     )}
 
                     {activeTab === 'courses' && (
-                      <div className="lg:col-span-3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                      <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                         {data.popular.map((course, i) => (
                           <motion.div
                             key={course}

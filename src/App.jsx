@@ -5,6 +5,7 @@ import { ThemeProvider, useTheme } from './context/ThemeContext'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SeoMeta from './components/SeoMeta'
+import TrackingScripts from './components/TrackingScripts'
 import Home from './pages/Home'
 import { getCourseGuide } from './data/courseGuides'
 import { homeFaqItems } from './data/homeFaq'
@@ -112,6 +113,34 @@ function organizationSchema() {
   }
 }
 
+function localBusinessSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Global Talent Education',
+    image: toAbsoluteUrl('/organization-logo.webp'),
+    url: toAbsoluteUrl('/'),
+    telephone: '+61 414 248 167',
+    email: 'info@globaltalentedu.au',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '2/13 Moore lane',
+      addressLocality: 'Lilyfield',
+      postalCode: '2040',
+      addressRegion: 'NSW',
+      addressCountry: 'AU',
+    },
+    openingHours: 'Mo-Sa 09:00-18:00',
+    priceRange: '$$',
+    sameAs: [
+      'https://www.facebook.com/share/1HyZANYn9a/?mibextid=wwXIfr',
+      'https://www.instagram.com/global_talent/',
+      'https://www.linkedin.com/company/global-talent',
+      'https://youtube.com/@globaltalenteducationcon?si=PUDihdRoqSX8CLri',
+    ],
+  }
+}
+
 function faqSchemaFromItems(items) {
   return {
     '@context': 'https://schema.org',
@@ -163,9 +192,10 @@ function RouteSeo() {
 
     return (
       <SeoMeta
-        title={`${courseName} in ${countryName} | Fees, Universities & Careers`}
-        description={`Explore ${courseName} in ${countryName} with fees, top universities, admission criteria, and career options. Book a free consultation and apply with confidence today.`}
+        title={`${courseName} in ${countryName} | Study Guide & Fees`}
+        description={`Explore ${courseName} in ${countryName} with tuition, top universities, entry requirements, and career options. Book a free consultation with our experts.`}
         canonicalPath={pathname}
+        keywords={`${courseName} in ${countryName}, study abroad ${countryName}, ${courseName} tuition fees, international student guide`}
         structuredData={[buildBreadcrumbSchema(pathname, courseTrail)]}
       />
     )
@@ -183,9 +213,10 @@ function RouteSeo() {
 
     return (
       <SeoMeta
-        title={`Study in ${countryName} | Universities, Costs & Visa Guide`}
-        description={`Plan your study in ${countryName} with tuition, intakes, visa requirements, and top course insights. Speak with our experts and start your journey today.`}
+        title={`Study in ${countryName} | University, Cost & Visa`}
+        description={`Plan your study in ${countryName} with tuition costs, intakes, visa requirements, and top course options for international students.`}
         canonicalPath={pathname}
+        keywords={`study in ${countryName}, international student ${countryName}, ${countryName} university admission, ${countryName} student visa`}
         structuredData={[buildBreadcrumbSchema(pathname, destinationTrail)]}
       />
     )
@@ -193,66 +224,79 @@ function RouteSeo() {
 
   const pageSeo = {
     '/': {
-      title: 'Study Abroad Consultancy in Australia | Global Talent Education',
+      title: 'Study Abroad Consultancy Australia | Global Talent',
       description:
-        'Get expert study abroad counselling, visa support, and scholarship guidance for top destinations. Book your free consultation and start your global journey today.',
+        'Get expert study abroad counselling, visa support, and scholarship guidance. Book your free consultation with Global Talent Education today.',
+      keywords: 'study abroad consultancy Australia, student visa guidance, scholarship support, global talent education',
     },
     '/about': {
-      title: 'About Global Talent Education | Trusted Study Abroad Experts',
+      title: 'About Global Talent Education | Study Abroad Experts',
       description:
-        'Learn about our mission, expertise, and student-first approach to study abroad success. Connect with our team and plan your education journey today.',
+        'Learn about Global Talent Education, our counselling approach, and how we help students succeed with university admission and visa planning.',
+      keywords: 'about study abroad consultant, education consultancy Australia, global talent education',
     },
     '/services': {
-      title: 'Study Abroad Services | Counselling, Visa, Scholarships & PR',
+      title: 'Study Abroad Services | Counselling, Visa, Scholarships',
       description:
-        'Explore complete study abroad services including counselling, visa processing, scholarships, and career planning. Talk to our experts and get started today.',
+        'Explore counselling, visa documentation, scholarship support, and application services designed for international student success.',
+      keywords: 'study abroad services, visa processing support, scholarship guidance, university application help',
     },
     '/destinations': {
-      title: 'Top Study Destinations | Australia, Canada, UK, USA & More',
+      title: 'Top Study Destinations | Global Talent Education',
       description:
-        'Compare popular study destinations by costs, universities, visa pathways, and intakes. Get personalized guidance and book your free consultation today.',
+        'Compare top study destinations by tuition, visa options, intakes, and universities for international students.',
+      keywords: 'study destinations for international students, study in Australia Canada UK USA',
     },
     '/universities': {
-      title: 'Partner Universities Worldwide | Global Talent Education',
+      title: 'Partner Universities | Global Talent Education',
       description:
-        'Browse world-ranked partner universities across major destinations and find your best-fit option. Speak with an expert and shortlist your choices today.',
+        'Browse world-ranked universities and shortlist best-fit options by destination, ranking, tuition, and courses.',
+      keywords: 'partner universities, study abroad universities, university shortlisting',
     },
     '/pte-training': {
-      title: 'PTE and IELTS Training | Score Improvement Programs',
+      title: 'PTE & IELTS Training | Global Talent Education',
       description:
-        'Join practical PTE and IELTS training with expert mentors, mock tests, and score-focused plans. Enroll now and reach your target score with confidence.',
+        'Join practical PTE and IELTS coaching with mock tests and expert guidance to reach your target score confidently.',
+      keywords: 'PTE training, IELTS coaching, English test preparation for study abroad',
     },
     '/student-success': {
-      title: 'Student Success Stories | Visa Approvals and Scholarship Wins',
+      title: 'Student Success Stories | Global Talent Education',
       description:
-        'Read real student outcomes with visa approvals, scholarship wins, and top university admissions. Book a consultation to create your own success story today.',
+        'Read real student outcomes including visa approvals, scholarship wins, and university admissions across top destinations.',
+      keywords: 'student success stories, visa approval stories, scholarship success',
     },
     '/blog': {
-      title: 'Study Abroad Blog | Visa Guides, Scholarships and Tips',
+      title: 'Study Abroad Blog | Global Talent Education',
       description:
-        'Read expert study abroad articles on visas, scholarships, universities, and student life. Stay updated and contact us for personalized guidance today.',
+        'Read expert articles on visas, scholarships, admissions, universities, and study abroad planning tips.',
+      keywords: 'study abroad blog, visa guides, scholarship tips, admission advice',
     },
     '/contact': {
-      title: 'Contact Global Talent Education | Study Abroad Support Team',
+      title: 'Contact Global Talent Education',
       description:
-        'Contact our study abroad experts for counselling, visa help, and university guidance. Send us your query and get a personalized response within 24 hours.',
+        'Contact our study abroad experts for counselling, admissions support, and student visa guidance.',
+      keywords: 'contact study abroad consultant, global talent education phone and address',
     },
     '/book-consultation': {
-      title: 'Book Free Study Abroad Consultation | Global Talent Education',
+      title: 'Book Free Consultation | Global Talent Education',
       description:
-        'Book a free consultation with our study abroad experts and get a clear plan for admissions, visa, and scholarships. Reserve your slot and begin today.',
+        'Book a free consultation for study abroad planning, admissions strategy, and visa guidance.',
+      keywords: 'book free consultation study abroad, student visa consultation',
     },
     '/privacy-policy': {
       title: 'Privacy Policy | Global Talent Education',
       description: 'Read how Global Talent Education collects, uses, and protects your personal information.',
+      keywords: 'privacy policy global talent education',
     },
     '/terms-of-service': {
       title: 'Terms of Service | Global Talent Education',
       description: 'Review the terms and conditions for using Global Talent Education services and website.',
+      keywords: 'terms of service global talent education',
     },
     '/cookie-policy': {
       title: 'Cookie Policy | Global Talent Education',
       description: 'Learn how cookies and similar technologies are used on the Global Talent Education website.',
+      keywords: 'cookie policy global talent education',
     },
     '/admin': {
       title: 'Admin Dashboard | Global Talent Education',
@@ -265,6 +309,7 @@ function RouteSeo() {
 
   if (pathname === '/') {
     structuredData.push(organizationSchema())
+    structuredData.push(localBusinessSchema())
     structuredData.push(faqSchemaFromItems(homeFaqItems))
   }
 
@@ -274,6 +319,7 @@ function RouteSeo() {
       description={seo.description}
       canonicalPath={pathname}
       robots={seo.robots || 'index,follow'}
+      keywords={seo.keywords}
       structuredData={structuredData}
     />
   )
@@ -298,6 +344,7 @@ export default function App() {
       <Router>
         <ScrollToTop />
         <RouteSeo />
+        <TrackingScripts />
         <Toaster
           position="top-right"
           toastOptions={{

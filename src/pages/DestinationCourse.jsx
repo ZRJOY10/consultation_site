@@ -32,12 +32,12 @@ export default function DestinationCourse() {
       <div className="pt-20">
         <section aria-label="Course page unavailable message" className="py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-copper-900/20 to-copper-700/10 pointer-events-none" />
-          <div className="max-w-5xl mx-auto px-6">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
             <Link to={`/destinations/${country}`} className="inline-flex items-center gap-2 text-sm text-copper-500 hover:text-copper-400 transition-colors mb-6">
               <FiArrowLeft className="w-4 h-4" /> Back to {countryLabel}
             </Link>
             <div className="glass-card p-10 md:p-12 text-center rounded-3xl">
-              <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
                 {courseLabel} in <span className="gradient-text">{countryLabel}</span>
               </h1>
               <p className="text-white/60 mb-8 max-w-2xl mx-auto">
@@ -57,7 +57,7 @@ export default function DestinationCourse() {
         <div className="absolute inset-0 bg-gradient-to-br from-copper-900/30 to-copper-700/10 pointer-events-none" />
         <div className="absolute -top-24 -right-20 w-80 h-80 bg-copper-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-copper-700/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <Link to={`/destinations/${country}`} className="inline-flex items-center gap-2 text-sm text-copper-400 hover:text-copper-300 transition-colors mb-6 glass-card px-4 py-2 rounded-xl">
             <FiArrowLeft className="w-4 h-4" /> Back to {countryLabel}
           </Link>
@@ -67,14 +67,14 @@ export default function DestinationCourse() {
             animate={{ opacity: 1, y: 0 }}
             className="glass-card rounded-3xl p-8 md:p-10"
           >
-            <h1 className="text-4xl md:text-5xl font-black font-poppins text-white mb-4 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black font-poppins text-white mb-4 leading-tight">
               Study {guide.courseName} in <span className="gradient-text">{guide.countryName}</span>
             </h1>
-            <p className="text-copper-400/90 max-w-3xl text-lg mb-8">
+            <p className="text-copper-400/90 max-w-3xl text-base sm:text-lg mb-8">
               Complete guide for international students with fees, universities, admissions, placements, and career pathways.
             </p>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {quickStats.map(({ label, value, icon: Icon }) => (
                 <div key={label} className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
                   <div className="w-9 h-9 rounded-xl bg-copper-500/15 border border-copper-500/20 flex items-center justify-center mb-3">
@@ -90,7 +90,7 @@ export default function DestinationCourse() {
       </section>
 
       <section aria-label="Course guide details" className="pb-24 mt-10">
-        <div className="max-w-7xl mx-auto px-6 space-y-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-8">
           <div className="glass-card p-6 md:p-8 rounded-3xl">
             <h2 className="text-2xl font-bold text-white mb-5">Why Study {guide.courseName} in {guide.countryName}?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
