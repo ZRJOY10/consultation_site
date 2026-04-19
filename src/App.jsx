@@ -224,16 +224,16 @@ function RouteSeo() {
 
   const pageSeo = {
     '/': {
-      title: 'Study Abroad Consultancy Australia | Global Talent',
+      title: 'Study Abroad Consultancy Australia | Global Talent Education Consultancy',
       description:
         'Get expert study abroad counselling, visa support, and scholarship guidance. Book your free consultation with Global Talent Education today.',
-      keywords: 'study abroad consultancy Australia, student visa guidance, scholarship support, global talent education',
+      keywords: 'study abroad consultancy Australia, student visa guidance, scholarship support, global talent education, global talent education consultancies Australia',
     },
     '/about': {
       title: 'About Global Talent Education | Study Abroad Experts',
       description:
         'Learn about Global Talent Education, our counselling approach, and how we help students succeed with university admission and visa planning.',
-      keywords: 'about study abroad consultant, education consultancy Australia, global talent education',
+      keywords: 'about study abroad consultant, education consultancy Australia, global talent education, global talent education consultancies Australia',
     },
     '/services': {
       title: 'Study Abroad Services | Counselling, Visa, Scholarships',
