@@ -41,7 +41,7 @@ const socialLinks = [
   { icon: FiFacebook, href: 'https://www.facebook.com/share/1HyZANYn9a/?mibextid=wwXIfr', label: 'Facebook' },
   { icon: FiInstagram, href: 'https://www.instagram.com/global_talent/', label: 'Instagram' },
   { icon: FiLinkedin, href: 'https://www.linkedin.com/company/global-talent', label: 'LinkedIn' },
-  { icon: FiYoutube, href: 'https://youtube.com/@globaltalenteducationcon?si=PUDihdRoqSX8CLri', label: 'YouTube' },
+  { icon: FiYoutube, href: 'https://www.youtube.com/@Globaltalenteducation', label: 'YouTube' },
 ]
 
 export default function Navbar() {

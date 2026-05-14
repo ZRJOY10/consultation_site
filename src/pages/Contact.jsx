@@ -1,22 +1,19 @@
 import { motion } from 'framer-motion'
-import { FiPhone, FiMail, FiMapPin, FiClock } from 'react-icons/fi'
+import { FiPhone, FiMail, FiMapPin, FiClock, FiChevronDown } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa6'
+import { useState } from 'react'
 import AnimatedSection from '../components/AnimatedSection'
 import ContactForm from '../components/forms/ContactForm'
+import { offices } from '../data/addresses'
 
 const contactInfo = [
   { icon: FaWhatsapp, title: 'WhatsApp Us', value: '+61 414 248 167', sub: 'Mon-Sat 9AM-6PM', href: 'https://wa.me/61414248167', color: 'from-copper-600 to-copper-400' },
   { icon: FiMail, title: 'Email Us', value: 'info@globaltalentedu.au', sub: 'Reply within 24 hours', href: 'mailto:info@globaltalentedu.au', color: 'from-copper-600 to-copper-400' },
-  { icon: FiMapPin, title: 'Visit Us', value: '2/13 Moore lane ', sub: 'Lilyfield-2040, NSW', href: '#', color: 'from-copper-600 to-copper-400' },
   { icon: FiClock, title: 'Office Hours', value: 'Mon - Saturday', sub: '9:00 AM – 6:00 PM', href: null, color: 'from-copper-600 to-copper-400' },
 ]
 
-const offices = [
-  { city: 'Sydney', address: '2/13 Moore lane , Lilyfield-2040, NSW, Australia', phone: '+61 414 248 167' },
-
-]
-
 export default function Contact() {
+  const [showAddresses, setShowAddresses] = useState(false)
   return (
     <div className="pt-20">
       {/* Hero */}
@@ -51,7 +48,64 @@ export default function Contact() {
                 </a>
               </AnimatedSection>
             ))}
+
+            {/* Visit Us - Addresses */}
+            <AnimatedSection delay={0.3}>
+              <button
+                onClick={() => setShowAddresses(!showAddresses)}
+                className="glass-card-hover p-6 flex flex-col items-center text-center group w-full h-full cursor-pointer"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-copper-600 to-copper-400 p-0.5 mb-4 shadow-lg">
+                  <div className="w-full h-full rounded-2xl flex items-center justify-center">
+                    <FiMapPin className="w-6 h-6 text-white" />
+                  </div>
+                </div>
+                <h3 className="font-semibold text-white mb-1">Visit Us</h3>
+                <p className="font-medium mb-1 bg-gradient-to-r from-copper-600 to-copper-400 bg-clip-text text-transparent text-sm">{offices.length} Locations</p>
+                <p className="text-xs text-white/40 flex items-center justify-center gap-1">
+                  Click to view <FiChevronDown className={`w-3 h-3 transition-transform ${showAddresses ? 'rotate-180' : ''}`} />
+                </p>
+              </button>
+            </AnimatedSection>
           </div>
+
+          {/* Expanded Addresses */}
+          {showAddresses && (
+            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="mb-16">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {offices.map(({ city, country, address, phone, whatsapp }) => (
+                  <div key={city} className="glass-card p-4 rounded-xl">
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className="w-8 h-8 rounded-lg bg-copper-600/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <FiMapPin className="w-4 h-4 text-copper-400" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-white text-sm">{city}</p>
+                        <p className="text-xs text-white/50">{country}</p>
+                      </div>
+                    </div>
+                    <p className="text-xs text-white/60 mb-3 leading-relaxed">{address}</p>
+                    <div className="flex flex-col gap-2">
+                      <a
+                        href={`https://wa.me/${whatsapp.replace(/[^\d+]/g, '')}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-xs text-copper-400 hover:text-copper-300 inline-flex items-center gap-1 transition-colors"
+                      >
+                        <FaWhatsapp className="w-3 h-3" /> {phone}
+                      </a>
+                      <a
+                        href={`tel:${phone.replace(/\s/g, '')}`}
+                        className="text-xs text-copper-400 hover:text-copper-300 inline-flex items-center gap-1 transition-colors"
+                      >
+                        <FiPhone className="w-3 h-3" /> Call
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Form */}
@@ -85,16 +139,16 @@ export default function Contact() {
               {/* Office locations */}
               <div className="space-y-3">
                 <h3 className="font-semibold text-white mb-4">Our Office Locations</h3>
-                {offices.map(({ city, address, phone }) => (
+                {offices.map(({ city, country, address, phone, whatsapp }) => (
                   <div key={city} className="glass-card-hover p-4 flex items-center gap-4">
                     <div className="w-10 h-10 rounded-lg bg-copper-600/20 flex items-center justify-center flex-shrink-0">
                       <FiMapPin className="w-4 h-4 text-copper-400" />
                     </div>
                     <div>
-                      <p className="font-medium text-white text-sm">{city}</p>
+                      <p className="font-medium text-white text-sm">{city}, {country}</p>
                       <p className="text-xs text-white/40">{address}</p>
                       <a
-                        href="https://wa.me/61414248167"
+                        href={`https://wa.me/${whatsapp.replace(/[^\d+]/g, '')}`}
                         target="_blank"
                         rel="noreferrer"
                         className="text-xs text-copper-400 hover:text-copper-300 inline-flex items-center gap-1 mt-1"

@@ -107,7 +107,7 @@ function organizationSchema() {
       'https://www.facebook.com/share/1HyZANYn9a/?mibextid=wwXIfr',
       'https://www.instagram.com/global_talent/',
       'https://www.linkedin.com/company/global-talent',
-      'https://youtube.com/@globaltalenteducationcon?si=PUDihdRoqSX8CLri',
+      'https://www.youtube.com/@Globaltalenteducation',
       'https://twitter.com/GlobalTalent',
     ],
   }

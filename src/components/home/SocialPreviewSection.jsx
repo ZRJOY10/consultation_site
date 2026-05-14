@@ -28,7 +28,7 @@ const socialPlatforms = [
     profileImage: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=160&q=80',
     coverImage: 'https://images.unsplash.com/photo-1588702547919-26089e690ecc?auto=format&fit=crop&w=1200&q=80',
     description: 'Visa walkthroughs, country guides, and interview preparation classes.',
-    url: 'https://youtube.com/@globaltalenteducationcon?si=PUDihdRoqSX8CLri',
+    url: 'https://www.youtube.com/@Globaltalenteducation',
     icon: FaYoutube,
     color: 'from-red-700 to-red-500',
     cardBorder: 'border-red-500/35',

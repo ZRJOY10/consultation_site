@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { FiPhone, FiMail, FiMapPin, FiFacebook, FiInstagram, FiLinkedin, FiYoutube, FiTwitter } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa6'
 import { useTheme } from '../context/ThemeContext'
+import { offices } from '../data/addresses'
 import mainLogo from '../assets/images/logo.webp'
 
 const footerLinks = {
@@ -34,7 +35,7 @@ const socials = [
   { icon: FiFacebook, href: 'https://www.facebook.com/share/1HyZANYn9a/?mibextid=wwXIfr', label: 'Facebook' },
   { icon: FiInstagram, href: 'https://www.instagram.com/global_talent/', label: 'Instagram' },
   { icon: FiLinkedin, href: 'https://www.linkedin.com/company/global-talent', label: 'LinkedIn' },
-  { icon: FiYoutube, href: 'https://youtube.com/@globaltalenteducationcon?si=PUDihdRoqSX8CLri', label: 'YouTube' },
+  { icon: FiYoutube, href: 'https://www.youtube.com/@Globaltalenteducation', label: 'YouTube' },
   { icon: FiTwitter, href: 'https://twitter.com/GlobalTalent', label: 'Twitter' },
 ]
 
@@ -126,13 +127,14 @@ export default function Footer() {
         </div>
 
         {/* Contact info */}
-        <div className={`grid grid-cols-1 sm:grid-cols-3 gap-6 py-8 border-b ${
+        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 py-8 border-b ${
           isDark ? 'border-white/[0.04]' : 'border-copper-200/30'
         }`}>
           {[
             { icon: FaWhatsapp, label: 'WhatsApp Us', value: '+61 414 248 167', href: 'https://wa.me/61414248167' },
             { icon: FiMail, label: 'Email Us', value: 'info@globaltalentedu.au', href: 'mailto:info@globaltalentedu.au' },
-            { icon: FiMapPin, label: 'Visit Us', value: '2/13 Moore lane , Lilyfield-2040, NSW, Australia', href: '#' },
+            { icon: FiPhone, label: 'Call Australia', value: '+61 414 248 167', href: 'tel:+61414248167' },
+            { icon: FiPhone, label: 'Call Bangladesh', value: '+880 1733 711297', href: 'tel:+8801733711297' },
           ].map(({ icon: Icon, label, value, href }) => (
             <a key={label} href={href} className="flex items-center gap-3 group">
               <div className={`w-10 h-10 rounded-lg border flex items-center justify-center transition-colors ${
@@ -150,6 +152,24 @@ export default function Footer() {
               </div>
             </a>
           ))}
+        </div>
+
+        {/* Office Locations */}
+        <div className={`py-8 border-b ${isDark ? 'border-white/[0.04]' : 'border-copper-200/30'}`}>
+          <h4 className={`text-sm font-semibold mb-6 uppercase tracking-wider ${
+            isDark ? 'text-white' : 'text-copper-900'
+          }`}>Our Offices</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {offices.map(({ city, country, address, phone }) => (
+              <div key={city} className={`text-xs ${isDark ? 'text-slate-500' : 'text-copper-600/60'}`}>
+                <p className={`font-medium mb-1 ${isDark ? 'text-slate-300' : 'text-copper-700'}`}>{city}, {country}</p>
+                <p className="mb-2 leading-relaxed">{address}</p>
+                <a href={`tel:${phone.replace(/\s/g, '')}`} className={`${isDark ? 'text-copper-400 hover:text-copper-300' : 'text-copper-600 hover:text-copper-800'} transition-colors`}>
+                  {phone}
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Bottom */}
