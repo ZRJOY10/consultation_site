@@ -134,7 +134,7 @@ export default function Footer() {
             { icon: FaWhatsapp, label: 'WhatsApp Us', value: '+61 414 248 167', href: 'https://wa.me/61414248167' },
             { icon: FiMail, label: 'Email Us', value: 'info@globaltalentedu.au', href: 'mailto:info@globaltalentedu.au' },
             { icon: FiPhone, label: 'Call Australia', value: '+61 414 248 167', href: 'tel:+61414248167' },
-            { icon: FiPhone, label: 'Call Bangladesh', value: '+880 1733 711297', href: 'tel:+8801733711297' },
+            { icon: FiPhone, label: 'Call Bangladesh', value: '+880 1348 095204', href: 'tel:+8801348095204' },
           ].map(({ icon: Icon, label, value, href }) => (
             <a key={label} href={href} className="flex items-center gap-3 group">
               <div className={`w-10 h-10 rounded-lg border flex items-center justify-center transition-colors ${
