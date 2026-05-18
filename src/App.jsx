@@ -17,6 +17,7 @@ const Universities = lazy(() => import('./pages/Universities'))
 const PTETraining = lazy(() => import('./pages/PTETraining'))
 const StudentSuccess = lazy(() => import('./pages/StudentSuccess'))
 const Blog = lazy(() => import('./pages/Blog'))
+const BlogPost = lazy(() => import('./pages/BlogPost'))
 const Contact = lazy(() => import('./pages/Contact'))
 const BookConsultation = lazy(() => import('./pages/BookConsultation'))
 const AdminDashboard = lazy(() => import('./pages/AdminDashboard'))
@@ -43,7 +44,7 @@ const STATIC_ROUTES = [
   '/cookie-policy',
 ]
 
-const DYNAMIC_ROUTE_PATTERNS = ['/destinations/:country', '/destinations/:country/:course']
+const DYNAMIC_ROUTE_PATTERNS = ['/destinations/:country', '/destinations/:country/:course', '/blog/:slug']
 
 function isKnownRoute(pathname) {
   if (STATIC_ROUTES.includes(pathname)) return true
@@ -197,6 +198,22 @@ function RouteSeo() {
         canonicalPath={pathname}
         keywords={`${courseName} in ${countryName}, study abroad ${countryName}, ${courseName} tuition fees, international student guide`}
         structuredData={[buildBreadcrumbSchema(pathname, courseTrail)]}
+      />
+    )
+  }
+
+  const blogMatch = matchPath('/blog/:slug', pathname)
+  if (blogMatch) {
+    const slug = blogMatch.params.slug || ''
+    const title = capitalizeSlug(slug)
+
+    return (
+      <SeoMeta
+        title={title ? `${title} | Global Talent Education Blog` : 'Blog | Global Talent Education'}
+        description="Read expert study abroad guidance, visa tips, scholarship advice, and student success stories from Global Talent Education."
+        canonicalPath={pathname}
+        keywords="study abroad blog, visa guides, scholarship tips, student advice"
+        structuredData={[buildBreadcrumbSchema(pathname)]}
       />
     )
   }
@@ -368,6 +385,7 @@ export default function App() {
               <Route path="/pte-training" element={<PTETraining />} />
               <Route path="/student-success" element={<StudentSuccess />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/book-consultation" element={<BookConsultation />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
