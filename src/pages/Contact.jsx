@@ -138,7 +138,7 @@ export default function Contact() {
 
               {/* Office locations */}
               <div className="space-y-3">
-                <h3 className="font-semibold text-white mb-4">Our Office Locations</h3>
+                <h3 className="font-semibold text-white mb-4">Our Uber Office Locations</h3>
                 {offices.map(({ city, country, address, phone, whatsapp }) => (
                   <div key={city} className="glass-card-hover p-4 flex items-center gap-4">
                     <div className="w-10 h-10 rounded-lg bg-copper-600/20 flex items-center justify-center flex-shrink-0">

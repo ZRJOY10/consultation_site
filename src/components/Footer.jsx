@@ -158,7 +158,7 @@ export default function Footer() {
         <div className={`py-8 border-b ${isDark ? 'border-white/[0.04]' : 'border-copper-200/30'}`}>
           <h4 className={`text-sm font-semibold mb-6 uppercase tracking-wider ${
             isDark ? 'text-white' : 'text-copper-900'
-          }`}>Our Offices</h4>
+          }`}>Our Uber Offices</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {offices.map(({ city, country, address, phone }) => (
               <div key={city} className={`text-xs ${isDark ? 'text-slate-500' : 'text-copper-600/60'}`}>
