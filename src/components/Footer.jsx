@@ -33,7 +33,7 @@ const footerLinks = {
 
 const socials = [
   { icon: FiFacebook, href: 'https://www.facebook.com/share/1HyZANYn9a/?mibextid=wwXIfr', label: 'Facebook' },
-  { icon: FiInstagram, href: 'https://www.instagram.com/global_talent/', label: 'Instagram' },
+  { icon: FiInstagram, href: 'https://www.instagram.com/globaltalenteducationau/', label: 'Instagram' },
   { icon: FiLinkedin, href: 'https://www.linkedin.com/company/global-talent', label: 'LinkedIn' },
   { icon: FiYoutube, href: 'https://www.youtube.com/@Globaltalenteducation', label: 'YouTube' },
   { icon: FiTwitter, href: 'https://twitter.com/GlobalTalent', label: 'Twitter' },

@@ -21,9 +21,9 @@ export const offices = [
     whatsapp: '+8801348095204',
   },
   {
-    city: 'Sydney',
+    city: 'North Sydney',
     country: 'Australia',
-    address: '1 Denison St, Sydney, New South Wales 2060, Australia',
+    address: 'Global Talent Education Consultancy - Level 16 & 17 , 1 Denison Street, North Sydney, NSW 2060',
     phone: '+61 414 248 167',
     whatsapp: '+61414248167',
   },

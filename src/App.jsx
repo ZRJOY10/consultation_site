@@ -106,7 +106,7 @@ function organizationSchema() {
     logo: toAbsoluteUrl('/organization-logo.webp'),
     sameAs: [
       'https://www.facebook.com/share/1HyZANYn9a/?mibextid=wwXIfr',
-      'https://www.instagram.com/global_talent/',
+      'https://www.instagram.com/globaltalenteducationau/',
       'https://www.linkedin.com/company/global-talent',
       'https://www.youtube.com/@Globaltalenteducation',
       'https://twitter.com/GlobalTalent',
@@ -135,7 +135,7 @@ function localBusinessSchema() {
     priceRange: '$$',
     sameAs: [
       'https://www.facebook.com/share/1HyZANYn9a/?mibextid=wwXIfr',
-      'https://www.instagram.com/global_talent/',
+      'https://www.instagram.com/globaltalenteducationau/',
       'https://www.linkedin.com/company/global-talent',
       'https://youtube.com/@globaltalenteducationcon?si=PUDihdRoqSX8CLri',
     ],
