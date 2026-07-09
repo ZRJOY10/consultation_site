@@ -128,8 +128,8 @@ export default function Contact() {
                 <div className="absolute inset-0 bg-gradient-to-br from-copper-900/30 to-copper-900/20 flex items-center justify-center">
                   <div className="text-center">
                     <FiMapPin className="w-10 h-10 text-copper-400 mx-auto mb-2" />
-                    <p className="text-white/60 text-sm">123 Collins Street</p>
-                    <p className="text-white/40 text-xs">Melbourne VIC 3000</p>
+                    <p className="text-white/60 text-sm"> Level 16 & 17 , 1 Denison Street, North Sydney, NSW 2060</p>
+                    <p className="text-white/40 text-xs">North Sydney, Australia</p>
                   </div>
                 </div>
                 {/* Grid pattern */}
@@ -138,13 +138,27 @@ export default function Contact() {
 
               {/* Office locations */}
               <div className="space-y-3">
-                <h3 className="font-semibold text-white mb-4">Our Uber Office Locations</h3>
-                {offices.map(({ city, country, address, phone, whatsapp }) => (
+                <h2 className="font-semibold text-copper-900 dark:text-white mb-4 flex items-center gap-2 text-xl">
+                  <span className="w-1.5 h-6 bg-copper-500 rounded-full" />
+                  Our <span className="text-copper-600 dark:text-copper-300 font-bold">Uber Office</span> Locations
+                </h2>
+                {offices.map(({ city, country, address, phone, whatsapp, uberOffice }) => (
                   <div key={city} className="glass-card-hover p-4 flex items-center gap-4">
                     <div className="w-10 h-10 rounded-lg bg-copper-600/20 flex items-center justify-center flex-shrink-0">
                       <FiMapPin className="w-4 h-4 text-copper-400" />
                     </div>
                     <div>
+
+                      {uberOffice && (
+
+                        <h3 className="font-semibold text-copper-900 mb-1 flex items-center gap-2 text-md">
+                          <span className="w-1.5 h-6 bg-copper-500 rounded-full" />
+                          <span className="text-copper-600 font-bold">Uber Office</span>
+                        </h3>
+
+
+                      )}
+
                       <p className="font-medium text-white text-sm">{city}, {country}</p>
                       <p className="text-xs text-white/40">{address}</p>
                       <a

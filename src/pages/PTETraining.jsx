@@ -13,7 +13,7 @@ const features = [
 ]
 
 const courses = [
-  { name: 'PTE Academic', duration: '4 weeks', sessions: '20 sessions', price: 'AUD 599', target: '65+ score', popular: true, includes: ['20 practice tests', 'Study materials', 'Mock exam', 'Score prediction tool', '1-on-1 feedback'] },
+  // { name: 'PTE Academic', duration: '4 weeks', sessions: '20 sessions', price: 'AUD 599', target: '65+ score', popular: true, includes: ['20 practice tests', 'Study materials', 'Mock exam', 'Score prediction tool', '1-on-1 feedback'] },
   { name: 'IELTS General', duration: '6 weeks', sessions: '24 sessions', price: 'AUD 499', target: '6.5+ band', includes: ['Grammar module', 'Writing workshops', 'Speaking practice', 'Reading strategies', 'Full mock tests'] },
   { name: 'IELTS Academic', duration: '6 weeks', sessions: '24 sessions', price: 'AUD 549', target: '7.0+ band', includes: ['Academic writing', 'Complex reading', 'Listening strategies', 'Mock tests', 'Band score analysis'] },
   { name: 'Crash Course', duration: '2 weeks', sessions: '10 sessions', price: 'AUD 349', target: 'Score boost', includes: ['Intensive practice', 'Key strategies', 'Mock exam', 'Quick reference guides'] },
@@ -53,7 +53,7 @@ export default function PTETraining() {
             {/* Stats */}
             <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
-                { value: '5,000+', label: 'Students Trained' },
+                { value: '100+', label: 'Students Trained' },
                 { value: '89%', label: 'Achieve Target Score' },
                 { value: '+2', label: 'Average Band Improvement' },
                 { value: '4.9/5', label: 'Student Rating' },

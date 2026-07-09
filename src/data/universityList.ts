@@ -83,13 +83,6 @@ export const australiaUniversitiesDetailed = [
   { name: 'CQUniversity Australia', tuition: 'AUD 26,000 – 30,000', scholarship: '20% Scholarship', net: 'AUD 20,000 – 24,000', link: 'https://www.cqu.edu.au' },
 ]
 
-export const universityLinkMap = {
-  ...Object.fromEntries(australiaUniversitiesDetailed.map((university) => [university.name, university.link])),
-  'UNSW Sydney': 'https://www.unsw.edu.au',
-  'University of Technology Sydney': 'https://www.uts.edu.au',
-  'Australian National University': 'https://www.anu.edu.au',
-  'Swinburne University': 'https://www.swinburne.edu.au',
-}
 
 export const featuredAustralianUniversities = [
   { name: 'University of Divinity', tuition: 'AUD 16,000 – 19,000', link: 'https://www.divinity.edu.au' },
@@ -166,3 +159,64 @@ export const globalUniversitiesForPage = [
   { name: 'Victoria University of Wellington', country: 'New Zealand', flag: '🇳🇿', rank: 236, type: 'Comprehensive', courses: 160, tuition: 'NZD 26K-35K', founded: 1895, link: 'https://www.wgtn.ac.nz' },
   { name: 'University of Malta', country: 'Malta', flag: '🇲🇹', rank: 801, type: 'Comprehensive', courses: 120, tuition: 'EUR 8K-15K', founded: 1592, link: 'https://www.um.edu.mt' },
 ]
+
+
+export const newZealandCostTierUniversities = {
+  lower: [
+    { name: 'Lincoln University', tuition: '$32,000 – $36,000' },
+    { name: 'University of Waikato', tuition: '$32,000 – $38,000' },
+  ],
+  middle: [
+    { name: 'Massey University', tuition: '$34,000 – $42,000' },
+    { name: 'University of Canterbury', tuition: '$33,000 – $45,000' },
+    { name: 'University of Otago', tuition: '$35,000 – $45,000' },
+    { name: 'Victoria University of Wellington', tuition: '$33,000 – $47,000' },
+  ],
+  higher: [
+    { name: 'Auckland University of Technology', tuition: '$35,000 – $48,000' },
+    { name: 'University of Auckland', tuition: '$40,000 – $52,000+' },
+  ],
+}
+ 
+export const newZealandUniversitiesDetailed = [
+  { name: 'Lincoln University', tuition: 'NZD 32,000 – 36,000', scholarship: 'Contact university for current offers', net: 'Case-by-case', link: 'https://www.lincoln.ac.nz' },
+  { name: 'University of Waikato', tuition: 'NZD 32,000 – 38,000', scholarship: 'Contact university for current offers', net: 'Case-by-case', link: 'https://www.waikato.ac.nz' },
+  { name: 'Massey University', tuition: 'NZD 34,000 – 42,000', scholarship: 'Contact university for current offers', net: 'Case-by-case', link: 'https://www.massey.ac.nz' },
+  { name: 'University of Canterbury', tuition: 'NZD 33,000 – 45,000', scholarship: 'Contact university for current offers', net: 'Case-by-case', link: 'https://www.canterbury.ac.nz' },
+  { name: 'University of Otago', tuition: 'NZD 35,000 – 45,000', scholarship: 'Contact university for current offers', net: 'Case-by-case', link: 'https://www.otago.ac.nz' },
+  { name: 'Victoria University of Wellington', tuition: 'NZD 33,000 – 47,000', scholarship: 'Contact university for current offers', net: 'Case-by-case', link: 'https://www.wgtn.ac.nz' },
+  { name: 'Auckland University of Technology', tuition: 'NZD 35,000 – 48,000', scholarship: 'Contact university for current offers', net: 'Case-by-case', link: 'https://www.aut.ac.nz' },
+  { name: 'University of Auckland', tuition: 'NZD 40,000 – 52,000+', scholarship: 'Contact university for current offers', net: 'Case-by-case', link: 'https://www.auckland.ac.nz' },
+]
+ 
+// Best-value picks called out for Bangladeshi students in the source material
+export const newZealandBestValueUniversities = [
+  'Lincoln University',
+  'University of Waikato',
+  'Massey University',
+  'University of Canterbury',
+]
+ 
+// PR-friendly / good career-outcome fields highlighted for NZ residence pathways
+export const newZealandPrFriendlyFields = [
+  'Nursing',
+  'Teaching',
+  'Engineering',
+  'Information Technology',
+  'Construction Management',
+  'Agriculture and Agribusiness',
+  'Medical Laboratory Science',
+  'Business Analytics',
+  'Data Science',
+]
+ 
+
+export const universityLinkMap = {
+  // ...Object.fromEntries(australiaUniversitiesDetailed.map((u) => [u.name, u.link])),
+  ...Object.fromEntries(newZealandUniversitiesDetailed.map((u) => [u.name, u.link])),
+  ...Object.fromEntries(australiaUniversitiesDetailed.map((university) => [university.name, university.link])),
+  'UNSW Sydney': 'https://www.unsw.edu.au',
+  'University of Technology Sydney': 'https://www.uts.edu.au',
+  'Australian National University': 'https://www.anu.edu.au',
+  'Swinburne University': 'https://www.swinburne.edu.au',
+}

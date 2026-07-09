@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiArrowRight, FiMapPin, FiUsers, FiBriefcase, FiBook, FiDollarSign, FiCheckCircle } from 'react-icons/fi'
+import { FiArrowRight, FiMapPin, FiUsers, FiBriefcase, FiBook, FiDollarSign, FiCheckCircle, FiTrendingUp } from 'react-icons/fi'
 import AnimatedSection from '../components/AnimatedSection'
 import ConsultationForm from '../components/home/ConsultationForm'
-import { australiaCostTierUniversities, australiaUniversitiesDetailed, universityLinkMap } from '../data/universityList'
+import { australiaCostTierUniversities, australiaUniversitiesDetailed, newZealandCostTierUniversities, newZealandBestValueUniversities, newZealandPrFriendlyFields, newZealandUniversitiesDetailed, universityLinkMap } from '../data/universityList'
 import { toCourseSlug } from '../data/courseGuides'
 import { optimizeImageUrl } from '../utils/imageOptimization'
 
@@ -96,13 +96,81 @@ const countryData = {
     name: 'New Zealand', flag: '🇳🇿', color: 'from-copper-700 to-copper-900',
     image: 'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=1200&q=80',
     tagline: 'Safe, scenic, and internationally recognized',
-    description: 'New Zealand offers a safe environment, stunning natural scenery, and internationally recognized qualifications. With a growing economy and welcoming immigration policies, NZ is increasingly popular for international students.',
-    stats: [{ label: 'Universities', value: '8' }, { label: 'QS Top 500', value: '6' }, { label: 'Work Hours/Week', value: '20hrs' }, { label: 'Post-Study Visa', value: '3 yrs' }],
+    description: 'New Zealand offers a safe environment, stunning natural scenery, and internationally recognized qualifications. Its universities are known for practical, industry-focused programs across nursing, engineering, IT, construction, agriculture, and analytics — many of which sit on skill-shortage lists that support residence pathways after graduation. With a growing economy and welcoming immigration policies, NZ is increasingly popular for international students seeking both quality education and long-term career outcomes. Our consultancy guides students through course selection, university applications, visa preparation, and pre-departure planning tailored to New Zealand.',
+    stats: [
+      { label: 'Universities', value: '8' },
+      { label: 'QS Top 500', value: '6' },
+      { label: 'Work Hours/Week', value: '20hrs' },
+      { label: 'Post-Study Visa', value: '3 yrs' },
+    ],
     intakes: ['February (Main)', 'July (Secondary)'],
-    popular: ['Agriculture & Horticulture', 'Business', 'IT', 'Engineering', 'Tourism'],
-    cost: { tuition: 'NZD 22,000 – 35,000/year', living: 'NZD 15,000 – 20,000/year', total: 'NZD 37,000 – 55,000/year' },
-    visa: { type: 'Student Visa', duration: 'Course duration', work: '20 hrs/week during study', processing: '4–6 weeks' },
-    requirements: ['Offer letter', 'English proficiency', 'Financial evidence', 'Health & character certificate', 'Travel insurance', 'Return ticket'],
+    popular: [
+      'Nursing',
+      'Early Childhood Education',
+      'Engineering',
+      'Information Technology',
+      'Construction Management',
+      'Agriculture & Agribusiness',
+      'Business Analytics',
+      'Data Science',
+      'Tourism',
+    ],
+    cost: {
+      tuition: 'NZD 22,000 – 60,000/year',
+      living: 'NZD 20,000 – 25,000/year',
+      total: 'NZD 42,000 – 88,000/year',
+    },
+    visa: {
+      type: 'Student Visa',
+      duration: 'Course duration',
+      work: '20 hrs/week during study',
+      processing: '4–6 weeks',
+    },
+    requirements: [
+      'Offer letter',
+      'English proficiency (IELTS/PTE/TOEFL)',
+      'Financial evidence',
+      'Health & character certificate',
+      'Travel insurance',
+      'Return ticket',
+    ],
+
+    // Fields that sit on NZ skill-shortage / residence-friendly lists, independent of tuition cost
+    prFriendlyFields: newZealandPrFriendlyFields,
+
+    // Universities called out as the best balance of affordability + outcomes
+    bestValueUniversities: newZealandBestValueUniversities,
+
+    costTiers: {
+      lower: {
+        range: 'Under NZD $38,000/year',
+        description: 'Budget-Friendly New Zealand Universities',
+        universities: newZealandCostTierUniversities.lower,
+        note: 'Most affordable options among NZ universities, with strong value for agriculture, business, and applied science programs.',
+      },
+      middle: {
+        range: 'NZD $38,000 – $47,000/year',
+        description: 'Mid-Range New Zealand Universities',
+        universities: newZealandCostTierUniversities.middle,
+        note: 'Well-regarded universities balancing solid rankings with competitive tuition and strong graduate outcomes.',
+      },
+      higher: {
+        range: 'Above NZD $47,000/year',
+        description: 'Premium New Zealand Universities',
+        universities: newZealandCostTierUniversities.higher,
+        note: 'New Zealand\'s highest-ranked institutions, with the strongest global recognition and research reputations.',
+      },
+    },
+
+    // Full tuition comparison table (international students)
+    universities: newZealandUniversitiesDetailed,
+
+    scholarships: newZealandBestValueUniversities.map((uni) => ({
+      uni,
+      detail: 'Best-value pick for affordability plus strong graduate outcomes',
+    })),
+
+    universitiesNote: 'Tuition ranges are indicative and vary by program. Specific scholarship amounts were not published for New Zealand institutions in our source data — always confirm current offers directly with each university. PR-friendly fields (Nursing, Teaching, Engineering, IT, Construction Management, Agriculture & Agribusiness, Medical Laboratory Science, Business Analytics, Data Science) are worth prioritizing over lowest tuition alone.',
   },
   malta: {
     name: 'Malta', flag: '🇲🇹', color: 'from-copper-700 to-copper-900',
@@ -241,9 +309,26 @@ export default function Destinations() {
                           <h3 className="font-semibold text-white mb-4">About Studying in {data.name}</h3>
                           <p className="text-white/60 leading-relaxed mb-6">{data.description}</p>
                           <h4 className="text-sm font-semibold text-white/60 uppercase tracking-wider mb-3">Intake Periods</h4>
-                          <div className="flex gap-2 mb-6">
+                          <div className="flex gap-2 mb-6 flex-wrap">
                             {data.intakes.map(i => <span key={i} className="px-3 py-1 glass-card text-sm text-copper-400">{i}</span>)}
                           </div>
+
+                          {/* PR-friendly / skill-shortage fields (currently populated for New Zealand) */}
+                          {data.prFriendlyFields && (
+                            <>
+                              <h4 className="text-sm font-semibold text-white/60 uppercase tracking-wider mb-3 flex items-center gap-2">
+                                <FiTrendingUp className="w-4 h-4 text-copper-400" /> PR-Friendly & High-Demand Fields
+                              </h4>
+                              <div className="flex gap-2 mb-2 flex-wrap">
+                                {data.prFriendlyFields.map(f => (
+                                  <span key={f} className="px-3 py-1 glass-card text-sm text-copper-400">{f}</span>
+                                ))}
+                              </div>
+                              <p className="text-xs text-white/40 italic">
+                                The cheapest university isn't always the best choice — these fields sit on residence pathways and tend to have stronger career outcomes.
+                              </p>
+                            </>
+                          )}
                         </div>
                         <div className="glass-card p-6">
                           <h3 className="font-semibold text-white mb-4">Popular Courses</h3>
@@ -355,7 +440,9 @@ export default function Destinations() {
 
                               {/* Scholarships column */}
                               <div className="glass-card p-6 h-full flex flex-col">
-                                <h3 className="font-semibold text-white mb-4">Scholarships & Awards</h3>
+                                <h3 className="font-semibold text-white mb-4">
+                                  {data.bestValueUniversities ? 'Best Value Universities' : 'Scholarships & Awards'}
+                                </h3>
                                 <p className="text-sm text-white/60 mb-3">{data.universitiesNote}</p>
                                 <ul className="space-y-3 flex-1 overflow-y-auto pr-1">
                                   {data.scholarships && data.scholarships.map((s, i) => (
@@ -393,8 +480,8 @@ export default function Destinations() {
                                         <td className="px-3 py-3 text-white/60">{u.scholarship}</td>
                                         <td className="px-3 py-3 text-white/60">{u.net}</td>
                                         <td className="px-3 py-3 text-right">
-                                          {u.link ? (
-                                            <a href={u.link} target="_blank" rel="noopener noreferrer" className="inline-block px-3 py-1 text-xs bg-white/5 rounded hover:bg-white/10">Visit</a>
+                                          {(u.link || uniLinks[u.name]) ? (
+                                            <a href={u.link || uniLinks[u.name]} target="_blank" rel="noopener noreferrer" className="inline-block px-3 py-1 text-xs bg-white/5 rounded hover:bg-white/10">Visit</a>
                                           ) : (
                                             <span className="text-xs text-white/40">—</span>
                                           )}
