@@ -11,7 +11,7 @@
  */
 
 const DEFAULT_ENROLL_FORM_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLScQVX9wVF5hQwLu-eZG4gYAaPhaGQ4_KrEyh0M34ZBW--AcVg/viewform'
+  'forms.gle/JC1qVLNmXBthWGVSA'
 
 export const enrollFormUrl = import.meta.env.VITE_IELTS_ENROLL_FORM_URL || DEFAULT_ENROLL_FORM_URL
 
