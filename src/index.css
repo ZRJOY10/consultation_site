@@ -97,7 +97,7 @@
   right: 0;
   bottom: 0;
   z-index: 45;
-  height: calc(58px + env(safe-area-inset-bottom, 0px));
+  height: calc(3.625rem + env(safe-area-inset-bottom, 0px));
   padding-bottom: env(safe-area-inset-bottom, 0px);
   background: var(--color-glass);
   backdrop-filter: blur(16px);
@@ -107,7 +107,7 @@
 }
 
 body.has-enroll-bar {
-  padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(3.625rem + env(safe-area-inset-bottom, 0px));
 }
 
 /* Bangla headings need more leading than Tailwind's text-* defaults (which ship
@@ -131,6 +131,14 @@ body.has-enroll-bar {
 }
 
 @layer base {
+  /* Site-wide 30% downscale. Tailwind sizes type, spacing, widths and heights
+     in rem, so shrinking the root font size scales all of them together.
+     Breakpoints stay in px, so the layout still switches at the same viewport
+     widths and nothing reflows differently. */
+  html {
+    font-size: 70%;
+  }
+
   * {
     scroll-behavior: smooth;
   }
