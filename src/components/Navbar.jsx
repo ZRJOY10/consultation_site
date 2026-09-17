@@ -16,6 +16,7 @@ const navLinks = [
       { label: 'Visa Processing', path: '/services' },
       { label: 'Scholarship Guidance', path: '/services' },
       { label: 'PTE Training', path: '/pte-training' },
+      { label: 'IELTS Batch (৳3,500)', path: '/ielts-program' },
       { label: 'Career Counselling', path: '/services' },
       { label: 'Migration Advice', path: '/services' },
     ]

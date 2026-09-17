@@ -9,12 +9,14 @@ import TrackingScripts from './components/TrackingScripts'
 import Home from './pages/Home'
 import { getCourseGuide } from './data/courseGuides'
 import { homeFaqItems } from './data/homeFaq'
+import { ieltsFaq } from './data/ieltsProgram'
 
 const About = lazy(() => import('./pages/About'))
 const Services = lazy(() => import('./pages/Services'))
 const Destinations = lazy(() => import('./pages/Destinations'))
 const Universities = lazy(() => import('./pages/Universities'))
 const PTETraining = lazy(() => import('./pages/PTETraining'))
+const IeltsProgram = lazy(() => import('./pages/IeltsProgram'))
 const StudentSuccess = lazy(() => import('./pages/StudentSuccess'))
 const Blog = lazy(() => import('./pages/Blog'))
 const BlogPost = lazy(() => import('./pages/BlogPost'))
@@ -34,6 +36,7 @@ const STATIC_ROUTES = [
   '/destinations',
   '/universities',
   '/pte-training',
+  '/ielts-program',
   '/student-success',
   '/blog',
   '/contact',
@@ -139,6 +142,35 @@ function localBusinessSchema() {
       'https://www.linkedin.com/company/global-talent',
       'https://youtube.com/@globaltalenteducationcon?si=PUDihdRoqSX8CLri',
     ],
+  }
+}
+
+function ieltsCourseSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: 'IELTS Studio Batch',
+    description:
+      '25 private live Zoom classes with recordings covering Listening, Reading, Writing and Speaking, plus full mock tests and personal feedback from a Band 8 mentor.',
+    inLanguage: 'bn',
+    url: toAbsoluteUrl('/ielts-program'),
+    provider: {
+      '@type': 'Organization',
+      name: 'Global Talent Education Consultancy',
+      url: toAbsoluteUrl('/'),
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '3500',
+      priceCurrency: 'BDT',
+      availability: 'https://schema.org/LimitedAvailability',
+      url: toAbsoluteUrl('/ielts-program'),
+    },
+    hasCourseInstance: {
+      '@type': 'CourseInstance',
+      courseMode: 'Online',
+      courseWorkload: 'P25D',
+    },
   }
 }
 
@@ -276,6 +308,12 @@ function RouteSeo() {
         'Join practical PTE and IELTS coaching with mock tests and expert guidance to reach your target score confidently.',
       keywords: 'PTE training, IELTS coaching, English test preparation for study abroad',
     },
+    '/ielts-program': {
+      title: 'IELTS Studio Batch | Band 8 Mentor | Global Talent Education',
+      description:
+        'Join the Global Talent IELTS studio batch: 25 private live Zoom classes with recordings, full mock tests, and personal feedback from a Band 8 mentor for BDT 3,500.',
+      keywords: 'IELTS course Bangladesh, IELTS live class online, IELTS Band 8 mentor, IELTS batch price, IELTS preparation Dhaka',
+    },
     '/student-success': {
       title: 'Student Success Stories | Global Talent Education',
       description:
@@ -328,6 +366,11 @@ function RouteSeo() {
     structuredData.push(organizationSchema())
     structuredData.push(localBusinessSchema())
     structuredData.push(faqSchemaFromItems(homeFaqItems))
+  }
+
+  if (pathname === '/ielts-program') {
+    structuredData.push(ieltsCourseSchema())
+    structuredData.push(faqSchemaFromItems(ieltsFaq))
   }
 
   return (
@@ -383,6 +426,7 @@ export default function App() {
               <Route path="/destinations/:country/:course" element={<DestinationCourse />} />
               <Route path="/universities" element={<Universities />} />
               <Route path="/pte-training" element={<PTETraining />} />
+              <Route path="/ielts-program" element={<IeltsProgram />} />
               <Route path="/student-success" element={<StudentSuccess />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />

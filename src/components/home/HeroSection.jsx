@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { FiArrowRight, FiPlay, FiPlusCircle, FiUsers, FiBarChart2, FiActivity } from 'react-icons/fi'
+import { FiArrowRight, FiPlay, FiPlusCircle, FiUsers, FiBarChart2, FiActivity, FiMic } from 'react-icons/fi'
 import { HiSparkles } from 'react-icons/hi'
 import { useTheme } from '../../context/ThemeContext'
 import worldSvg from '../../assets/svg/world.svg'
@@ -291,15 +291,21 @@ export default function HeroSection() {
 
       <motion.div style={{ opacity }} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 w-full">
         <div className="max-w-4xl">
-          {/* <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <span className={`inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium mb-6 border ${
-              isDark ? 'bg-copper-500/[0.08] border-copper-400/20 text-copper-300' : 'bg-copper-600/[0.06] border-copper-400/20 text-copper-700'
-            }`}>
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+            <Link
+              to="/ielts-program"
+              className={`inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium mb-6 border transition-colors group ${
+                isDark
+                  ? 'bg-copper-500/[0.08] border-copper-400/20 text-copper-300 hover:border-copper-400/40'
+                  : 'bg-copper-600/[0.06] border-copper-400/20 text-copper-700 hover:border-copper-500/40'
+              }`}
+            >
               <HiSparkles className={`w-4 h-4 ${isDark ? 'text-copper-400' : 'text-copper-500'}`} />
-              Trusted by 15,000+ students worldwide
-              <span className="w-1.5 h-1.5 rounded-full bg-copper-400 animate-pulse" />
-            </span>
-          </motion.div> */}
+              <span className="font-semibold">New:</span> IELTS Studio Batch — ৳3,500
+              <span className={`line-through ${isDark ? 'text-slate-500' : 'text-copper-700/50'}`}>৳7,000</span>
+              <FiArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </motion.div>
 
           <motion.h1 initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
@@ -329,11 +335,15 @@ export default function HeroSection() {
               <FiPlay className="w-4 h-4" />
               Explore Destinations
             </Link>
+            <Link to="/ielts-program" className="btn-secondary text-sm sm:text-base group">
+              <FiMic className="w-4 h-4" />
+              IELTS Batch
+            </Link>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 mb-12">
+            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-4 mb-12">
             {topAustraliaCourses.map(({ name, meta, icon: Icon }, i) => (
               <motion.div key={name} initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -354,6 +364,34 @@ export default function HeroSection() {
                 </Link>
               </motion.div>
             ))}
+
+            {/* IELTS studio batch — launch highlight */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.9, duration: 0.5 }}
+              className="col-span-2 md:col-span-4 lg:col-span-1 glass-card relative overflow-hidden transition-all duration-300 hover:scale-[1.02] border-copper-500/40"
+            >
+              <span className="absolute top-0 right-0 bg-copper-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wide">
+                NEW
+              </span>
+              <Link to="/ielts-program" className="block p-3 sm:p-4 text-center">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 mx-auto mb-2 rounded-lg bg-copper-600/25 border border-copper-500/30 flex items-center justify-center">
+                  <FiMic className={`w-4 h-4 ${isDark ? 'text-copper-300' : 'text-copper-700'}`} />
+                </div>
+                <div className={`text-sm sm:text-base font-semibold font-poppins ${isDark ? 'text-white' : 'text-copper-900'}`}>
+                  IELTS Batch
+                </div>
+                <div className={`text-[10px] sm:text-xs mt-1 ${isDark ? 'text-slate-500' : 'text-copper-600/60'}`}>
+                  Band 8 Mentor · 25 Classes
+                </div>
+                <div className="text-[10px] sm:text-xs mt-2 text-copper-500 inline-flex items-center gap-1">
+                  <span className="font-bold">৳3,500</span>
+                  <span className={`line-through ${isDark ? 'text-slate-600' : 'text-copper-700/40'}`}>৳7,000</span>
+                  <FiArrowRight className="w-3 h-3" />
+                </div>
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </motion.div>

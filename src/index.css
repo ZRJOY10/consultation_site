@@ -53,6 +53,83 @@
   --shadow-card:        0 4px 24px rgba(0, 0, 0, 0.2);
 }
 
+
+
+/* ---- IELTS offer visuals ---------------------------------------------- */
+/* Gradient-bordered card: the wrapper paints the border, the inner element
+   paints the surface, so the border follows the active theme. */
+.offer-card {
+  position: relative;
+  border-radius: 1.5rem;
+  padding: 1.5px;
+  background: linear-gradient(
+    140deg,
+    rgba(var(--color-accent-rgb), 0.95),
+    rgba(251, 191, 36, 0.6) 45%,
+    rgba(var(--color-accent-rgb), 0.2)
+  );
+  box-shadow: var(--shadow-card);
+}
+
+.offer-card__inner {
+  border-radius: calc(1.5rem - 1.5px);
+  background: var(--color-bg);
+  height: 100%;
+}
+
+/* Diagonal ticket stripes behind the savings strip */
+.offer-stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(var(--color-accent-rgb), 0.10) 0px,
+    rgba(var(--color-accent-rgb), 0.10) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+/* Always-on enrollment bar for the IELTS landing page. It sits below the navbar
+   (z-50) and body padding is added while it is mounted so it never covers the
+   footer. */
+.enroll-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 45;
+  height: calc(72px + env(safe-area-inset-bottom, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: var(--color-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--color-glass-border);
+  box-shadow: var(--shadow-card);
+}
+
+body.has-enroll-bar {
+  padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+}
+
+/* Bangla headings need more leading than Tailwind's text-* defaults (which ship
+   line-height:1 at the larger sizes) or conjuncts collide between lines. */
+.ielts-page h1,
+.ielts-page h2,
+.ielts-page h3 {
+  line-height: 1.45;
+}
+
+/* Bangla vowel marks extend past the inline background box that
+   background-clip:text paints from, which crops them. Scoped to this page so
+   the rest of the site's gradient headings are untouched. */
+.ielts-page .gradient-text,
+.enroll-bar .gradient-text {
+  display: inline-block;
+  /* padding grows the box background-clip:text paints from; the negative margin
+     cancels the extra height so surrounding spacing is unchanged */
+  padding-bottom: 0.3em;
+  margin-bottom: -0.3em;
+}
+
 @layer base {
   * {
     scroll-behavior: smooth;

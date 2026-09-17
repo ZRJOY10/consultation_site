@@ -11,6 +11,7 @@ const staticRoutes = [
   '/destinations',
   '/universities',
   '/pte-training',
+  '/ielts-program',
   '/student-success',
   '/blog',
   '/contact',
