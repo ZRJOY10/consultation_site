@@ -97,7 +97,7 @@
   right: 0;
   bottom: 0;
   z-index: 45;
-  height: calc(72px + env(safe-area-inset-bottom, 0px));
+  height: calc(58px + env(safe-area-inset-bottom, 0px));
   padding-bottom: env(safe-area-inset-bottom, 0px);
   background: var(--color-glass);
   backdrop-filter: blur(16px);
@@ -107,7 +107,7 @@
 }
 
 body.has-enroll-bar {
-  padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px));
 }
 
 /* Bangla headings need more leading than Tailwind's text-* defaults (which ship
@@ -115,7 +115,7 @@ body.has-enroll-bar {
 .ielts-page h1,
 .ielts-page h2,
 .ielts-page h3 {
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 /* Bangla vowel marks extend past the inline background box that

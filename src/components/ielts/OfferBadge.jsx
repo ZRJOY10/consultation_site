@@ -4,9 +4,9 @@
  */
 export default function OfferBadge({ size = 'md', className = '' }) {
   const sizes = {
-    sm: { box: 'w-14 h-14', pct: 'text-sm', off: 'text-[8px]' },
-    md: { box: 'w-20 h-20', pct: 'text-xl', off: 'text-[10px]' },
-    lg: { box: 'w-28 h-28 sm:w-32 sm:h-32', pct: 'text-3xl sm:text-4xl', off: 'text-xs sm:text-sm' },
+    sm: { box: 'w-11 h-11', pct: 'text-[11px]', off: 'text-[7px]' },
+    md: { box: 'w-16 h-16', pct: 'text-sm', off: 'text-[8px]' },
+    lg: { box: 'w-20 h-20 sm:w-24 sm:h-24', pct: 'text-xl sm:text-2xl', off: 'text-[10px] sm:text-xs' },
   }
   const s = sizes[size] || sizes.md
 
