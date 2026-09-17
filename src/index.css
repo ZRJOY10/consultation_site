@@ -131,12 +131,12 @@ body.has-enroll-bar {
 }
 
 @layer base {
-  /* Site-wide 30% downscale. Tailwind sizes type, spacing, widths and heights
+  /* Site-wide 20% downscale. Tailwind sizes type, spacing, widths and heights
      in rem, so shrinking the root font size scales all of them together.
      Breakpoints stay in px, so the layout still switches at the same viewport
      widths and nothing reflows differently. */
   html {
-    font-size: 70%;
+    font-size: 80%;
   }
 
   * {
@@ -461,4 +461,21 @@ html:not(.dark) .glass-card-hover [class*='border-white/'],
 html:not(.dark) .glass-card[class*='border-white/'],
 html:not(.dark) .glass-card-hover[class*='border-white/'] {
   border-color: rgba(184, 115, 51, 0.22) !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Page container width
+   ---------------------------------------------------------------------------
+   Tailwind's max-w-7xl is 80rem, so the 80% root font size above was shrinking
+   the page container from 1280px to 1024px and leaving wide empty gutters on
+   desktop. Pin it in px so the layout width is independent of the type scale:
+   text and spacing stay 20% smaller, the content column does not shrink.
+
+   Inner blocks (max-w-2xl/3xl/4xl) are deliberately left in rem — a text column
+   should get narrower as the type gets smaller to keep the line length readable.
+--------------------------------------------------------------------------- */
+@layer utilities {
+  .max-w-7xl {
+    max-width: 1440px;
+  }
 }
