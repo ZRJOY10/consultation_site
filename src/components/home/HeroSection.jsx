@@ -383,7 +383,7 @@ export default function HeroSection() {
                   IELTS Batch
                 </div>
                 <div className={`text-[10px] sm:text-xs mt-1 ${isDark ? 'text-slate-500' : 'text-copper-600/60'}`}>
-                  Band 8 Mentor · 25 Classes
+                  Band 8 Mentor · 27 Classes
                 </div>
                 <div className="text-[10px] sm:text-xs mt-2 text-copper-500 inline-flex items-center gap-1">
                   <span className="font-bold">৳3,500</span>

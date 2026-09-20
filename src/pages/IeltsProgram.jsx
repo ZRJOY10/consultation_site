@@ -13,6 +13,7 @@ import {
   FiAward,
   FiVideo,
   FiLayers,
+  FiRefreshCw,
 } from 'react-icons/fi'
 import AnimatedSection from '../components/AnimatedSection'
 import SectionBadge from '../components/SectionBadge'
@@ -25,6 +26,8 @@ import {
   heroStats,
   mentor,
   syllabus,
+  speakingClub,
+  toBanglaDigits,
   bonuses,
   delivery,
   problems,
@@ -70,7 +73,7 @@ function EnrollBar() {
                 isDark ? 'text-slate-400' : 'text-copper-700/70'
               }`}
             >
-              IELTS স্টুডিও ব্যাচ · ২৫টি ক্লাস
+              IELTS স্টুডিও ব্যাচ · ২৭টি ক্লাস
             </p>
             <p className="flex items-baseline gap-2 leading-tight">
               <span className="text-base sm:text-lg font-black gradient-text">{pricing.current}</span>
@@ -232,12 +235,12 @@ export default function IeltsProgram() {
                   </div>
 
                   {/* savings strip — the loudest element in the card */}
-                  <div className="offer-stripes mt-4 rounded-lg border border-copper-500/30 px-3 py-2.5 flex items-center gap-2.5">
+                  {/* <div className="offer-stripes mt-4 rounded-lg border border-copper-500/30 px-3 py-2.5 flex items-center gap-2.5">
                     <FiZap className="w-4 h-4 text-gold-500 flex-shrink-0" />
                     <p className={`text-sm font-bold ${HEADING}`}>
                       আপনি বাঁচাচ্ছেন <span className="gradient-text-gold">৳3,500</span>
                     </p>
-                  </div>
+                  </div> */}
 
                   <ul className="mt-5 space-y-2">
                     {[
@@ -312,8 +315,19 @@ export default function IeltsProgram() {
                 {/* gradient ring avatar */}
                 <div className="flex-shrink-0 mx-auto sm:mx-0">
                   <div className="p-[2px] rounded-2xl bg-gradient-to-br from-gold-400 to-copper-700">
-                    <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-[calc(1rem-2px)] bg-gradient-to-br from-copper-600 to-copper-800 flex items-center justify-center text-lg sm:text-2xl font-bold text-white">
-                      {mentor.initials}
+                    {/* The source is a waist-up portrait, so the head fills only the
+                        top third. Zoom about that point to crop to head-and-shoulders
+                        instead of showing a full-length figure at avatar size. */}
+                    <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-[calc(1rem-2px)] overflow-hidden">
+                      <img
+                        src={mentor.photo}
+                        alt={mentor.name}
+                        width="112"
+                        height="112"
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover scale-[1.92] origin-[50%_17%]"
+                      />
                     </div>
                   </div>
                 </div>
@@ -342,10 +356,10 @@ export default function IeltsProgram() {
             <AnimatedSection className="mb-6 sm:mb-8">
               <SectionBadge variant="subtle" className="mb-4">সিলেবাস</SectionBadge>
               <h2 className="section-title text-xl sm:text-2xl mb-3">
-                ২৫টি ক্লাসে <span className="gradient-text">যা কভার হবে</span>
+                ২৭টি লাইভ ক্লাসে <span className="gradient-text">যা কভার হবে</span>
               </h2>
               <p className={`text-xs max-w-xl ${MUTED}`}>
-                প্রতিটি মডিউলের জন্য আলাদা সময় বরাদ্দ, শেষে পূর্ণাঙ্গ মক টেস্ট ও ব্যক্তিগত ফিডব্যাক।
+                বেসিক থেকে শুরু করে চারটি স্কিল, তারপর ফুল মক টেস্ট — শেষে সপ্তাহে ১ দিনের Speaking Club দিয়ে ফ্লুয়েন্সি চালু থাকবে কোর্স শেষেও।
               </p>
             </AnimatedSection>
 
@@ -359,7 +373,7 @@ export default function IeltsProgram() {
                         {idx}
                       </span>
                       <span className="flex-shrink-0 text-[10px] font-bold text-copper-400 bg-copper-600/15 border border-copper-500/25 rounded-full px-2.5 py-0.5">
-                        {classes} ক্লাস
+                        {toBanglaDigits(classes)} ক্লাস
                       </span>
                     </div>
                     <h3 className={`text-sm font-bold mb-1.5 ${HEADING}`}>{name}</h3>
@@ -369,11 +383,35 @@ export default function IeltsProgram() {
               ))}
             </div>
 
+            {/* Speaking Club sits outside the numbered grid: it is weekly, it is not
+                one of the 27, and it outlives the batch. */}
             <AnimatedSection delay={0.1}>
+              <div className="flex justify-center my-4">
+                <span className={`text-xl font-black leading-none ${SUBTLE}`} aria-hidden="true">
+                  +
+                </span>
+              </div>
+
+              <div className="offer-card">
+                <div className="offer-card__inner p-4 sm:p-5">
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-gold-500 bg-gold-400/15 border border-gold-400/30 rounded-full px-2.5 py-0.5 mb-3">
+                    <FiRefreshCw className="w-3 h-3" />
+                    {speakingClub.cadence}
+                  </span>
+                  <h3 className={`text-sm font-bold mb-1.5 ${HEADING}`}>{speakingClub.name}</h3>
+                  <p className={`text-xs leading-relaxed ${MUTED}`}>{speakingClub.desc}</p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.14}>
               <div className="mt-5 glass-card border-copper-500/30 p-5 flex items-center justify-between gap-4">
-                <span className={`text-xs sm:text-sm font-bold ${HEADING}`}>মোট ক্লাস সংখ্যা</span>
-                <span className="text-lg sm:text-xl font-black gradient-text leading-none">
-                  {totalClasses}
+                <div className="min-w-0">
+                  <p className={`text-xs sm:text-sm font-bold ${HEADING}`}>মোট ক্লাস সংখ্যা</p>
+                  <p className={`text-[10px] mt-0.5 ${MUTED}`}>{speakingClub.note}</p>
+                </div>
+                <span className="text-lg sm:text-xl font-black gradient-text leading-none flex-shrink-0">
+                  {toBanglaDigits(totalClasses)}
                 </span>
               </div>
             </AnimatedSection>

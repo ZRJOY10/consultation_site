@@ -10,6 +10,8 @@
  * code change.
  */
 
+import tasnimPhoto from '../assets/images/tasnim.jpeg'
+
 const DEFAULT_ENROLL_FORM_URL =
   'https://docs.google.com/forms/d/e/1FAIpQLSe9tzKPJ0InRuL7Uv70hWQBHr24d494L9ZiKzgzg6YK4EKQZA/viewform'
 
@@ -19,8 +21,8 @@ export const ieltsProgram = {
   badge: 'IELTS স্টুডিও ব্যাচ',
   title: 'Band 8 স্কোরারের সরাসরি তত্ত্বাবধানে, আপনার IELTS প্রস্তুতি',
   lede:
-    'Zoom-এ সরাসরি প্রাইভেট লাইভ ক্লাস, প্রতিটি রেকর্ড সহ — Listening, Reading, Writing, Speaking আর পূর্ণাঙ্গ মক টেস্ট, একসাথে। মেন্টর তাসনিম ওয়াসিথ, যিনি নিজে IELTS-এ Band 8 অর্জন করেছেন।',
-  totalClasses: 25,
+    'Zoom-এ সরাসরি প্রাইভেট লাইভ ক্লাস, প্রতিটি রেকর্ড সহ — Listening, Reading, Writing, Speaking আর পূর্ণাঙ্গ মক টেস্ট, একসাথে। মেন্টর তাসনিম ওয়াসীত্ব, যিনি নিজে IELTS-এ Band 8 অর্জন করেছেন।',
+  totalClasses: 27,
 }
 
 export const pricing = {
@@ -31,7 +33,7 @@ export const pricing = {
   tag: 'লঞ্চ ব্যাচ মূল্য',
   note: 'সীমিত আসন — প্রথম স্টুডিও ব্যাচ',
   rationale:
-    'Global Talent-এর নতুন স্টুডিও থেকে এটাই প্রথম ব্যাচ। আমরা চাই তাসনিম ওয়াসিথের মতো একজন Band 8 স্কোরারের সরাসরি গাইডেন্স শুরুতেই বেশি স্টুডেন্টের কাছে পৌঁছাক — তাই লঞ্চ মূল্য হিসেবে অর্ধেক দামে দেওয়া হচ্ছে। আসন ইচ্ছাকৃতভাবে সীমিত রাখা হচ্ছে, যাতে প্রতিটি ক্লাসে ব্যক্তিগত মনোযোগ বজায় থাকে — সংখ্যা বাড়িয়ে মান কমানো হবে না।',
+    'Global Talent-এর নতুন স্টুডিও থেকে এটাই প্রথম ব্যাচ। আমরা চাই তাসনিম ওয়াসীত্বের মতো একজন Band 8 স্কোরারের সরাসরি গাইডেন্স শুরুতেই বেশি স্টুডেন্টের কাছে পৌঁছাক — তাই লঞ্চ মূল্য হিসেবে অর্ধেক দামে দেওয়া হচ্ছে। আসন ইচ্ছাকৃতভাবে সীমিত রাখা হচ্ছে, যাতে প্রতিটি ক্লাসে ব্যক্তিগত মনোযোগ বজায় থাকে — সংখ্যা বাড়িয়ে মান কমানো হবে না।',
 }
 
 export const payment = {
@@ -44,58 +46,74 @@ export const payment = {
 }
 
 export const heroStats = [
-  { value: '25', label: 'লাইভ ও রেকর্ডেড ক্লাস' },
+  { value: '27', label: 'লাইভ ও রেকর্ডেড ক্লাস' },
   { value: '8', label: 'মেন্টরের IELTS Band স্কোর' },
   { value: '4', label: 'মডিউল সম্পূর্ণ কভারেজ' },
 ]
 
 export const mentor = {
-  initials: 'তা',
-  name: 'তাসনিম ওয়াসিথ',
+  photo: tasnimPhoto,
+  name: 'তাসনিম ওয়াসীত্ব',
   badge: 'IELTS Band 8',
   role: 'মেন্টর, Global Talent Education Consultancy IELTS ব্যাচ',
   bio:
-    'IELTS & Higher Study Network প্রোগ্রামে নিয়মিত লাইভ ক্লাস ও স্পিকিং-রাইটিং ফিডব্যাক দিয়ে আসছেন তাসনিম ওয়াসিথ। এই স্টুডিও ব্যাচে তিনি প্রতিটি মডিউল সরাসরি পড়াবেন এবং প্রতিটি স্টুডেন্টের অগ্রগতি নিজে পর্যবেক্ষণ করবেন — যাতে ফিডব্যাক সবসময় ব্যক্তিগত ও নির্দিষ্ট থাকে, সাধারণ (generic) না হয়।',
+    'IELTS & Higher Study Network প্রোগ্রামে দীর্ঘদিন ধরে নিয়মিত লাইভ ক্লাস আর স্পিকিং-রাইটিং ফিডব্যাক দিয়ে আসছেন তাসনিম ওয়াসীত্ব। এই স্টুডিও ব্যাচেও তিনি নিজে প্রতিটি মডিউল পড়াবেন এবং প্রতিটি স্টুডেন্টের অগ্রগতি সরাসরি পর্যবেক্ষণ করবেন — যাতে প্রতিটি ফিডব্যাক হয় একান্তই ব্যক্তিগত, কোনো সাধারণ (generic) মন্তব্য না।',
 }
 
 export const syllabus = [
   {
     idx: '01',
-    name: 'Foundation & Diagnostic',
-    desc: 'শুরুতে একটি ডায়াগনস্টিক টেস্ট দিয়ে প্রতিটি স্টুডেন্টের বর্তমান লেভেল বোঝা হবে',
+    name: 'Basic+IELTS',
+    desc: 'বেসিক ইংরেজি ও IELTS পরীক্ষার ফরম্যাট নিয়ে পরিচিতিমূলক ক্লাস — এরপর মূল ৪টি স্কিলের ক্লাস শুরু হবে',
     classes: 2,
   },
   {
     idx: '02',
     name: 'Listening',
-    desc: 'সবকটি সেকশন-টাইপ ও কমন ট্র্যাপ প্রশ্ন নিয়ে অনুশীলন',
-    classes: 4,
+    desc: 'সর্বোচ্চ স্কোরের জন্য প্র্যাকটিক্যাল টিপস, ট্রিকস ও কমন ট্র্যাপ প্রশ্ন নিয়ে অনুশীলন',
+    classes: 5,
   },
   {
     idx: '03',
     name: 'Reading',
-    desc: 'টাইম ম্যানেজমেন্ট ও স্কিমিং-স্ক্যানিং কৌশল',
-    classes: 4,
+    desc: 'টাইম ম্যানেজমেন্ট, স্কিমিং-স্ক্যানিং কৌশল',
+    classes: 8,
   },
   {
     idx: '04',
-    name: 'Writing — Task 1 & 2',
-    desc: 'নির্দিষ্ট স্ট্রাকচার, মডেল উত্তর ও লাইন-বাই-লাইন ফিডব্যাক',
-    classes: 6,
+    name: 'Writing',
+    desc: 'নির্দিষ্ট স্ট্রাকচার, মডেল উত্তর, লাইন-বাই-লাইন ফিডব্যাক',
+    classes: 7,
   },
   {
     idx: '05',
-    name: 'Speaking — Part 1, 2 ও 3',
-    desc: 'লাইভ স্পিকিং প্র্যাকটিস, সরাসরি মেন্টর ফিডব্যাক সহ',
-    classes: 6,
+    name: 'Speaking (কোর)',
+    desc: 'লাইভ স্পিকিং প্র্যাকটিস, Part 1-2-3, সরাসরি মেন্টর ফিডব্যাক সহ',
+    classes: 4,
   },
   {
     idx: '06',
     name: 'Full Mock Test ও ফিডব্যাক',
     desc: 'সম্পূর্ণ টাইমড মক টেস্ট, ব্যক্তিগত স্কোর ব্রেকডাউন',
-    classes: 3,
+    classes: 1,
   },
 ]
+
+/**
+ * Runs alongside the 27 core classes rather than being one of them, and keeps
+ * running after the batch ends — so it is rendered apart from the module grid
+ * and deliberately left out of the class total.
+ */
+export const speakingClub = {
+  cadence: 'সপ্তাহে ১ দিন',
+  name: 'Speaking Club — কোর্স শেষেও চালু',
+  desc: 'নিয়মিত স্পিকিং প্র্যাকটিস, কোর্স শেষ হওয়ার পরও লাইফটাইম এক্সেস — আলাদা Spoken English কোর্সের দরকার নেই',
+  note: '+ সাপ্তাহিক Speaking Club',
+}
+
+/** Counts in the Bangla copy are written in Bangla numerals. */
+export const toBanglaDigits = (value) =>
+  String(value).replace(/[0-9]/g, (d) => '০১২৩৪৫৬৭৮৯'[Number(d)])
 
 export const bonuses = [
   'ভোকাবুলারি ও ফটোকার্ড লাইব্রেরিতে প্রায়োরিটি এক্সেস',

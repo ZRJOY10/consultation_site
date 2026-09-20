@@ -21,7 +21,7 @@ import { enrollFormUrl, enrollSteps, payment, pricing, coordinator } from '../..
 const stepIcons = [FiSmartphone, FiFileText, FiMessageCircle]
 
 const summaryIncludes = [
-  '২৫টি লাইভ ক্লাস + প্রতিটির রেকর্ডিং',
+  '২৭টি লাইভ ক্লাস + প্রতিটির রেকর্ডিং',
   'চারটি মডিউল ও পূর্ণাঙ্গ মক টেস্ট',
   'সুরক্ষিত Google Drive-এ সব ম্যাটেরিয়াল',
   'ব্যক্তিগত লিখিত ফিডব্যাক',
@@ -192,12 +192,12 @@ export default function EnrollmentSection() {
                 <span className={`text-sm line-through pb-0.5 ${isDark ? 'text-slate-500' : 'text-copper-700/50'}`}>{pricing.original}</span>
               </div>
 
-              <div className="offer-stripes mt-3 rounded-lg border border-copper-500/30 px-3 py-2 flex items-center gap-2">
+              {/* <div className="offer-stripes mt-3 rounded-lg border border-copper-500/30 px-3 py-2 flex items-center gap-2">
                 <FiZap className="w-3.5 h-3.5 text-gold-500 flex-shrink-0" />
                 <p className={`text-xs font-bold ${HEADING}`}>
                   আপনি বাঁচাচ্ছেন <span className="gradient-text-gold">৳3,500</span>
                 </p>
-              </div>
+              </div> */}
 
               <div className={`mt-5 space-y-2.5 text-xs ${MUTED}`}>
                 {summaryIncludes.map((item) => (
