@@ -144,7 +144,7 @@ export default function IeltsProgram() {
                 >
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gradient-to-r from-gold-400 to-copper-600 text-white text-[10px] font-black tracking-wide shadow-glow-gold">
                     <FiZap className="w-3 h-3" />
-                    ৫০% ছাড় · লঞ্চ ব্যাচ
+                    ৫০% ছাড় ·
                   </span>
                   <SectionBadge variant="subtle" size="xs" className="mb-0">
                     {ieltsProgram.badge}
