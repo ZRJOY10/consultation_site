@@ -282,7 +282,7 @@ export default function IeltsProgram() {
                     <OfferBadge size="sm" className="hidden sm:block" />
                     <div>
                       <p className="text-white font-black text-sm sm:text-lg leading-tight">
-                        প্রথম ব্যাচে ৫০% ছাড় — ৳7,000 এখন ৳3,500
+                         ৫০% ছাড় — ৳7,000 এখন ৳3,500
                       </p>
                       <p className="text-white/80 text-[10px] sm:text-xs mt-1">
                         সীমিত আসন, ব্যক্তিগত মনোযোগ ধরে রাখতে সংখ্যা বাড়ানো হবে না।
