@@ -45,6 +45,17 @@ export const payment = {
     'বিকাশ অ্যাপ খুলে "Payment" অপশনে গিয়ে (Send Money নয়) নিচের মার্চেন্ট নম্বরে পুরো কোর্স ফি পাঠান, ট্রানজেকশন আইডিটি সংরক্ষণ করুন।',
 }
 
+/**
+ * Batch schedule. Rendered as the strip under the hero and quoted in the FAQ
+ * answer about start dates, so both read from here — the date must not drift
+ * between the two places a student looks for it.
+ */
+export const schedule = {
+  start: '৪ অক্টোবর',
+  days: 'প্রতি রবি, মঙ্গল ও বৃহস্পতিবার',
+  time: 'বিকেল ৫:৩০টা – সন্ধ্যা ৭:০০টা',
+}
+
 export const heroStats = [
   { value: '27', label: 'লাইভ ও রেকর্ডেড ক্লাস' },
   { value: '8', label: 'মেন্টরের IELTS Band স্কোর' },
@@ -179,8 +190,9 @@ export const ieltsFaq = [
       'বিকাশ অ্যাপের "Payment" অপশন ব্যবহার করে মার্চেন্ট নম্বর 01339-315435-এ ৳3,500 পাঠান, তারপর এনরোলমেন্ট ফর্মে ট্রানজেকশন আইডি ও পেমেন্ট স্ক্রিনশট দিয়ে জমা দিন।',
   },
   {
-    question: 'ব্যাচ কবে শুরু হবে ও কতদিন চলবে?',
-    answer: 'এনরোলমেন্টের পর নির্দিষ্ট শুরুর তারিখ হোয়াটসঅ্যাপ/গ্রুপের মাধ্যমে জানানো হবে।',
+    question: 'ব্যাচ কবে শুরু হবে ও ক্লাস কখন?',
+    answer:
+      'ক্লাস শুরু ৪ অক্টোবর। ক্লাস হবে প্রতি রবি, মঙ্গল ও বৃহস্পতিবার, বিকেল ৫:৩০টা থেকে সন্ধ্যা ৭:০০টা পর্যন্ত। এনরোলমেন্টের পর Zoom লিংক ও বিস্তারিত সময়সূচি হোয়াটসঅ্যাপে পাঠানো হবে।',
   },
   {
     question: 'ফর্ম বা পেমেন্টে সমস্যা হলে কী করব?',

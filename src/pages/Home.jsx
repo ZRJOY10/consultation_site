@@ -1,4 +1,5 @@
 import HeroSection from '../components/home/HeroSection'
+import IeltsVideoSection from '../components/ielts/IeltsVideoSection'
 import WhyChooseUs from '../components/home/WhyChooseUs'
 import StudyDestinations from '../components/home/StudyDestinations'
 import FeaturedUniversities from '../components/home/FeaturedUniversities'
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <IeltsVideoSection />
       {/* <StatsSection /> */}
       <WhyChooseUs />
       <StudyDestinations />

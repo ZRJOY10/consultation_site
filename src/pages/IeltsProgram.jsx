@@ -14,16 +14,20 @@ import {
   FiVideo,
   FiLayers,
   FiRefreshCw,
+  FiCalendar,
+  FiRepeat,
 } from 'react-icons/fi'
 import AnimatedSection from '../components/AnimatedSection'
 import SectionBadge from '../components/SectionBadge'
 import EnrollmentSection from '../components/ielts/EnrollmentSection'
+import IeltsVideoSection from '../components/ielts/IeltsVideoSection'
 import OfferBadge from '../components/ielts/OfferBadge'
 import { useTheme } from '../context/ThemeContext'
 import {
   ieltsProgram,
   pricing,
   heroStats,
+  schedule,
   mentor,
   syllabus,
   speakingClub,
@@ -266,6 +270,44 @@ export default function IeltsProgram() {
             </div>
           </div>
         </section>
+
+        {/* ==================== SCHEDULE ==================== */}
+        <section aria-label="ক্লাসের সময়সূচি" className="pb-10 sm:pb-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <AnimatedSection>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                {[
+                  { Icon: FiCalendar, label: 'ক্লাস শুরু', value: schedule.start },
+                  { Icon: FiRepeat, label: 'ক্লাসের দিন', value: schedule.days },
+                  { Icon: FiClock, label: 'সময়', value: schedule.time },
+                ].map(({ Icon, label, value }) => (
+                  <div key={label} className="glass-card p-4 sm:p-5 flex items-start gap-3">
+                    <span className="flex-shrink-0 flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-gold-400 to-copper-600">
+                      <Icon className="h-4 w-4 text-white" />
+                    </span>
+                    <div className="min-w-0">
+                      <p className={`text-[10px] font-bold uppercase tracking-[0.14em] mb-1 ${SUBTLE}`}>
+                        {label}
+                      </p>
+                      <p className={`text-sm sm:text-base font-black leading-snug ${HEADING}`}>
+                        {value}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* ==================== COURSE VIDEO ==================== */}
+        <IeltsVideoSection
+          badge="কোর্স পরিচিতি"
+          title="কোর্সটি"
+          titleAccent="এক নজরে"
+          subtitle="লাইভ ক্লাস, মেন্টরের ফিডব্যাক আর মক টেস্ট আসলে কীভাবে হয় — ছোট্ট একটি ভিডিওতে দেখে নিন।"
+          className="pt-0"
+        />
 
         {/* ==================== OFFER STRIP ==================== */}
         <section aria-label="Launch offer" className="pb-10 sm:pb-12">
